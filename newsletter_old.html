@@ -57,214 +57,12 @@
     </script>
 </head>
 <style>
-    .page-title {
-        text-align: center;
-        margin-bottom: 30px;
-        padding: 20px;
-        background-color: #0196d8 !important;
-        color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
 
-    .page-title h1 {
-        font-size: 2.2rem;
-        margin-bottom: 10px;
-    }
-
-    .page-title p {
-        font-size: 1.1rem;
-        opacity: 0.9;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    /* Container for rows and columns */
-    .container {
-        width: 100%;
-    }
-
-    .col {
-        flex: 0 0 50%;
-        max-width: 50%;
-        padding: 0 10px;
-        margin-bottom: 20px;
-    }
-
-    .section {
-        background-color: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        height: 100%;
-    }
-
-    .section:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    }
-
-    .section-header {
-        background-color: #0196d8 !important;
-        color: white;
-        padding: 18px 20px;
-        display: flex;
-        align-items: center;
-    }
-
-    .section-header i {
-        font-size: 1.5rem;
-        margin-right: 12px;
-    }
-
-    .section-header h2 {
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: #fff;
-        margin: 0;
-    }
-
-    .links-list {
-        padding: 20px;
-        list-style-type: none;
-    }
-
-    .links-list li {
-        margin-bottom: 15px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid #eee;
-    }
-
-    .links-list li:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
-    }
-
-    .link-item {
-        display: flex;
-        align-items: flex-start;
-        text-decoration: none;
-        color: #333;
-        transition: color 0.2s ease;
-    }
-
-    .link-item:hover {
-        color: #2c5aa0;
-    }
-
-    .link-icon {
-        background-color: #e8f0fe;
-        color: #2c5aa0;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 15px;
-        flex-shrink: 0;
-        font-size: 1.1rem;
-    }
-
-    .link-content h3 {
-        font-size: 1.1rem;
-        margin-bottom: 5px;
-    }
-
-    .link-content p {
-        font-size: 0.9rem;
-        color: #666;
-    }
-
-    .note {
-        background-color: #fff8e1;
-        border-left: 4px solid #ffc107;
-        padding: 15px;
-        margin-top: 10px;
-        border-radius: 0 8px 8px 0;
-    }
-
-    .note p {
-        display: flex;
-        align-items: center;
-    }
-
-    .note i {
-        color: #ff9800;
-        margin-right: 10px;
-        font-size: 1.2rem;
-    }
-
-    /* Layout adjustments for 6 sections */
-    .row-center {
-        justify-content: center;
-    }
-
-    .row-center .col {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-
-    .single-center {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-
-    @media (max-width: 992px) {
-
-        .col,
-        .row-center .col,
-        .single-center {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .row {
-            flex-direction: column;
-        }
-
-        .col {
-            flex: 0 0 100%;
-            max-width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .page-title h1 {
-            font-size: 1.8rem;
-        }
-
-        .single-center {
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .page-title {
-            padding: 15px;
-        }
-
-        .page-title h1 {
-            font-size: 1.5rem;
-        }
-
-        .section-header h2 {
-            font-size: 1.2rem;
-        }
-
-        .links-list {
-            padding: 15px;
-        }
-    }
 </style>
 
 <body>
     <div id="app" class="d-flex flex-column min-vh-100">
-        <header>
+                <header>
             <!-- Top nav for desktop -->
             <div class="d-sm-block d-none">
                 <nav class="navbar topNav t_nav navbar-expand-md bg-faded justify-content-center">
@@ -430,7 +228,7 @@
             <!-- Top navigation for mobile -->
             <div class="d-sm-none d-block">
                 <div class="slide-drawer">
-                    <div class="top-header">
+                <div class="top-header">
                         <div class="company-logo">
                             <a href="index.html">
                                 <img src="assets/images/Harmony logo Black.png"
@@ -507,9 +305,8 @@
                                         Resources <i class="fas fa-chevron-down dropdown-icon"></i>
                                     </a>
                                     <ul class="mobile-dropdown-menu">
-                                        <li><a href="assets/pdf/Feb-2026_Newsletter.pdf"
-                                                class="dropdown-item download-link" target="_blank"
-                                                download="Jan-2026_Newsletter.pdf">Newsletter</a></li>
+                                        <li><a href="assets/pdf/Feb-2026_Newsletter.pdf" class="dropdown-item download-link"  target="_blank"
+                                            download="Jan-2026_Newsletter.pdf">Newsletter</a></li>
                                         <li><a href="assets/pdf/investor_charter_pms.pdf"
                                                 class="dropdown-item download-link" target="_blank"
                                                 download="investor_charter_pms.pdf">Investor Charter</a></li>
@@ -522,21 +319,21 @@
                                 </li>
                             </ul>
                             <div class="mobile-bottom-section">
-                                <!-- Mobile Login Dropdown -->
-                                <div class="mobile-login-container">
-                                    <a href="javascript:void(0)" class="mobile-login-toggle">
-                                        Login <i class="fas fa-chevron-down login-dropdown-icon"></i>
-                                    </a>
-                                    <div class="mobile-login-dropdown">
-                                        <a href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss"
-                                            class="mobile-login-item">PMS Login</a>
-                                        <a href="https://harmoneywealth.themfbox.com/" class="mobile-login-item">MFD
-                                            Login</a>
-                                    </div>
+                            <!-- Mobile Login Dropdown -->
+                            <div class="mobile-login-container">
+                                <a href="javascript:void(0)" class="mobile-login-toggle">
+                                    Login <i class="fas fa-chevron-down login-dropdown-icon"></i>
+                                </a>
+                                <div class="mobile-login-dropdown">
+                                    <a href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss"
+                                        class="mobile-login-item">PMS Login</a>
+                                    <a href="https://harmoneywealth.themfbox.com/" class="mobile-login-item">MFD
+                                        Login</a>
                                 </div>
                             </div>
+                        </div>
                         </nav>
-
+                        
                     </section>
                     <div id="overlay" class="overlayy"></div>
                 </div>
@@ -546,515 +343,225 @@
         </header>
 
 
-        <div class="page-title">
-            <h1>Useful Financial & Government Links</h1>
-            <p>Quick access to important financial portals and regulatory websites. All links will open in a new tab.
-            </p>
+        <section>
+             <div>
+                <img src="assets/images/panam-banner.png" alt="Financial Services Banner" class="banner-img">
+            </div>
+
+        </section>
+    <!-- Newsletter Content -->
+    <main class="newsletter-content">
+        <div class="main-container">
+        <div class="page-title-area">
+           
+            <h1 class="main-title">Market-Cap Reality vs. Fund Flow Distortion</h1>
+            <p class="main-subtitle">An analysis of India's equity market imbalance between market-cap structure and retail investor allocation through mutual funds</p>
         </div>
-
-        <div class="container">
-            <!-- Row 1: Two columns -->
-            <div class="row">
-                <!-- Column 1: Income Tax & PAN -->
-                <div class="col">
-                    <section class="section">
-                        <div class="section-header">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                            <h2>Income Tax & PAN</h2>
-                        </div>
-                        <ul class="links-list">
-                            <li>
-                                <a href="https://eportal.incometax.gov.in/iec/foservices/#/login" target="_blank"
-                                    class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-landmark"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>Income Tax Portal</h3>
-                                        <p>Official portal for income tax filing and related services</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.inditab.com/pan-card-online" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-address-card"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>PAN Card (NSDL)</h3>
-                                        <p>Apply for PAN card, check status, and other PAN services</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://onlineservices.proteantech.in/paam/endUserRegisterContact.html"
-                                    target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-user-plus"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>Online PAN Registration</h3>
-                                        <p>Register for new PAN card online through Protean</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
+        
+        <!-- Introduction Section -->
+        <div class="content-area">
+            <h2 class="area-title">Market Imbalance Overview</h2>
+            <p>India's equity markets continue to display a striking imbalance between the true market-cap structure and the way investors—particularly retail investors—have been allocating their money through mutual funds. This divergence has widened significantly in the post-COVID era, driven by the strong performance of mid- and small-cap segments during 2020–2023 and the perception that these categories offer superior long-term returns.</p>
+            
+            <div class="important-text">
+                At the broad market level, India's total listed market capitalization stands at approximately <strong>₹450 lakh crore</strong>, heavily skewed toward larger, more established companies.
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stats-card">
+                    <h3>Large Caps</h3>
+                    <p>~70% of total market cap</p>
+                    <div class="card-detail">Dominant market position</div>
                 </div>
-
-                <!-- Column 2: Regulatory Bodies -->
-                <div class="col">
-                    <section class="section">
-                        <div class="section-header">
-                            <i class="fas fa-balance-scale"></i>
-                            <h2>Regulatory Bodies</h2>
-                        </div>
-                        <ul class="links-list">
-                            <li>
-                                <a href="https://www.amfiindia.com/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-money-check-alt"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>AMFI Official</h3>
-                                        <p>Association of Mutual Funds in India - Mutual fund industry body</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.apmiindia.org/apmi/welcome.htm" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-user-tie"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>APMI Official</h3>
-                                        <p>Association of Portfolio Managers in India</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.sebi.gov.in/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-line"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>SEBI Official</h3>
-                                        <p>Securities and Exchange Board of India - Capital market regulator</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://irdai.gov.in/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-shield-alt"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>IRDAI Official</h3>
-                                        <p>Insurance Regulatory and Development Authority of India</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
+                <div class="stats-card">
+                    <h3>Mid + Small Caps</h3>
+                    <p>~30% of total market cap</p>
+                    <div class="card-detail">Smaller market share</div>
                 </div>
             </div>
-
-            <!-- Row 2: Two columns -->
-            <div class="row">
-                <div class="col">
-                    <section class="section">
-                        <div class="section-header">
-                            <i class="fas fa-user-shield"></i>
-                            <h2>Insurance Companies</h2>
-                        </div>
-                        <ul class="links-list">
-                            <li>
-                                <a href="https://www.tataaig.com/servicing" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-file-download"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>Tata AIG Policy Download</h3>
-                                        <p>Download Tata AIG insurance policy documents online</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.hdfclife.com/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-home"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>HDFC Life Official</h3>
-                                        <p>HDFC Life Insurance Company - Life insurance products</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://myaccount.hdfclife.com/login" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-user-circle"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>HDFC Life My Account</h3>
-                                        <p>Customer portal for HDFC Life policy management</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.licindia.in/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-hand-holding-heart"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>LIC of India</h3>
-                                        <p>Life Insurance Corporation of India - Official website</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
+            
+            <p>Ideally, mutual fund flows would broadly reflect this distribution. Instead, the fund flow data reveals the opposite trend. When examining the assets under management (AUM) of the top funds in each category, the imbalance becomes even more pronounced.</p>
+        </div>
+        
+        <!-- Fund Flow Analysis Section -->
+        <div class="content-area">
+            <h2 class="area-title">Fund Flow Distortion</h2>
+            <p>The assets under management (AUM) tell a different story from the actual market capitalization distribution:</p>
+            
+            <div class="stats-grid">
+                <div class="stats-card">
+                    <h3>Top 5 Large Cap Funds AUM</h3>
+                    <p>~₹2.36 lakh crore</p>
                 </div>
-
-                <!-- Column 2: KYC Services -->
-                <div class="col">
-                    <section class="section">
-                        <div class="section-header">
-                            <i class="fas fa-user-check"></i>
-                            <h2>KYC Services</h2>
-                        </div>
-                        <ul class="links-list">
-                            <li>
-                                <a href="https://www.cvlkra.com/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-user-tie"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>CVL KRA</h3>
-                                        <p>KYC Registration Agency - Centralized KYC records</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.ckycindia.in/ckyc/?r=faq" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-id-card"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>Central KYC (CKYC)</h3>
-                                        <p>Central KYC Records Registry - Government KYC repository</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.ckycindia.in/kyc/getkyccard" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-download"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>CKYC Card Download</h3>
-                                        <p>Download your Central KYC card online</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=" https://uidai.gov.in/en/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-hand-holding-heart"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>UIDAI</h3>
-                                        <p> Get/Update/Download your Aadhar Card</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
+                <div class="stats-card">
+                    <h3>Top 5 Mid Cap Funds AUM</h3>
+                    <p>~₹2.24 lakh crore</p>
+                </div>
+                <div class="stats-card">
+                    <h3>Top 5 Small Cap Funds AUM</h3>
+                    <p>~₹1.60 lakh crore</p>
                 </div>
             </div>
-            <!-- Row 2: Two columns -->
-            <div class="row">
-                <!-- Column 1: Insurance Regulators -->
-                <!-- Column 1: Insurance Regulators -->
-                <div class="col">
-                    <section class="section">
-                        <div class="section-header">
-                            <i class="fas fa-briefcase"></i>
-                            <h2>Market Intermediary</h2>
-                        </div>
-                        <ul class="links-list">
-                            <li>
-                                <a href="https://www.nseindia.com/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-briefcase"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>NSE India Official</h3>
-                                        <p>National Stock Exchange of India - Live market data and information</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.bseindia.com//" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-building"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>BSE India Official</h3>
-                                        <p>Bombay Stock Exchange - India's oldest stock exchange</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.nseinvest.com/nsemfdesk/login.htm" target="_blank"
-                                    class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-pie"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>NSE Invest</h3>
-                                        <p>NSE mutual fund investment platform for intermediaries</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://nsdl.co.in/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-pie"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>NSDL</h3>
-                                        <p>National Securities Depository Limited</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="HTTPS://NSDLCAS.NSDL.COM" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-pie"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>NSDL CAS</h3>
-                                        <p>National Securities Depository Limited Consolidated Account Statement.</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://mfs.kfintech.com/investor/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-pie"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>KFINTECH</h3>
-                                        <p>KFin Technologies Limited.</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.camsonline.com/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-pie"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>CAMS</h3>
-                                        <p>Computer Age Management Services</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.mfcentral.com/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-pie"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>MFCENTRAL</h3>
-                                        <p>Mutual Fund Central.</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://digital.camsonline.com/kycmodification" target="_blank"
-                                    class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-pie"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>CAMS KYC MODIFICATION</h3>
-                                        <p>Computer Age Management Services Limited</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-
-                <!-- Column 2: KYC Services -->
-                <div class="col">
-                    <section class="section">
-                        <div class="section-header">
-                            <i class="fas fa-chart-line"></i>
-                            <h2> For Harmoney Team</h2>
-                        </div>
-                        <ul class="links-list">
-                            <li>
-                                <a href="https://www.nseindia.com/companies-listing/corporate-filings-actions"
-                                    target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-file-contract"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>NSE Corporate Actions</h3>
-                                        <p>Corporate filings, dividends, bonus, and other corporate actions</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.nseindia.com/all-reports" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-clipboard-list"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>NSE Closing Rates</h3>
-                                        <p>All market reports including daily closing rates and volumes</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.bseindia.com/markets/equity/EQReports/StockPrcHistori.html?flag=0"
-                                    target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-clipboard-list"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>BSE India Closing Rates</h3>
-                                        <p>All market reports including daily closing rates and volumes</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.niftyindices.com/reports/historical-data" target="_blank"
-                                    class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-bar"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>NSE Index Reports</h3>
-                                        <p>Historical data and reports for Nifty indices</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://pms.apmiindia.org/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-bar"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>PARAS </h3>
-                                        <p>APMI PMS Login</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.mfuindia.com/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-bar"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>MFU</h3>
-                                        <p>MF Utilities India Pvt Ltd.</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://ops.orbisonline.in/DPBR/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-bar"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>FA CLIENT LOGIN</h3>
-                                        <p>Orbis Financial Corporation Ltd</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.orbisonline.in/portal/Account/Login.aspx" target="_blank"
-                                    class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-chart-bar"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>CUSTODY LOGIN</h3>
-                                        <p>Orbis Financial Corporation Ltd</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://siportal.sebi.gov.in/intermediary//" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-user-circle"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>SEBI Intermediary Portal</h3>
-                                        <p>SEBI portal for market intermediaries registration and compliance</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://agencyportal.irdai.gov.in/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-portrait"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>IRDAI Agency Portal</h3>
-                                        <p>Portal for insurance agents and intermediaries</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://ops.orbisonline.in/DPBR/" target="_blank" class="link-item">
-                                    <div class="link-icon">
-                                        <i class="fas fa-portrait"></i>
-                                    </div>
-                                    <div class="link-content">
-                                        <h3>Orbis DP Login</h3>
-                                        <p> Orbis Financials DP Login</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-
+            
+            <div class="important-text">
+                <strong>Mid + Small Cap AUM = ~₹3.85 lakh crore → which is 163% of Large Cap AUM</strong>
             </div>
-
-            <!-- Row 2: Two columns -->
-            <div class="row">
-                <!-- Column 1: Insurance Regulators -->
-
-
-
-                <ul class="links-list">
-
-
-                    <li>
-                        <div class="note" style="display: flex;">
-
-                            <i class="fas fa-info-circle"></i>
-                            <p> All links open in new tabs for your convenience. Please ensure pop-ups are enabled.
-                            </p>
-                        </div>
-                    </li>
-                </ul>
+            
+            <p>In other words, although mid- and small-cap companies represent only around <strong>42% of the large-cap universe in actual market size</strong>, they attract nearly <strong>1.6 times</strong> the AUM invested in large caps. This reflects a powerful behavioral trend: <strong>retail investors have aggressively chased the outperformance of mid and small caps</strong>, often without fully considering the risks associated with stretched valuations, lower liquidity, and heightened cyclicality.</p>
+            
+            <p>The surge in inflows has pushed these segments to levels where valuations have run ahead of fundamentals. As a result, the vulnerability to corrections has increased significantly. The inherent volatility of mid- and small-caps—usually masked during bull phases—has started resurfacing, making the investment environment riskier than headline index movements may suggest.</p>
+        </div>
+        
+        <!-- Valuations Section -->
+        <div class="content-area">
+            <h2 class="area-title">Valuations Running Ahead of Reality</h2>
+            <p>The rapid buildup of flows into mid- and small-cap categories has driven valuations to historically elevated levels. Currently, these segments trade at valuations that are difficult to justify based on past or current earnings performance.</p>
+            
+            <div class="comparison-area">
+                <div class="comparison-block">
+                    <h3><i class="fas fa-chart-line"></i> Current Valuation</h3>
+                    <p><strong>Current mid- & small-cap valuations: > 32x earnings</strong></p>
+                    <p>Valuations have surged beyond 35 times earnings for many companies, reflecting optimistic growth expectations not yet supported by underlying earnings momentum.</p>
+                </div>
+                
+                <div class="comparison-block">
+                    <h3><i class="fas fa-bullseye"></i> Required vs. Historical Growth</h3>
+                    <p><strong>Required profit growth for 15% IRR over 10 years: ~19% CAGR</strong></p>
+                    <p><strong>Historical profit growth (last decade): ~13% CAGR</strong></p>
+                </div>
+            </div>
+            
+            <div class="comparison-area">
+                <div class="comparison-block large-cap">
+                    <h3><i class="fas fa-building"></i> Large Caps (Q1 FY26)</h3>
+                    <p><strong>~8% YoY profit growth</strong></p>
+                    <p>More stable earnings with better visibility and stronger balance sheets.</p>
+                </div>
+                
+                <div class="comparison-block mid-small-cap">
+                    <h3><i class="fas fa-chart-bar"></i> Mid Caps (Q1 FY26)</h3>
+                    <p><strong>~10% YoY profit growth</strong></p>
+                    <p>Higher growth expectations but with greater volatility and risk.</p>
+                </div>
+            </div>
+            
+            <p>Despite many mid and small cap companies having strengthened their balance sheets post COVID largely through deleveraging and improved cash reserves—these balance sheet improvements alone cannot justify valuations that have surged beyond 35 times earnings. The current pricing of these segments reflects optimistic expectations about future growth, expectations that are not yet supported by underlying earnings momentum or actual profit delivery. As inflows continue to outpace fundamentals, the valuation gap between expectation and reality becomes increasingly difficult to sustain.</p>
+        </div>
+        <div>
+            <img src="assets/images/newsletter-graph.png" alt="Market Cap Imbalance Graph" style="width:100%; margin-top:1rem;">    
+        </div>
+        
+        <!-- Cyclicality and Risk Section -->
+        <div class="content-area">
+            <h2 class="area-title">Cyclicality and Drawdown Risk</h2>
+            <p>Beyond valuations, investors should recognize the inherent cyclicality and volatility that define the mid- and small-cap universe. Over the past two decades, these segments have repeatedly seen drawdowns of 25% or more, often following sharp rallies similar to the one observed in the post-COVID period.</p>
+            
+            <div class="important-text">
+                <strong>Higher returns from small caps come at the cost of significantly greater risk and deeper drawdowns.</strong>
+            </div>
+            
+            <p>Small caps can deliver extraordinary returns during bullish phases, but this outperformance often masks the severe volatility they experience in downturns. A classic example is the period around the 2008 global financial crisis:</p>
+            
+            <ul class="feature-list">
+                <li><i class="fas fa-arrow-up"></i> A notional investment of <strong>₹100 in a small-cap index grew dramatically to ₹754 by December 2007</strong>, reflecting the explosive upside potential in strong market environments.</li>
+                <li><i class="fas fa-arrow-down"></i> However, when the cycle turned, the same index <strong>collapsed to just ₹174 by 2009</strong>, wiping out the majority of the gains and highlighting how quickly momentum-driven returns can reverse.</li>
+            </ul>
+            
+            <p>This illustrates that while small caps can multiply wealth rapidly, they also expose investors to disproportionately large drawdowns. Historical cycles underscore that higher returns in these categories come with significantly greater volatility, and downturns can be both severe and prolonged.</p>
+            
+            <!-- Graph Placeholder -->
+            <div class="graph-container">
+                <i class="fas fa-chart-area"></i>
+                <h3>Market Cycle Visualization</h3>
+                <p>Graph showing indices market cycle from 2003 to 2025 will be displayed here.</p>
+                <p>Small and Mid Cap while providing higher returns, draw downs are also higher. Proper exit necessary.</p>
             </div>
         </div>
+        
+        <!-- Investment Strategy Section -->
+        <div class="content-area">
+            <h2 class="area-title">A Time for Prudence and Balance</h2>
+            <p>Despite these challenges, India's long-term structural growth story remains intact, and prudent investing continues to offer attractive opportunities. However, in the current environment of stretched valuations and moderate earnings growth, investors should maintain realistic expectations and emphasize resilience over aggressiveness.</p>
+            
+            <div class="key-points">
+                <div class="point-box">
+                    <h4>Valuation Normalization</h4>
+                    <p>Some normalization in mid- and small-cap valuations appears likely, either through earnings catching up or market prices adjusting.</p>
+                </div>
+                
+                <div class="point-box">
+                    <h4>Portfolio Strategy</h4>
+                    <p>Rather than exiting markets, investors should ensure their portfolios remain balanced, diversified, and aligned with long-term objectives.</p>
+                </div>
+                
+                <div class="point-box">
+                    <h4>Systematic Investing</h4>
+                    <p>Systematic investment plans remain a sensible tool to navigate volatility, but avoid extrapolating extraordinary returns seen post-COVID.</p>
+                </div>
+            </div>
+            
+            <div class="comparison-area">
+                <div class="comparison-block large-cap">
+                    <h3><i class="fas fa-shield-alt"></i> Large Caps Advantages</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Relatively better value today</li>
+                        <li><i class="fas fa-check"></i> Stronger balance sheets</li>
+                        <li><i class="fas fa-check"></i> Superior liquidity</li>
+                        <li><i class="fas fa-check"></i> Steadier earnings visibility</li>
+                        <li><i class="fas fa-check"></i> More reasonable valuations</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-block">
+                    <h3><i class="fas fa-balance-scale"></i> Market Outlook</h3>
+                    <p>With global uncertainty high and domestic valuations elevated, the coming phase is likely to favor:</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-star"></i> Quality companies with stable cash flows</li>
+                        <li><i class="fas fa-star"></i> Disciplined asset allocation</li>
+                        <li><i class="fas fa-star"></i> Measured risk-taking</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="important-text">
+                Our focus remains on constructing portfolios that prioritize clarity, stability, and long-term value creation, helping clients navigate this evolving landscape with confidence.
+            </div>
+            
+            <div class="key-points" style="margin-top: 2rem;">
+                <div class="point-box">
+                    <h4>Summary</h4>
+                    <p>Mid- and small-caps attract 1.6x the AUM of large caps despite smaller market share.</p>
+                </div>
+                
+                <div class="point-box">
+                    <h4>Valuation Risk</h4>
+                    <p>Valuations have run ahead of earnings fundamentals in mid and small cap segments.</p>
+                </div>
+                
+                <div class="point-box">
+                    <h4>Risk-Return Tradeoff</h4>
+                    <p>Higher potential returns come with significantly greater volatility and drawdown risk.</p>
+                </div>
+            </div>
+            <div class="download-section">
+            <div class="download-content">
+                <h3>Download Full Newsletter</h3>
+                
+                <a href="assets/pdf/Feb-2026_Newsletter.pdf" target="_blank" class="download-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download PDF
+                </a>
+            </div>
+        </div>
+        </div>
+    </div>
+    </main>
 
-        <!-- <div class="note">
-            <p><i class="fas fa-info-circle"></i> All links are external and will open in a new browser tab. Please
-                ensure you're accessing the official websites for financial transactions.</p>
-        </div> -->
-
-
-        <footer class="footer mt-auto">
+           <footer class="footer mt-auto">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
@@ -1141,14 +648,14 @@
 
                                         <div class="contact-info mt-1">
                                             <p class="contact-item">
-                                                <i class="fas fa-envelope"></i>
+                                                 <i class="fas fa-envelope"></i>
                                                 <a href="mailto:support@harmoneywealth.com">
                                                     support@harmoneywealth.com </a>
                                             </p>
                                             <p class="contact-item">
                                                 <i class="fas fa-phone phone-icon rotated"></i>
                                                 <a href="callto:080-41125960">
-                                                    080-41125960 </a>
+                                                     080-41125960 </a>
                                             </p>
                                         </div>
                                     </div>
@@ -1165,7 +672,7 @@
                                                 <div class="reg-container"
                                                     style="display: flex; flex-wrap: wrap; gap: 15px; align-items: center;">
                                                     <div class="reg-item">
-                                                        <strong>SEBI PMS Reg No:INP000003898 |</strong>
+                                                        <strong>SEBI PMS Reg No:INP000003898 |</strong> 
                                                     </div>
                                                     <div class="reg-item">
                                                         <strong>IRDA Reg No: CA0336 |</strong>
@@ -1400,99 +907,79 @@
                 </div>
             </div>
         </footer>
+
     </div>
     <div id="accessibilityPanel">
 
-        <div class="a11y-header">
-            <span>Accessibility</span>
-            <button onclick="closeAccessibilityPanel()">✕</button>
-        </div>
-
-        <div class="a11y-body">
-
-            <div class="a11y-control">
-                <label>Line Height</label>
-                <input type="range" min="1.2" max="2.6" step="0.1" value="1.6" oninput="setLineHeight(this.value)">
-            </div>
-
-            <div class="a11y-control">
-                <label>Text Size</label>
-                <input type="range" min="90" max="130" value="100" step="5" oninput="setTextSize(this.value)">
-            </div>
-
-            <div class="a11y-control">
-                <label>Letter Spacing</label>
-                <input type="range" min="0" max="5" value="0" oninput="setLetterSpacing(this.value)">
-            </div>
-
-            <div class="a11y-actions">
-                <button onclick="toggleBigCursor()">Big Cursor</button>
-                <button onclick="togglePageRead()">Page Read</button>
-                <button onclick="toggleHeadingHighlight()">Highlight Headings</button>
-                <button onclick="toggleImages()">Hide Images</button>
-                <button onclick="toggleImageDesc()">Image Description</button>
-            </div>
-
-            <button class="a11y-reset" onclick="resetAccessibility()">Reset</button>
-        </div>
-    </div>
-    <!-- VOICE OVER POPUP -->
-    <div id="voicePopup" class="voice-popup">
-        <div class="voice-header">
-            <span>Screen Reader Options</span>
-            <button onclick="closeVoicePopup()">✕</button>
-        </div>
-
-        <div class="voice-body">
-            <p>Hover on content to start reading.</p>
-
-            <label>Voice / Accent</label>
-            <select id="voiceSelect"></select>
-
-            <label>Volume</label>
-            <input type="range" min="0" max="1" step="0.1" id="voiceVolume">
-
-            <label>Rate</label>
-            <input type="range" min="0.5" max="2" step="0.1" id="voiceRate">
-
-            <label>Pitch</label>
-            <input type="range" min="0" max="2" step="0.1" id="voicePitch">
-
-            <div class="voice-actions">
-                <button onclick="startReading()">Start</button>
-                <button onclick="pauseReading()">Pause</button>
-                <button onclick="resumeReading()">Resume</button>
-                <button onclick="stopReading()">Stop</button>
-            </div>
-        </div>
+    <div class="a11y-header">
+        <span>Accessibility</span>
+        <button onclick="closeAccessibilityPanel()">✕</button>
     </div>
 
+    <div class="a11y-body">
 
-    <script>
-        // Add animation on page load
-        document.addEventListener('DOMContentLoaded', function () {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach((section, index) => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
+        <div class="a11y-control">
+            <label>Line Height</label>
+            <input type="range" min="1.2" max="2.6" step="0.1" value="1.6"
+                   oninput="setLineHeight(this.value)">
+        </div>
 
-                setTimeout(() => {
-                    section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                    section.style.opacity = '1';
-                    section.style.transform = 'translateY(0)';
-                }, 100 * index);
-            });
+        <div class="a11y-control">
+            <label>Text Size</label>
+            <input type="range" min="90" max="130" value="100" step="5"
+                   oninput="setTextSize(this.value)">
+        </div>
 
-            // Add click confirmation for links
-            const links = document.querySelectorAll('.link-item');
-            links.forEach(link => {
-                link.addEventListener('click', function () {
-                    const linkName = this.querySelector('h3').textContent;
-                    console.log(`Opening: ${linkName}`);
-                });
-            });
-        });
-    </script>
+        <div class="a11y-control">
+            <label>Letter Spacing</label>
+            <input type="range" min="0" max="5" value="0"
+                   oninput="setLetterSpacing(this.value)">
+        </div>
+
+        <div class="a11y-actions">
+            <button onclick="toggleBigCursor()">Big Cursor</button>
+            <button onclick="togglePageRead()">Page Read</button>
+            <button onclick="toggleHeadingHighlight()">Highlight Headings</button>
+            <button onclick="toggleImages()">Hide Images</button>
+            <button onclick="toggleImageDesc()">Image Description</button>
+        </div>
+
+        <button class="a11y-reset" onclick="resetAccessibility()">Reset</button>
+    </div>
+</div>
+
+            <!-- VOICE OVER POPUP -->
+<div id="voicePopup" class="voice-popup">
+  <div class="voice-header">
+    <span>Screen Reader Options</span>
+    <button onclick="closeVoicePopup()">✕</button>
+  </div>
+
+  <div class="voice-body">
+    <p>Hover on content to start reading.</p>
+
+    <label>Voice / Accent</label>
+    <select id="voiceSelect"></select>
+
+    <label>Volume</label>
+    <input type="range" min="0" max="1" step="0.1" id="voiceVolume">
+
+    <label>Rate</label>
+    <input type="range" min="0.5" max="2" step="0.1" id="voiceRate">
+
+    <label>Pitch</label>
+    <input type="range" min="0" max="2" step="0.1" id="voicePitch">
+
+    <div class="voice-actions">
+      <button onclick="startReading()">Start</button>
+      <button onclick="pauseReading()">Pause</button>
+      <button onclick="resumeReading()">Resume</button>
+      <button onclick="stopReading()">Stop</button>
+    </div>
+  </div>
+</div>
+
+
     <script src="https://www.happynessfactory.in/js/app.js?v=SCM2.8.5.18"></script>
     <script src="https://www.happynessfactory.in/js/custom.js?v=SCM2.8.5.18"></script>
     <script src="https://www.happynessfactory.in/js/activity.js"></script>
@@ -1505,7 +992,7 @@
 
 
     <script src="assets/js/main.js"></script>
-    <script>
+        <script>
         function openAccessibilityPanel() {
             document.getElementById("accessibilityPanel").classList.add("open");
         }
@@ -1514,8 +1001,8 @@
             document.getElementById("accessibilityPanel").classList.remove("open");
         }
     </script>
-
-
+    
+    
 </body>
 
 </html>
