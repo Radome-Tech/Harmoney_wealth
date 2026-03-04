@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Backoffice Login</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    background:#f4f6f9;
+}
+
+.header{
+    padding:20px;
+    background:white;
+    font-size:24px;
+    font-weight:bold;
+    border-bottom:1px solid #ddd;
+}
+
+.main{
+    display:flex;
+    justify-content:center;
+    padding:50px 30px;
+    gap:50px;
+}
+
+/* Left Info */
+.company-info{
+    width:35%;
+}
+
+.company-info h2{
+    color:#c42828;
+}
+
+.address{
+    margin-top:15px;
+    line-height:1.6;
+}
+
+.sharepro{
+    margin-top:40px;
+    font-weight:bold;
+    color:#1e73be;
+}
+
+/* Login Box */
+.login-box{
+    width:350px;
+    background:white;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.login-box h3{
+    margin-bottom:20px;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+input:focus, select:focus{
+    border-color:#1e73be;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#1e73be;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:10px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0f4c81;
+}
+
+.mobile-section{
+    width:25%;
+    text-align:center;
+}
+
+.mobile-section img{
+    width:180px;
+}
+
+.app-buttons img{
+    width:140px;
+    margin:8px;
+}
+
+/* Responsive */
+@media(max-width:1000px){
+    .main{
+        flex-direction:column;
+        align-items:center;
+    }
+    .company-info,
+    .mobile-section{
+        width:80%;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div style="
+    padding:20px;
+    background:white;
+    border-bottom:1px solid #ddd;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'Segoe UI', sans-serif;
+">
+
+    <!-- Left -->
+    <div style="font-size:24px; font-weight:bold;">
+        Backoffice Login
+    </div>
+
+    <!-- Right -->
+    <div style="
+        display:flex;
+        align-items:center;
+        gap:10px;
+        font-size:14px;
+        white-space:nowrap;   /* 🔥 Important */
+    ">
+        <span style="white-space:nowrap;">New Client?</span>
+
+        <button style="
+            padding:6px 14px;
+            background:#d9534f;
+            color:white;
+            border:none;
+            border-radius:4px;
+            cursor:pointer;
+            font-size:13px;
+            white-space:nowrap;   /* 🔥 Important */
+        "
+        onmouseover="this.style.background='#c9302c'"
+        onmouseout="this.style.background='#d9534f'"
+        >
+            REGISTER HERE!
+        </button>
+    </div>
+
+</div>
+
+<div class="main">
+
+<div class="company-info">
+    <h2>Harmoney Finserv India Private Limited</h2>
+    <img src="assets/images/Harmony logo Black.png" height="90px" width="200px" alt="">
+    <div class="address">
+        NO:78, 2ND FLOOR, RIGHT WING,<br>
+        11TH MAIN, 14TH CROSS,<br>
+        6TH SECTOR, HSR LAYOUT,<br>
+        BANGALORE - 560 102
+    </div>
+
+    <div class="sharepro">
+        Powered by SharePro
+    </div>
+</div>
+
+<div class="login-box">
+    <h3>Sign In</h3>
+
+    <input type="text" placeholder="User ID">
+    <input type="password" placeholder="Password">
+
+    <a href="#" style="font-size:14px; color:#1e73be;">Forgot password?</a>
+
+    <select>
+        <option>Client</option>
+        <option>Admin</option>
+    </select>
+
+    <select>
+        <option>Accounting Year 2526</option>
+        <option>Accounting Year 2425</option>
+    </select>
+
+    <button>Sign In</button>
+</div>
+
+<div class="mobile-section">
+    <h3>SharePro AIR is here!</h3>
+    <p>Now get the backoffice on the go right on your phone.</p>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png">
+
+    <div class="app-buttons">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -26,6 +26,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" async defer></script>
     <script src="https://www.happynessfactory.in/assets/js/prelogApplication.js?v=SCM2.8.5.18"></script>
 
+
     <!-- CLEVERTAP START -->
     <script type="text/javascript">
         var clevertap = { event: [], profile: [], region: 'in1', account: [], onUserLogin: [], notifications: [] };
@@ -54,252 +55,75 @@
         gtag('js', new Date());
         gtag('config', 'G-KM3PJ686KV');
     </script>
+
+    <style>
+        .blog-detail-hero {
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)),
+                url('https://images.unsplash.com/photo-1581093458791-9f3c3900df1a') center/cover no-repeat;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .blog-detail-section {
+            padding: 80px 0;
+            background: #f5f7fa;
+        }
+
+        .blog-wrapper {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .blog-wrapper h2 {
+            font-weight: 600;
+            margin-top: 30px;
+        }
+
+        .blog-wrapper p {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .blog-meta {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+
+        .custom-bullets {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .custom-bullets li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #444;
+        }
+
+        .custom-bullets li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #0196d8;
+            font-weight: bold;
+        }
+    </style>
+
 </head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
-    body {
-        font-family: 'Inter', sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background-color: #f8f9fa;
-    }
-
-
-
-    /* Header Styles */
-    .contact-header {
-        background: #c2e7fa;
-        color: white;
-        padding: 100px 0 80px;
-        text-align: center;
-    }
-
-    .hf_heading01 {
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: #0097da;
-    }
-
-    .hf_primary {
-        color: #93c5fd;
-    }
-
-    .hf_heading04 {
-        font-size: 1.5rem;
-        font-weight: 400;
-        max-width: 700px;
-        margin: 0 auto;
-        opacity: 0.9;
-        color: #333333;
-    }
-
-    /* Contact Section */
-    .contact-section {
-        padding: 80px 0;
-    }
-
-    .contact-container {
-        display: flex;
-        gap: 50px;
-        margin-bottom: 60px;
-    }
-
-    .contact-info {
-        flex: 1;
-
-        border-radius: 12px;
-
-
-    }
-
-    .contact-form {
-        flex: 1;
-        background: white;
-        border-radius: 12px;
-        padding: 40px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    }
-
-    .section-headerrr {
-        margin-bottom: 40px;
-    }
-
-    .hf_heading02 {
-        font-size: 2.5rem;
-        font-weight: 600;
-        margin-bottom: 15px;
-        color: #0196d8;
-    }
-
-    .hf_bodytext01 {
-        font-size: 1.1rem;
-        color: #4a6572;
-        margin-bottom: 20px;
-        line-height: 1.8;
-    }
-
-    .contact-details {
-        margin-top: 30px;
-    }
-
-    .contact-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 15px;
-        margin-bottom: 10px;
-    }
-
-    .contact-icon {
-        font-size: 1.2rem;
-        color: #2563eb;
-        background: #e0f2fe;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-
-    .contact-text {
-        flex: 1;
-    }
-
-    .hf_heading05 {
-        font-size: 1.25rem;
-        font-weight: 600;
-        margin-bottom: 5px;
-        color: #1a3a5f;
-    }
-
-    /* Form Styles */
-    .form-group {
-        margin-bottom: 25px;
-    }
-
-    .form-label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 500;
-        color: #1a3a5f;
-    }
-
-    .form-control {
-        width: 100%;
-        padding: 12px 15px;
-        border: 1px solid #d1d5db;
-        border-radius: 8px;
-        font-size: 1rem;
-        transition: border-color 0.3s ease;
-    }
-
-    .form-control:focus {
-        outline: none;
-        border-color: #2563eb;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-
-    textarea.form-control {
-        min-height: 120px;
-        resize: vertical;
-    }
-
-    .btn-primaryNoIcon {
-        display: inline-block;
-        background: #2563eb;
-        color: white;
-        padding: 14px 32px;
-        border-radius: 8px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: background 0.3s ease;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        width: 100%;
-    }
-
-    .btn-primaryNoIcon:hover {
-        background: #1d4ed8;
-    }
-
-    /* Map Section */
-    .map-section {
-        padding: 40px 0;
-    }
-
-    .map-container {
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        height: 450px;
-    }
-
-    .map-container iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-
-    /* Business Hours */
-    .hours-section {
-        background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-        padding: 60px 0;
-        margin-top: 40px;
-    }
-
-    .hours-container {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .hours-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        margin-top: 30px;
-    }
-
-    .hour-item {
-        background: white;
-        padding: 25px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
-
-    @media (max-width: 768px) {
-        .contact-container {
-            flex-direction: column;
-        }
-
-        .hf_heading01 {
-            font-size: 2.5rem;
-        }
-
-        .hf_heading02 {
-            font-size: 2rem;
-        }
-
-        .contact-header {
-            padding: 80px 0 60px;
-        }
-
-        .contact-info,
-        .contact-form {
-            padding: 30px 20px;
-        }
-    }
-</style>
-
-<body>
+<body style="margin:0;padding:0;background:#e9edf2;">
     <header>
         <!-- Top nav for desktop -->
         <div class="d-sm-block d-none">
@@ -358,9 +182,9 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
                                     <!-- Newsletter Section -->
+
                                     <li><a class="dropdown-item download-link" href="assets/pdf/Feb-2026_Newsletter.pdf"
                                             target="_blank" download="Jan-2026_Newsletter.pdf">Newsletter</a></li>
-                                    <li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
@@ -429,17 +253,15 @@
                         <li class="nav-item">
                             <a href="contactus.html" class="nav-link">Contact Us</a>
                         </li>
+
                         <li class="nav-item">
                             <button class="a11y-trigger" onclick="openAccessibilityPanel()" aria-label="Accessibility">
                                 <i class="fa-solid fa-universal-access"></i>
                             </button>
                         </li>
 
-                        <!-- <li class="nav-item accessibility-dropdown">
-                                    <button class="nav-link2 accessibility-trigger" id="accessibilityTrigger">
-                                        <i class="fas fa-universal-access"></i>
-                                    </button>
-                                </li> -->
+
+
                         </ul>
                         <ul class="nav navbar-nav ml-auto justify-content-end align-items-center responsive-list">
                             <!-- Login Dropdown -->
@@ -490,6 +312,7 @@
                         </button>
                     </div>
                 </div>
+
 
                 <section id="sidebar" class="sidebar">
                     <div class="slide-top-bar">
@@ -584,172 +407,84 @@
     </header>
 
 
-
-    <!-- Header Section -->
-    <header class="contact-header">
-        <div class="container">
-            <h1 class="hf_heading01">Contact Harmoney</h1>
-            <p class="hf_heading04">Get in touch with our financial experts for personalized guidance</p>
+    <!-- BLOG DETAIL HERO -->
+    <section
+        style="background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url('https://images.unsplash.com/photo-1559526324-593bc073d938') center/cover no-repeat; height:350px; display:flex; align-items:center; justify-content:center; color:#fff; text-align:center;">
+        <div>
+            <h1 style="font-size:36px; font-weight:600;">Strategic Asset Allocation: The Foundation of Wealth Creation
+            </h1>
         </div>
-    </header>
+    </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
+    <!-- BLOG CONTENT -->
+    <section style="padding:80px 0; background:#f4f6f9;">
         <div class="container">
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="section-headerr">
-                        <h2 class="hf_heading02">Get In Touch</h2>
-                        <p class="hf_bodytext01">Reach out to us for any queries about financial planning, investments,
-                            or wealth management services.</p>
-                    </div>
+            <div style="background:#fff; padding:40px; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.06);">
 
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4 class="hf_heading05">HARMONEY FINSERV INDIA PRIVATE LIMITED</h4>
-                                <p class="hf_bodytext01">Registered & Corporate Office</p>
-                            </div>
-                        </div>
+                <p style="color:#888; font-size:14px;">
+                    Author: Harmoney Wealth Research Team | December 10, 2025
+                </p>
 
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4 class="hf_heading05">Our Address</h4>
-                                <p class="hf_bodytext01">
-                                    #78 2 SECOND Floor
-                                    11th Main, 14th Cross, 6th Sector
-                                    HSR Layout, Bangalore
-                                    Karnataka - 560102
-                                </p>
-                            </div>
-                        </div>
+                <p>
+                    Long-term wealth creation is not about chasing short-term returns. It is about disciplined investing
+                    and proper asset allocation aligned with financial goals.
+                </p>
 
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4 class="hf_heading05">Phone Numbers</h4>
-                                <p class="hf_bodytext01">
-                                    Landline: 080-41125960
-
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4 class="hf_heading05">Email Address</h4>
-                                <p class="hf_bodytext01">support@harmoneywealth.com</p>
-                            </div>
-                        </div>
-                    </div>
+                <div
+                    style="margin:40px 0; padding:30px; background:#f0f8ff; border-left:5px solid #0196d8; border-radius:10px;">
+                    <h4 style="margin:0; font-weight:600;">
+                        “Asset allocation drives long-term portfolio performance more than stock selection.”
+                    </h4>
                 </div>
 
-                <div class="contact-form">
-                    <div class="section-headerr">
-                        <h2 class="hf_heading02">Send Us a Message</h2>
-                        <p class="hf_bodytext01">Fill out the form below and we'll get back to you shortly.</p>
-                    </div>
+                <h3>Why Asset Allocation Matters</h3>
+                <p>
+                    Asset allocation determines how capital is distributed across equities, fixed income, and
+                    alternative investments. Studies show allocation explains the majority of portfolio performance over
+                    time.
+                </p>
 
-                    <form id="contactForm" enctype="multipart/form-data">
-                        <form id="contactForm" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label class="form-label" for="name">Full Name</label>
-                                <input type="text" class="form-control" id="name" name="name"
-                                    placeholder="Enter your full name" required>
+                <ul class="custom-bullets">
+                    <li>Reduces portfolio volatility</li>
+                    <li>Balances risk and return</li>
+                    <li>Protects capital during downturns</li>
+                    <li>Captures growth in bull markets</li>
+                </ul>
 
-                            </div>
+                <h3>Core Asset Classes</h3>
 
-                            <div class="form-group">
-                                <label class="form-label" for="email">Email Address</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Enter your email" required>
+                <h5>Equities</h5>
+                <p>Drive long-term capital appreciation and help beat inflation.</p>
 
-                            </div>
+                <h5>Fixed Income</h5>
+                <p>Provide stability and predictable returns during volatile periods.</p>
 
-                            <div class="form-group">
-                                <label class="form-label" for="phone">Phone Number</label>
-                                <input type="tel" class="form-control" id="phone" name="phone"
-                                    placeholder="Enter your phone number">
+                <h5>Alternative Investments</h5>
+                <p>Enhance diversification and reduce portfolio correlation risk.</p>
 
-                            </div>
+                <h3>Professional Portfolio Management</h3>
+                <p>
+                    At Harmoney Wealth, our Portfolio Management Services focus on research-driven allocation, tactical
+                    rebalancing, and tax-efficient structuring to optimize risk-adjusted returns.
+                </p>
 
-                            <div class="form-group">
-                                <label class="form-label" for="subject">Subject</label>
-                                <input type="text" class="form-control" id="subject" name="subject"
-                                    placeholder="Enter subject" required>
+                <h3>Conclusion</h3>
+                <p>
+                    Strategic asset allocation builds resilience, discipline, and clarity in financial decision-making.
+                    With professional guidance, investors can confidently navigate market cycles and stay aligned with
+                    long-term financial objectives.
+                </p>
 
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label" for="message">Message</label>
-                                <textarea class="form-control" id="message" name="message"
-                                    placeholder="Enter your message" required></textarea>
-
-                            </div>
-
-                            <button type="submit" class="btn-primaryNoIcon">Send Message</button>
-                            <div id="contactStatus" style="margin-top:12px; font-weight:600;"></div>
-
-
-
-                        </form>
-                </div>
-            </div>
-
-            <!-- Map Section -->
-            <div class="section-headerr">
-                <h2 class="hf_heading02">Find Us</h2>
-                <p class="hf_bodytext01">Visit our office in HSR Layout, Bangalore</p>
-            </div>
-
-            <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.885101574757!2d77.63387717531135!3d12.915105616113854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae149bf99f2da1%3A0xdfaefe295dfecab!2sHARMONEY%20WEALTH%20ADVISORY%20SERVICES%20INDIA%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin!4v1764666280595!5m2!1sen!2sin"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- Business Hours Section -->
-    <section class="hours-section">
-        <div class="container">
-            <div class="hours-container">
-                <div class="section-headerr">
-                    <h2 class="hf_heading02">Business Hours</h2>
-                    <p class="hf_bodytext01">We're available during these hours to assist you with your financial needs
-                    </p>
-
-                </div>
-
-                <div class="hours-grid">
-                    <div class="hour-item">
-                        <h4 class="hf_heading05">Monday - Saturday</h4>
-                        <p class="hf_bodytext01">9:30 AM - 6:30 PM</p>
-                        <b>India Standard Time</b>
-                    </div>
 
 
 
-                    <div class="hour-item">
-                        <h4 class="hf_heading05">Sunday</h4>
-                        <p class="hf_bodytext01">Closed</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
+
     <footer class="footer mt-auto">
         <div class="container">
             <div class="row">
@@ -968,7 +703,8 @@
 
                             <!-- Special Sections -->
                             <div class='sidebar-menu'>SPECIAL SECTIONS <div class='expand'><i
-                                        class="fas fa-chevron-down"></i></div>
+                                        class="fas fa-chevron-down"></i>
+                                </div>
                             </div>
                             <div class='sub-menu'>
                                 <ul>
@@ -980,7 +716,8 @@
 
                             <!-- LEGAL & COMPLIANCE -->
                             <div class='sidebar-menu'>LEGAL & COMPLIANCE <div class='expand'><i
-                                        class="fas fa-chevron-down"></i></div>
+                                        class="fas fa-chevron-down"></i>
+                                </div>
                             </div>
                             <div class='sub-menu'>
                                 <ul>
@@ -995,7 +732,8 @@
 
                             <!-- Regulatory Information -->
                             <div class='sidebar-menu'>REGULATORY INFORMATION <div class='expand'><i
-                                        class="fas fa-chevron-down"></i></div>
+                                        class="fas fa-chevron-down"></i>
+                                </div>
                             </div>
                             <div class='sub-menu'>
                                 <ul>
@@ -1028,7 +766,8 @@
 
                             <!-- App Store Links -->
                             <div class='sidebar-menu'>DOWNLOAD OUR APP <div class='expand'><i
-                                        class="fas fa-chevron-down"></i></div>
+                                        class="fas fa-chevron-down"></i>
+                                </div>
                             </div>
                             <div class='sub-menu'>
                                 <ul>
@@ -1095,86 +834,6 @@
             </div>
         </div>
     </footer>
-    <div id="accessibilityPanel">
-
-        <div class="a11y-header">
-            <span>Accessibility</span>
-            <button onclick="closeAccessibilityPanel()">✕</button>
-        </div>
-
-        <div class="a11y-body">
-
-            <div class="a11y-control">
-                <label>Line Height</label>
-                <input type="range" min="1.2" max="2.6" step="0.1" value="1.6" oninput="setLineHeight(this.value)">
-            </div>
-
-            <div class="a11y-control">
-                <label>Text Size</label>
-                <input type="range" min="90" max="130" value="100" step="5" oninput="setTextSize(this.value)">
-            </div>
-
-            <div class="a11y-control">
-                <label>Letter Spacing</label>
-                <input type="range" min="0" max="5" value="0" oninput="setLetterSpacing(this.value)">
-            </div>
-
-            <div class="a11y-actions">
-                <button onclick="toggleBigCursor()">Big Cursor</button>
-                <button onclick="togglePageRead()">Page Read</button>
-                <button onclick="toggleHeadingHighlight()">Highlight Headings</button>
-                <button onclick="toggleImages()">Hide Images</button>
-                <button onclick="toggleImageDesc()">Image Description</button>
-            </div>
-
-            <button class="a11y-reset" onclick="resetAccessibility()">Reset</button>
-        </div>
-    </div>
-
-    <!-- VOICE OVER POPUP -->
-    <div id="voicePopup" class="voice-popup">
-        <div class="voice-header">
-            <span>Screen Reader Options</span>
-            <button onclick="closeVoicePopup()">✕</button>
-        </div>
-
-        <div class="voice-body">
-            <p>Hover on content to start reading.</p>
-
-            <label>Voice / Accent</label>
-            <select id="voiceSelect"></select>
-
-            <label>Volume</label>
-            <input type="range" min="0" max="1" step="0.1" id="voiceVolume">
-
-            <label>Rate</label>
-            <input type="range" min="0.5" max="2" step="0.1" id="voiceRate">
-
-            <label>Pitch</label>
-            <input type="range" min="0" max="2" step="0.1" id="voicePitch">
-
-            <div class="voice-actions">
-                <button onclick="startReading()">Start</button>
-                <button onclick="pauseReading()">Pause</button>
-                <button onclick="resumeReading()">Resume</button>
-                <button onclick="stopReading()">Stop</button>
-            </div>
-        </div>
-    </div>
-
-
-    <script src="https://www.happynessfactory.in/js/app.js?v=SCM2.8.5.18"></script>
-    <script src="https://www.happynessfactory.in/js/custom.js?v=SCM2.8.5.18"></script>
-    <script src="https://www.happynessfactory.in/js/activity.js"></script>
-
-    <script src="https://unpkg.com/phosphor-icons" async defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" async defer></script>
-    <script src="https://www.happynessfactory.in/assets/js/jquery.confirm.min.js"></script>
-    <script src="https://www.happynessfactory.in/assets/js/mask/jquery.mask.min.js"></script>
-    <script src="https://www.happynessfactory.in/assets/js/mask/jquery.inputmask.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/form.js"></script>
 
 </body>
 

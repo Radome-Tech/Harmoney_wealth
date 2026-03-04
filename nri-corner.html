@@ -58,7 +58,7 @@
 
 <body>
     <div id="app" class="d-flex flex-column min-vh-100">
-             <header>
+        <header>
             <!-- Top nav for desktop -->
             <div class="d-sm-block d-none">
                 <nav class="navbar topNav t_nav navbar-expand-md bg-faded justify-content-center">
@@ -116,10 +116,16 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
                                         <!-- Newsletter Section -->
-                                        <li><a class="dropdown-item download-link"
+                                        <!-- <li>
+                                            <a class="dropdown-item download-link"
                                                 href="assets/pdf/Feb-2026_Newsletter.pdf" target="_blank"
-                                                download="Jan-2026_Newsletter.pdf">Newsletter</a></li>
+                                                download="Jan-2026_Newsletter.pdf">Newsletter</a>
+                                        </li> -->
                                         <li>
+                                            <a class="dropdown-item download-link" href="newsletter.html" role="button">
+                                                Newsletter <i class="fa-solid fa-angle-down"></i>
+                                            </a>
+                                        </li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -136,6 +142,8 @@
                                         <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item" href="useful-links.html">Useful Links</a></li>
+                                <li><a class="dropdown-item" href="pms-calculator.html">PMS Fee Calculator</a></li>
+                                <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
 
                                 <!-- Downloads Submenu -->
                                 <!--li class="dropdown-submenu">
@@ -224,7 +232,7 @@
             <!-- Top navigation for mobile -->
             <div class="d-sm-none d-block">
                 <div class="slide-drawer">
-                <div class="top-header">
+                    <div class="top-header">
                         <div class="company-logo">
                             <a href="index.html">
                                 <img src="assets/images/Harmony logo Black.png"
@@ -301,12 +309,21 @@
                                         Resources <i class="fas fa-chevron-down dropdown-icon"></i>
                                     </a>
                                     <ul class="mobile-dropdown-menu">
-                                        <li><a href="assets/pdf/Feb-2026_Newsletter.pdf" class="dropdown-item download-link"  target="_blank"
-                                            download="Jan-2026_Newsletter.pdf">Newsletter</a></li>
+                                        <!-- <li><a href="assets/pdf/Feb-2026_Newsletter.pdf"
+                                                class="dropdown-item download-link" target="_blank"
+                                                download="Jan-2026_Newsletter.pdf">Newsletter</a></li> -->
+                                        <li>
+                                            <a class="dropdown-item download-link" href="newsletter.html" role="button">
+                                                Newsletter <i class="fa-solid fa-angle-down"></i>
+                                            </a>
+                                        </li>
                                         <li><a href="assets/pdf/investor_charter_pms.pdf"
                                                 class="dropdown-item download-link" target="_blank"
                                                 download="investor_charter_pms.pdf">Investor Charter</a></li>
                                         <li><a href="useful-links.html" class="dropdown-item">Useful Links</a></li>
+                                        <li><a class="dropdown-item" href="pms-calculator.html">PMS Fee Calculator</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
                                     </ul>
                                 </li>
 
@@ -314,22 +331,22 @@
                                     <a href="contactus.html" class="menu-link">Contact Us</a>
                                 </li>
                             </ul>
-                               <div class="mobile-bottom-section">
-                            <!-- Mobile Login Dropdown -->
-                            <div class="mobile-login-container">
-                                <a href="javascript:void(0)" class="mobile-login-toggle">
-                                    Login <i class="fas fa-chevron-down login-dropdown-icon"></i>
-                                </a>
-                                <div class="mobile-login-dropdown">
-                                    <a href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss"
-                                        class="mobile-login-item">PMS Login</a>
-                                    <a href="https://harmoneywealth.themfbox.com/" class="mobile-login-item">MFD
-                                        Login</a>
+                            <div class="mobile-bottom-section">
+                                <!-- Mobile Login Dropdown -->
+                                <div class="mobile-login-container">
+                                    <a href="javascript:void(0)" class="mobile-login-toggle">
+                                        Login <i class="fas fa-chevron-down login-dropdown-icon"></i>
+                                    </a>
+                                    <div class="mobile-login-dropdown">
+                                        <a href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss"
+                                            class="mobile-login-item">PMS Login</a>
+                                        <a href="https://harmoneywealth.themfbox.com/" class="mobile-login-item">MFD
+                                            Login</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </nav>
-                     
+
                     </section>
                     <div id="overlay" class="overlayy"></div>
                 </div>
@@ -677,7 +694,7 @@
             </div>
         </section>
 
-            <footer class="footer mt-auto">
+        <footer class="footer mt-auto">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
@@ -764,14 +781,14 @@
 
                                         <div class="contact-info mt-1">
                                             <p class="contact-item">
-                                                 <i class="fas fa-envelope"></i>
+                                                <i class="fas fa-envelope"></i>
                                                 <a href="mailto:support@harmoneywealth.com">
                                                     support@harmoneywealth.com </a>
                                             </p>
                                             <p class="contact-item">
                                                 <i class="fas fa-phone phone-icon rotated"></i>
                                                 <a href="callto:080-41125960">
-                                                     080-41125960 </a>
+                                                    080-41125960 </a>
                                             </p>
                                         </div>
                                     </div>
@@ -788,7 +805,7 @@
                                                 <div class="reg-container"
                                                     style="display: flex; flex-wrap: wrap; gap: 15px; align-items: center;">
                                                     <div class="reg-item">
-                                                        <strong>SEBI PMS Reg No:INP000003898 |</strong> 
+                                                        <strong>SEBI PMS Reg No:INP000003898 |</strong>
                                                     </div>
                                                     <div class="reg-item">
                                                         <strong>IRDA Reg No: CA0336 |</strong>
@@ -1026,72 +1043,69 @@
     </div>
     <div id="accessibilityPanel">
 
-    <div class="a11y-header">
-        <span>Accessibility</span>
-        <button onclick="closeAccessibilityPanel()">✕</button>
+        <div class="a11y-header">
+            <span>Accessibility</span>
+            <button onclick="closeAccessibilityPanel()">✕</button>
+        </div>
+
+        <div class="a11y-body">
+
+            <div class="a11y-control">
+                <label>Line Height</label>
+                <input type="range" min="1.2" max="2.6" step="0.1" value="1.6" oninput="setLineHeight(this.value)">
+            </div>
+
+            <div class="a11y-control">
+                <label>Text Size</label>
+                <input type="range" min="90" max="130" value="100" step="5" oninput="setTextSize(this.value)">
+            </div>
+
+            <div class="a11y-control">
+                <label>Letter Spacing</label>
+                <input type="range" min="0" max="5" value="0" oninput="setLetterSpacing(this.value)">
+            </div>
+
+            <div class="a11y-actions">
+                <button onclick="toggleBigCursor()">Big Cursor</button>
+                <button onclick="togglePageRead()">Page Read</button>
+                <button onclick="toggleHeadingHighlight()">Highlight Headings</button>
+                <button onclick="toggleImages()">Hide Images</button>
+                <button onclick="toggleImageDesc()">Image Description</button>
+            </div>
+
+            <button class="a11y-reset" onclick="resetAccessibility()">Reset</button>
+        </div>
     </div>
-
-    <div class="a11y-body">
-
-        <div class="a11y-control">
-            <label>Line Height</label>
-            <input type="range" min="1.2" max="2.6" step="0.1" value="1.6"
-                   oninput="setLineHeight(this.value)">
+    <!-- VOICE OVER POPUP -->
+    <div id="voicePopup" class="voice-popup">
+        <div class="voice-header">
+            <span>Screen Reader Options</span>
+            <button onclick="closeVoicePopup()">✕</button>
         </div>
 
-        <div class="a11y-control">
-            <label>Text Size</label>
-            <input type="range" min="90" max="130" value="100" step="5"
-                   oninput="setTextSize(this.value)">
-        </div>
+        <div class="voice-body">
+            <p>Hover on content to start reading.</p>
 
-        <div class="a11y-control">
-            <label>Letter Spacing</label>
-            <input type="range" min="0" max="5" value="0"
-                   oninput="setLetterSpacing(this.value)">
-        </div>
+            <label>Voice / Accent</label>
+            <select id="voiceSelect"></select>
 
-        <div class="a11y-actions">
-            <button onclick="toggleBigCursor()">Big Cursor</button>
-            <button onclick="togglePageRead()">Page Read</button>
-            <button onclick="toggleHeadingHighlight()">Highlight Headings</button>
-            <button onclick="toggleImages()">Hide Images</button>
-            <button onclick="toggleImageDesc()">Image Description</button>
-        </div>
+            <label>Volume</label>
+            <input type="range" min="0" max="1" step="0.1" id="voiceVolume">
 
-        <button class="a11y-reset" onclick="resetAccessibility()">Reset</button>
+            <label>Rate</label>
+            <input type="range" min="0.5" max="2" step="0.1" id="voiceRate">
+
+            <label>Pitch</label>
+            <input type="range" min="0" max="2" step="0.1" id="voicePitch">
+
+            <div class="voice-actions">
+                <button onclick="startReading()">Start</button>
+                <button onclick="pauseReading()">Pause</button>
+                <button onclick="resumeReading()">Resume</button>
+                <button onclick="stopReading()">Stop</button>
+            </div>
+        </div>
     </div>
-</div>
-            <!-- VOICE OVER POPUP -->
-<div id="voicePopup" class="voice-popup">
-  <div class="voice-header">
-    <span>Screen Reader Options</span>
-    <button onclick="closeVoicePopup()">✕</button>
-  </div>
-
-  <div class="voice-body">
-    <p>Hover on content to start reading.</p>
-
-    <label>Voice / Accent</label>
-    <select id="voiceSelect"></select>
-
-    <label>Volume</label>
-    <input type="range" min="0" max="1" step="0.1" id="voiceVolume">
-
-    <label>Rate</label>
-    <input type="range" min="0.5" max="2" step="0.1" id="voiceRate">
-
-    <label>Pitch</label>
-    <input type="range" min="0" max="2" step="0.1" id="voicePitch">
-
-    <div class="voice-actions">
-      <button onclick="startReading()">Start</button>
-      <button onclick="pauseReading()">Pause</button>
-      <button onclick="resumeReading()">Resume</button>
-      <button onclick="stopReading()">Stop</button>
-    </div>
-  </div>
-</div>
 
     <script src="https://www.happynessfactory.in/js/app.js?v=SCM2.8.5.18"></script>
     <script src="https://www.happynessfactory.in/js/custom.js?v=SCM2.8.5.18"></script>

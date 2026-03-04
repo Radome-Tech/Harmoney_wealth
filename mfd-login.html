@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Harmoney Client Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f6f9;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ===== Top Header ===== */
+        .top-header {
+            background: #f1f1f1;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .top-header .center-text {
+            font-weight: 600;
+            color: #6c7a89;
+            font-size: 18px;
+        }
+
+        .top-header .right-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            font-size: 16px;
+            color: #6c7a89;
+        }
+
+        .top-header .login-btn {
+            background: #4a7bd0;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .top-header .login-btn:hover {
+            background: #2f5db3;
+        }
+
+        .top-header .signup {
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Left Section */
+        .left {
+            width: 45%;
+            background: #e8b631;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .left h2 {
+            font-weight: 400;
+        }
+
+        .pyramid {
+            width: 220px;
+            height: 220px;
+            margin: 20px 0;
+            background: linear-gradient(to top, #d9d9d9, #ffffff);
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Right Section */
+        .right {
+            width: 55%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            width: 400px;
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #4a7bd0;
+            box-shadow: 0 0 5px rgba(74, 123, 208, 0.5);
+            outline: none;
+        }
+
+        .captcha {
+            font-size: 24px;
+            letter-spacing: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #4a7bd0;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #2f5db3;
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #4a7bd0;
+            font-size: 14px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media(max-width:900px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== Header ===== -->
+    <div class="top-header">
+
+        <!-- Left Logo -->
+        <div>
+            <img src="assets/images/Harmony logo Black.png" height="55" alt="Harmoney Logo">
+        </div>
+
+        <!-- Center Text -->
+        <div class="center-text">
+            AMFI Registered Mutual Fund Distributor
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <span>✉ kannanr@harmoneywealth.com</span>
+            <span>📞 9980228902</span>
+            <a href="#" class="login-btn">LOGIN</a>
+            <span class="signup">SIGNUP</span>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="left">
+            <h2>Where your money</h2>
+            <!-- <div class="pyramid"></div> -->
+            <img src="assets/images/trees.png" height="200px" width="290px" alt="">
+            <h2>makes more money</h2>
+            <img src="assets/images/Harmony logo Black.png" height="90px" width="200px" alt="">
+            <!-- <div class="logo" style="color:#1c1c1c;">Harmoney</div> -->
+        </div>
+
+        <div class="right">
+            <div class="login-box">
+
+                <h2>Login</h2>
+
+                <input type="text" placeholder="Enter user ID / PAN / mobile number">
+                <input type="password" placeholder="Enter password">
+                <input type="text" placeholder="Enter captcha code">
+
+                <div class="captcha">ENLNJZ</div>
+
+                <button>LOGIN</button>
+
+                <div class="links">
+                    <a href="#">Forgot Password?</a>
+                    <a href="#">New user? Sign up</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

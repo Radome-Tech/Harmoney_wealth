@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PMS Hybrid Fee Calculator</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    /* background:#f4efe6; */
+    background-color: #f3f3f3;
+    margin:0;
+    padding:30px;
+}
+
+h1{
+    color:#2c3e50;
+    margin-bottom:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    margin-bottom:25px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    column-gap:25px;   /* horizontal spacing */
+    row-gap:30px;      /* vertical spacing */
+    margin-bottom:25px;
+}
+
+.grid > div{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    font-weight:bold;
+    font-size:14px;
+    margin-bottom:6px;   /* space between label & input */
+}
+
+input{
+    width:95%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:14px;
+}
+
+button{
+    background:#0196d8;
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:25px;
+    cursor:pointer;
+    margin-right:15px;
+    margin-top:10px;   /* spacing above buttons */
+}
+
+button:hover{
+    background:#1e88b6;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    font-size:13px;
+}
+
+table th, table td{
+    border:1px solid #ddd;
+    padding:6px;
+    text-align:center;
+}
+
+table th{
+    background:#0196d8;
+    color:white;
+}
+
+.section-title{
+    background:#eae3d4;
+    font-weight:bold;
+}
+
+.note{
+    font-size:13px;
+    margin-top:20px;
+    color:#555;
+}
+
+@media(max-width:900px){
+    .grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>PMS Hybrid Fee Calculator</h1>
+
+<div class="card">
+<div class="grid">
+
+<div>
+<label>Capital Contribution (₹)</label>
+<input type="number" id="capital" value="10000000">
+</div>
+
+<div>
+<label>Management Fee (%)</label>
+<input type="number" id="mgmt" value="1.5">
+</div>
+
+<div>
+<label>Other Expenses (%)</label>
+<input type="number" id="other" value="0.5">
+</div>
+
+<div>
+<label>Performance Fee (%)</label>
+<input type="number" id="perf" value="15">
+</div>
+
+<div>
+<label>Hurdle Rate (%)</label>
+<input type="number" id="hurdle" value="10">
+</div>
+
+<div>
+<label>Brokerage (%)</label>
+<input type="number" id="brokerage" value="0.2">
+</div>
+
+<div>
+<label>Gain per Year (%)</label>
+<input type="number" id="gain" value="20">
+</div>
+
+</div>
+
+<br>
+
+<button onclick="calculate()">Submit</button>
+<button onclick="resetForm()">Reset</button>
+<button onclick="downloadTemplate()">Download Excel Template</button>
+
+<br><br>
+
+<label>Upload Excel:</label>
+<input type="file" onchange="readExcel(event)">
+
+</div>
+
+
+<div id="resultSection" class="card" style="display:none;">
+<h2>Illustration (5 Years Detailed)</h2>
+<div id="tableContainer"></div>
+<br>
+<button onclick="downloadPDF()">Download PDF</button>
+
+<div class="note">
+<b>Notes:</b><br>
+1. Management fee assumed annual.<br>
+2. Brokerage calculated on average AUM.<br>
+3. Performance fee charged only above High Water Mark & Hurdle.<br>
+4. High Water Mark carried forward annually.<br>
+5. Illustration purpose only.
+</div>
+
+</div>
+
+
+<div id="formulaSection" class="card" style="display:none;">
+<h3>Formula Explanation</h3>
+
+i = Opening NAV<br>
+ii = Gain = i × Return %<br>
+iii = Gross Value = i + ii<br>
+iv = Average AUM = (i + iii) / 2<br>
+v = Other Expense = iv × Other %<br>
+vi = Brokerage = iv × Brokerage %<br>
+vii = Management Fee = iv × Mgmt %<br>
+viii = Total Charges = v + vi + vii<br>
+ix = Value Before Performance Fee = iii − viii<br>
+x = Hurdle Value = i × (1 + Hurdle %)<br>
+xi = Performance Fee = (ix − max(HWM, x)) × Perf %<br>
+xii = Net Portfolio = ix − xi<br>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+<script>
+
+let tableDataGlobal = [];
+
+function calculate(){
+
+let capital = parseFloat(document.getElementById("capital").value);
+let mgmt = parseFloat(document.getElementById("mgmt").value)/100;
+let other = parseFloat(document.getElementById("other").value)/100;
+let perf = parseFloat(document.getElementById("perf").value)/100;
+let hurdle = parseFloat(document.getElementById("hurdle").value)/100;
+let brokerage = parseFloat(document.getElementById("brokerage").value)/100;
+let gain = parseFloat(document.getElementById("gain").value)/100;
+
+let opening = capital;
+let hwm = capital;
+let years = 5;
+
+let table = `
+<table>
+<tr>
+<th>Year</th>
+<th>Opening</th>
+<th>Gross</th>
+<th>Avg AUM</th>
+<th>Other Exp</th>
+<th>Brokerage</th>
+<th>Mgmt Fee</th>
+<th>Total Charges</th>
+<th>Hurdle</th>
+<th>Perf Fee</th>
+<th>Net</th>
+<th>HWM</th>
+</tr>`;
+
+tableDataGlobal = [];
+
+for(let i=1;i<=years;i++){
+
+let gross = opening * (1+gain);
+let avgAUM = (opening + gross)/2;
+
+let otherExp = avgAUM * other;
+let brokerageFee = avgAUM * brokerage;
+let mgmtFee = avgAUM * mgmt;
+
+let totalCharges = otherExp + brokerageFee + mgmtFee;
+
+let beforePerf = gross - totalCharges;
+
+let hurdleValue = opening * (1+hurdle);
+
+let compareBase = Math.max(hwm, hurdleValue);
+
+let perfFee = 0;
+
+if(beforePerf > compareBase){
+    let profitEligible = beforePerf - compareBase;
+    perfFee = profitEligible * perf;
+}
+
+let net = beforePerf - perfFee;
+
+hwm = Math.max(hwm, net);
+
+table += `<tr>
+<td>${i}</td>
+<td>${opening.toFixed(0)}</td>
+<td>${gross.toFixed(0)}</td>
+<td>${avgAUM.toFixed(0)}</td>
+<td>${otherExp.toFixed(0)}</td>
+<td>${brokerageFee.toFixed(0)}</td>
+<td>${mgmtFee.toFixed(0)}</td>
+<td>${totalCharges.toFixed(0)}</td>
+<td>${hurdleValue.toFixed(0)}</td>
+<td>${perfFee.toFixed(0)}</td>
+<td>${net.toFixed(0)}</td>
+<td>${hwm.toFixed(0)}</td>
+</tr>`;
+
+tableDataGlobal.push([
+i,
+opening.toFixed(0),
+gross.toFixed(0),
+avgAUM.toFixed(0),
+otherExp.toFixed(0),
+brokerageFee.toFixed(0),
+mgmtFee.toFixed(0),
+totalCharges.toFixed(0),
+hurdleValue.toFixed(0),
+perfFee.toFixed(0),
+net.toFixed(0),
+hwm.toFixed(0)
+]);
+
+opening = net;
+}
+
+table += "</table>";
+
+document.getElementById("tableContainer").innerHTML = table;
+document.getElementById("resultSection").style.display = "block";
+document.getElementById("formulaSection").style.display = "block";
+}
+
+function resetForm(){
+location.reload();
+}
+
+function downloadPDF(){
+
+const { jsPDF } = window.jspdf;
+const doc = new jsPDF("landscape");
+
+doc.setFontSize(16);
+doc.text("PMS Fee Illustration", 14, 15);
+
+doc.setFontSize(10);
+doc.text("Detailed Multi-Year Illustration with High Water Mark & Hurdle Logic", 14, 22);
+
+// ===== TABLE =====
+doc.autoTable({
+    startY: 30,
+    head:[["Year","Opening","Gross","Avg AUM","Other Exp","Brokerage","Mgmt Fee","Total Charges","Hurdle","Perf Fee","Net","HWM"]],
+    body: tableDataGlobal,
+    styles:{ fontSize:8 },
+    headStyles:{ fillColor:[1,150,216] }
+});
+
+// ===== GET LAST Y POSITION AFTER TABLE =====
+let finalY = doc.lastAutoTable.finalY + 10;
+
+// ===== NOTES SECTION =====
+doc.setFontSize(12);
+doc.text("Notes / Disclaimer:", 14, finalY);
+
+doc.setFontSize(9);
+
+let notes = [
+"1. Management fee assumed annual.",
+"2. Brokerage calculated on average AUM.",
+"3. Performance fee charged only above High Water Mark & Hurdle.",
+"4. High Water Mark carried forward annually.",
+"5. Returns assumed constant for illustration.",
+"6. This calculation is only for illustration purpose and may differ from actual PMS agreement."
+];
+
+doc.text(notes, 14, finalY + 6);
+
+// ===== FORMULA SECTION =====
+let formulaStartY = finalY + 40;
+
+if(formulaStartY > 180){ 
+    doc.addPage("landscape");
+    formulaStartY = 20;
+}
+
+doc.setFontSize(12);
+doc.text("Formula Explanation:", 14, formulaStartY);
+
+doc.setFontSize(9);
+
+let formulas = [
+"i = Opening NAV",
+"ii = Gain = i × Return %",
+"iii = Gross Value = i + ii",
+"iv = Average AUM = (i + iii) / 2",
+"v = Other Expense = iv × Other %",
+"vi = Brokerage = iv × Brokerage %",
+"vii = Management Fee = iv × Mgmt %",
+"viii = Total Charges = v + vi + vii",
+"ix = Value Before Performance Fee = iii − viii",
+"x = Hurdle Value = i × (1 + Hurdle %)",
+"xi = Performance Fee = (ix − max(HWM, x)) × Perf %",
+"xii = Net Portfolio = ix − xi"
+];
+
+doc.text(formulas, 14, formulaStartY + 6);
+
+// ===== FOOTER =====
+doc.setFontSize(8);
+doc.text("Generated by PMS Hybrid Fee Calculator", 14, 200);
+
+doc.save("PMS_Fee_Illustration.pdf");
+}
+
+function readExcel(event){
+
+const file = event.target.files[0];
+const reader = new FileReader();
+
+reader.onload = function(e){
+const data = new Uint8Array(e.target.result);
+const workbook = XLSX.read(data,{type:'array'});
+const sheet = workbook.Sheets[workbook.SheetNames[0]];
+const json = XLSX.utils.sheet_to_json(sheet);
+
+json.forEach(row=>{
+if(row.Field==="Capital") capital.value=row.Value;
+if(row.Field==="Management Fee") mgmt.value=row.Value;
+if(row.Field==="Other Expense") other.value=row.Value;
+if(row.Field==="Performance Fee") perf.value=row.Value;
+if(row.Field==="Hurdle Rate") hurdle.value=row.Value;
+if(row.Field==="Brokerage") brokerage.value=row.Value;
+if(row.Field==="Gain") gain.value=row.Value;
+});
+
+calculate();
+};
+
+reader.readAsArrayBuffer(file);
+}
+
+function downloadTemplate() {
+
+    const link = document.createElement("a");
+    link.href = "assets/csv/PMS Fee Illustration.xlsx";
+    link.download = "PMS_Fee_Illustration_Template.xlsx";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+</script>
+
+</body>
+</html>
