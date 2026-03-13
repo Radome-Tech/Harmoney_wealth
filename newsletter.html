@@ -167,8 +167,8 @@
                 <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
                   <!-- Newsletter Section -->
 
-                  <li><a class="dropdown-item download-link" href="assets/pdf/Feb-2026_Newsletter.pdf" target="_blank"
-                      download="Jan-2026_Newsletter.pdf">Newsletter</a></li>
+                  <li><a class="dropdown-item download-link" href="assets/pdf/March-2026_Newsletter.pdf" target="_blank"
+                      download="March-2026_Newsletter.pdf">Newsletter</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
@@ -406,10 +406,10 @@
         <div class="duo-card" id="cardDeep">
           <!-- <span class="gradient-badge"><i class="far fa-star" style="margin-right:6px; color:inherit;"></i> issue #12 ·
             weekly</span> -->
-          <h2 class="card-title"> Panam</h2>
+          <h2 class="card-title">March Newsletter</h2>
           <!-- meta information -->
           <div class="card-meta">
-            <span class="meta-item"><i class="far fa-calendar-alt"></i> April 2025</span>
+            <span class="meta-item"><i class="far fa-calendar-alt"></i>March 2026</span>
             <span class="meta-item"><i class="far fa-clock"></i> 8 min read</span>
             <span class="meta-item"><i class="far fa-user"></i> Maya Chen + R.Grey</span>
           </div>
@@ -1014,12 +1014,16 @@
       }
 
       document.getElementById('downloadDeepBtn').addEventListener('click', function () {
-        downloadDummy('deepdive_issue12');
-        this.innerHTML = '<i class="fas fa-check"></i> PDF started';
-        setTimeout(() => {
-          this.innerHTML = '<i class="fas fa-file-pdf"></i> Download full newsletter (PDF)';
-        }, 2000);
-      });
+
+  window.open("assets/pdf/March-2026_Newsletter.pdf", "_blank");
+
+  this.innerHTML = '<i class="fas fa-check"></i> PDF started';
+
+  setTimeout(() => {
+    this.innerHTML = '<i class="fas fa-file-pdf"></i> Download full newsletter (PDF)';
+  }, 2000);
+
+});
 
       document.getElementById('downloadStudioBtn').addEventListener('click', function () {
         downloadDummy('creative_studio');
