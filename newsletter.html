@@ -55,6 +55,56 @@
     gtag('js', new Date());
     gtag('config', 'G-KM3PJ686KV');
   </script>
+  <style>
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hf_heading01 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #0097da;
+    }
+
+    .hf_primary {
+      color: #93c5fd;
+    }
+
+    .hf_heading04 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+      color: #333333;
+    }
+
+    .about-header {
+      background-color: linear-gradient(135deg, #1a3a5f 0%, #2563eb 100%);
+      background-color: #c2e7fa !important;
+      color: white;
+      padding: 100px 0 80px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+
+      .about-header {
+        padding: 80px 0 60px;
+      }
+    }
+
+    @media (max-width: 991px) and (min-width: 768px) {
+
+      .container {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+    }
+  </style>
 </head>
 
 <body style="margin:0;padding:0;background:#e9edf2;">
@@ -332,12 +382,19 @@
     <!-- End top navigation for mobile -->
   </header>
   <!-- Outer wrapper -->
-  <div class="newsletter-header">
+  <!-- <div class="newsletter-header">
     <div class="container">
       <h1 class="card-title">Newsletter Harmoney</h1>
       <p class="hf_heading04">Assisting you in achieving abundance in wealth leading to financial freedom</p>
     </div>
-  </div>
+  </div> -->
+  <!-- Header Section -->
+  <header class="about-header">
+    <div class="container">
+      <h1 class="hf_heading01">Newsletter Harmoney</h1>
+      <p class="hf_heading04">PANAM</p>
+    </div>
+  </header>
   <!-- this container represents the area between your header & footer -->
   <div class="newsletter">
     <div class="newsletter-duo">
@@ -363,9 +420,9 @@
             through mutual funds.
           </div>
           <!-- View Full newsletter -->
-          <a href="newsletter_old.html" class="download-card-btn" id="">
+          <!-- <a href="newsletter_old.html" class="download-card-btn" id="">
             <i class="fas fa-file-pdf"></i> View full newsletter
-          </a>
+          </a> -->
 
 
           <!-- download button (inside first card as requested) -->
@@ -374,8 +431,8 @@
           </button>
 
           <!-- action row: like, share, comment, subscribe -->
-          <div class="card-actions">
-            <!-- <div class="action-btn like-btn" data-card="deep">
+          <!-- <div class="card-actions"> -->
+          <!-- <div class="action-btn like-btn" data-card="deep">
               <i class="far fa-heart" id="deepLikeIcon"></i>
               <span>Like</span>
               <span class="like-count" id="deepLikeCount">128</span>
@@ -389,11 +446,11 @@
               <span>Comment</span>
               <span class="like-count" id="deepCommentBadge">14</span>
             </div> -->
-            <div class="action-btn subscribe-special sub-btn" data-card="deep">
+          <!-- <div class="action-btn subscribe-special sub-btn" data-card="deep">
               <i class="far fa-bell"></i>
               <span>Subscribe</span>
             </div>
-          </div>
+          </div> -->
 
           <!-- comment section for first card -->
           <div class="comment-area" id="commentDeep">
@@ -411,8 +468,7 @@
         </div> <!-- end first card -->
 
         <!-- SECOND CARD: (another 6 columns) creative studio / ethics theme -->
-        <div class="duo-card" id="cardStudio">
-          <!-- <span class="gradient-badge"><i class="fas fa-paint-brush" style="margin-right:6px;"></i> inside track</span> -->
+        <!-- <div class="duo-card" id="cardStudio">
           <h2 class="card-title">Panam</h2>
           <div class="card-meta">
             <span class="meta-item"><i class="far fa-calendar-alt"></i> April 2025</span>
@@ -424,42 +480,35 @@
             An analysis of India's equity market imbalance between market-cap structure and retail investor allocation
             through mutual funds.
           </div>
-          <!-- View Full newsletter -->
           <a href="newsletter_old1.html" class="download-card-btn" id="">
             <i class="fas fa-file-pdf"></i> View full newsletter
           </a>
 
-          <!-- second card also has its own download (optional) but we keep same style -->
           <button class="download-card-btn" id="downloadStudioBtn">
             <i class="fas fa-file-pdf"></i> Download studio PDF
           </button>
 
           <div class="card-actions">
-            <!-- like -->
             <div class="action-btn like-btn" data-card="studio">
               <i class="far fa-heart" id="studioLikeIcon"></i>
               <span>Like</span>
               <span class="like-count" id="studioLikeCount">87</span>
             </div>
-            <!-- share -->
             <div class="action-btn share-btn" data-card="studio">
               <i class="fas fa-share-alt"></i>
               <span>Share</span>
             </div>
-            <!-- comment toggle -->
             <div class="action-btn comment-toggle" data-target="commentStudio">
               <i class="far fa-comment-dots"></i>
               <span>Comment</span>
               <span class="like-count" id="studioCommentBadge">9</span>
             </div>
-            <!-- subscribe -->
             <div class="action-btn subscribe-special sub-btn" data-card="studio">
               <i class="far fa-bell"></i>
               <span>Subscribe</span>
             </div>
           </div>
 
-          <!-- comment section for second card -->
           <div class="comment-area" id="commentStudio">
             <div class="comment-row">
               <input type="text" placeholder="comment..." value="great tools!">
@@ -471,8 +520,31 @@
             <div class="mock-comment"><i class="fas fa-user" style="color:#0077cc;"></i> <strong>@tomas:</strong> when
               is the pdf dropping?</div>
           </div>
-        </div> <!-- end second card -->
+        </div>  -->
+        <!-- end second card -->
       </div> <!-- end 6/6 grid -->
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="app-content">
+              <div class="app-info">
+                <h4 class="hf_heading04">Subscribe to Newsletter Harmoney</h4>
+                <div class="app-desc">
+                  <!-- <p class="hf_bodytext01">Our team includes Certified Financial Planners
+                    from the world-class Financial Institute, Financial Planning
+                    Standard Board of India.</p> -->
+                </div>
+                <div class="cta-button">
+                  <button class="btn-primaryNoIcon lg-primarynoIcon">
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div> <!-- end duo container -->
   </div>
 

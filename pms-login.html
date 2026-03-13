@@ -159,6 +159,55 @@
             margin: 8px;
         }
 
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hf_heading01 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0097da;
+        }
+
+        .hf_primary {
+            color: #93c5fd;
+        }
+
+        .hf_heading04 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            color: #333333;
+        }
+
+        .about-header {
+            background-color: linear-gradient(135deg, #1a3a5f 0%, #2563eb 100%);
+            background-color: #c2e7fa !important;
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+
+            .about-header {
+                padding: 80px 0 60px;
+            }
+        }
+
+        @media (max-width: 991px) and (min-width: 768px) {
+
+            .container {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+        }
+
         /* Responsive */
         @media(max-width:1000px) {
             .main {
@@ -474,10 +523,18 @@
             <!-- End top navigation for mobile -->
         </header>
 
+        <!-- Header Section -->
+        <header class="about-header">
+            <div class="container">
+                <h1 class="hf_heading01">PMS Login Page</h1>
+                <p class="hf_heading04">- Powered by SharePro</p>
+            </div>
+        </header>
+
 
         <div class="main">
 
-            <div class="company-info">
+            <!-- <div class="company-info">
                 <h2>Harmoney Finserv India Private Limited</h2>
                 <img src="assets/images/Harmony logo Black.png" height="90px" width="200px" alt="">
                 <div class="address">
@@ -490,7 +547,7 @@
                 <div class="sharepro">
                     Powered by SharePro
                 </div>
-            </div>
+            </div> -->
 
             <div class="login-box">
                 <h3>Sign In</h3>
@@ -502,7 +559,14 @@
 
                 <select>
                     <option>Client</option>
-                    <option>Admin</option>
+                    <option>Branch</option>
+                    <option>Group</option>
+                    <option>Sub-Broker</option>
+                    <option>Dealer</option>
+                    <option>Relationship Manager</option>
+                    <option>DP Client</option>
+                    <option>CRM Login</option>
+                    <option>Fund Manager</option>
                 </select>
 
                 <select>
@@ -513,7 +577,7 @@
                 <button>Sign In</button>
             </div>
 
-            <div class="mobile-section">
+            <!-- <div class="mobile-section">
                 <h3>SharePro AIR is here!</h3>
                 <p>Now get the backoffice on the go right on your phone.</p>
 
@@ -523,7 +587,7 @@
                     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
