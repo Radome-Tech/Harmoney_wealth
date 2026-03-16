@@ -132,6 +132,7 @@
       font-size: 22px;
       font-weight: 600;
       margin-bottom: 12px;
+      color: #1a3a5f;
     }
   </style>
 </head>
@@ -435,16 +436,18 @@
         <div class="duo-card" id="cardDeep">
           <!-- <span class="gradient-badge"><i class="far fa-star" style="margin-right:6px; color:inherit;"></i> issue #12 ·
             weekly</span> -->
-          <h2 class="card-title"> Short Term Pain - Long Term Gain</h2>
+          <h3 class="card-title">Short Term Pain - Long Term Gain</h3>
           <!-- meta information -->
           <div class="card-meta">
             <span class="meta-item"><i class="far fa-calendar-alt"></i>March 2026</span>
             <span class="meta-item"><i class="far fa-clock"></i> 8 min read</span>
-            <span class="meta-item"><i class="far fa-user"></i> Vignesh</span>
+            <span class="meta-item"><i class="far fa-user"></i>Vignesh</span>
           </div>
           <!-- dummy description -->
           <div class="card-desc">
             <i class="fas fa-quote-left" style="color:#0077cc; margin-right:8px;"></i>
+            A perspective on how geopolitical shocks and crude price spikes create short-term volatility but
+            historically present long-term opportunities for equity investors.
             A perspective on how geopolitical shocks and crude price spikes create short-term volatility but
             historically present long-term opportunities for equity investors.
           </div>
@@ -507,9 +510,9 @@
           <h3 class="card-title">Newsletter - Feb - 2026</h3>
 
           <div class="card-meta">
-            <span class="meta-item"><i class="far fa-calendar-alt"></i> February 2026</span>
+            <span class="meta-item"><i class="far fa-calendar-alt"></i>February 2026</span>
             <span class="meta-item"><i class="far fa-clock"></i> 8 min read</span>
-            <span class="meta-item"><i class="far fa-user"></i> Vignesh</span>
+            <span class="meta-item"><i class="far fa-user"></i>Vignesh</span>
           </div>
 
           <div class="card-desc">
@@ -518,21 +521,22 @@
             current economic cycle.
           </div>
 
-          <a class="download-card-btn" href="assets/pdf/Feb-2026_Newsletter.pdf" target="_blank"
-            download="Feb-2026_Newsletter.pdf">
-            <i class="fas fa-file-pdf"></i> Download full newsletter
-          </a>
+          <button class="download-card-btn" id="downloadSecondBtn">
+            <i class="fas fa-file-pdf"></i> Download full newsletter (PDF)
+          </button>
 
         </div>
+
+
         <!-- THIRD CARD -->
         <div class="duo-card">
 
           <h3 class="card-title">Index Target For 2026</h3>
 
           <div class="card-meta">
-            <span class="meta-item"><i class="far fa-calendar-alt"></i> January 2026</span>
-            <span class="meta-item"><i class="far fa-clock"></i> 8 min read</span>
-            <span class="meta-item"><i class="far fa-user"></i> Vignesh</span>
+            <span class="meta-item"><i class="far fa-calendar-alt"></i>Jan 2026</span>
+            <span class="meta-item"><i class="far fa-clock"></i>8 min read</span>
+            <span class="meta-item"><i class="far fa-user"></i>Vignesh</span>
           </div>
 
           <div class="card-desc">
@@ -541,12 +545,13 @@
             diverge from actual market outcomes.
           </div>
 
-          <a class="download-card-btn" href="assets/pdf/Jan-2026_Newsletter.pdf" target="_blank"
-            download="Jan-2026_Newsletter.pdf">
-            <i class="fas fa-file-pdf"></i> Download full newsletter
-          </a>
+          <button class="download-card-btn" id="downloadThirdBtn">
+            <i class="fas fa-file-pdf"></i> Download full newsletter (PDF)
+          </button>
 
         </div>
+
+
 
         <!-- SECOND CARD: (another 6 columns) creative studio / ethics theme -->
         <!-- <div class="duo-card" id="cardStudio">
@@ -1424,41 +1429,217 @@
                 </p>
 
               </div>
-
-
-
-              <!-- Copyright -->
-
-              <div class="copyright-mobile text-center mt-3">
-
-                <p>&copy; 2025 Harmoney FinServ India Private Limited.</p>
-
-                <p class="small">All rights reserved.</p>
-
-              </div>
-
             </div>
-
           </div>
-
           <!-- End Mobile Footer -->
-
           <!-- End Mobile Footer -->
-
-
 
         </div>
-
       </div>
-
     </div>
-
   </footer>
 
 
+  <script src="https://www.happynessfactory.in/js/app.js?v=SCM2.8.5.18"></script>
+  <script src="https://www.happynessfactory.in/js/custom.js?v=SCM2.8.5.18"></script>
+  <script src="https://www.happynessfactory.in/js/activity.js"></script>
+  <script src="https://unpkg.com/phosphor-icons" async defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" async defer></script>
+  <script src="https://www.happynessfactory.in/assets/js/jquery.confirm.min.js"></script>
+  <script src="https://www.happynessfactory.in/assets/js/mask/jquery.mask.min.js"></script>
+  <script src="https://www.happynessfactory.in/assets/js/mask/jquery.inputmask.bundle.min.js"></script>
 
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function openAccessibilityPanel() {
+      document.getElementById("accessibilityPanel").classList.add("open");
+    }
+
+    function closeAccessibilityPanel() {
+      document.getElementById("accessibilityPanel").classList.remove("open");
+    }
+  </script>
+
+
+
+  <script>
+    (function () {
+      // ----- LIKE functionality (both cards) -----
+      function handleLike(btn) {
+        const card = btn.dataset.card; // 'deep' or 'studio'
+        const icon = btn.querySelector('i');
+        const countSpan = btn.querySelector('.like-count');
+        let count = parseInt(countSpan.innerText);
+
+        if (!btn.classList.contains('liked')) {
+          // change to filled heart
+          icon.classList.remove('far');
+          icon.classList.add('fas');
+          // set gradient color to heart via style (override if needed)
+          icon.style.background = 'linear-gradient(135deg, #ff3b5c, #ff1a4c)';
+          icon.style.webkitBackgroundClip = 'text';
+          icon.style.webkitTextFillColor = '#ff3050';
+          btn.classList.add('liked');
+          count += 1;
+        } else {
+          icon.classList.remove('fas');
+          icon.classList.add('far');
+          icon.style.background = ''; // revert to default gradient on hover etc
+          icon.style.webkitTextFillColor = '';
+          btn.classList.remove('liked');
+          count -= 1;
+        }
+        countSpan.innerText = count;
+      }
+
+      document.querySelectorAll('.like-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          handleLike(this);
+        });
+      });
+
+      // ----- SHARE (dummy) -----
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', () => alert('🔗 Link copied (demo): https://deepdive.xyz/issue12'));
+      });
+
+      // ----- COMMENT toggle -----
+      document.querySelectorAll('.comment-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          const targetId = this.dataset.target; // 'commentDeep' or 'commentStudio'
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.classList.toggle('visible');
+          }
+        });
+      });
+
+      // ----- POST comment (dummy) + increase badge -----
+      document.querySelectorAll('.post-comment').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const card = this.dataset.card; // 'deep' or 'studio'
+          const commentSection = document.getElementById(card === 'deep' ? 'commentDeep' : 'commentStudio');
+          const input = commentSection.querySelector('input');
+          const newCommentText = input.value.trim() || 'cool stuff';
+
+          const mock = document.createElement('div');
+          mock.className = 'mock-comment';
+          mock.innerHTML = `<i class="fas fa-user-smile" style="color:#0057a4;"></i> <strong>@you:</strong> ${newCommentText}`;
+          // insert after comment-row (before existing mock comments)
+          commentSection.insertBefore(mock, commentSection.querySelector('.comment-row').nextSibling);
+          input.value = '';
+
+          // increment comment badge for corresponding card
+          const badge = document.getElementById(card === 'deep' ? 'deepCommentBadge' : 'studioCommentBadge');
+          if (badge) {
+            let current = parseInt(badge.innerText) || 0;
+            badge.innerText = current + 1;
+          }
+        });
+      });
+
+      // ----- SUBSCRIBE button (with gradient) -----
+      document.querySelectorAll('.sub-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          alert('✅ Subscribed to newsletter (demo)');
+          this.innerHTML = '<i class="fas fa-check-circle"></i><span> Subscribed</span>';
+        });
+      });
+
+      // ----- DOWNLOAD buttons (simulate pdf) -----
+      function downloadDummy(filename) {
+        const dummyContent = `THE DEEP DIVE · ${filename}\n\nFull newsletter content: interviews, worksheets, sketches, and exclusive discount.`;
+        const blob = new Blob([dummyContent], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename + '_dummy.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+
+
+      // March Newsletter
+      document.getElementById("downloadDeepBtn").addEventListener("click", function () {
+
+        window.open("assets/pdf/March-2026_Newsletter.pdf", "_blank");
+
+        this.innerHTML = '<i class="fas fa-check"></i> PDF started';
+
+        setTimeout(() => {
+          this.innerHTML = '<i class="fas fa-file-pdf"></i> Download full newsletter (PDF)';
+        }, 2000);
+
+      });
+
+
+      // February Newsletter
+      document.getElementById("downloadSecondBtn").addEventListener("click", function () {
+
+        window.open("assets/pdf/Feb-2026_Newsletter.pdf", "_blank");
+
+        this.innerHTML = '<i class="fas fa-check"></i> PDF started';
+
+        setTimeout(() => {
+          this.innerHTML = '<i class="fas fa-file-pdf"></i> Download full newsletter (PDF)';
+        }, 2000);
+
+      });
+
+
+      // January Newsletter
+      document.getElementById("downloadThirdBtn").addEventListener("click", function () {
+
+        window.open("assets/pdf/Jan-2026_Newsletter.pdf", "_blank");
+
+        this.innerHTML = '<i class="fas fa-check"></i> PDF started';
+
+        setTimeout(() => {
+          this.innerHTML = '<i class="fas fa-file-pdf"></i> Download full newsletter (PDF)';
+        }, 2000);
+
+      });
+
+      document.getElementById('downloadStudioBtn').addEventListener('click', function () {
+        downloadDummy('creative_studio');
+        this.innerHTML = '<i class="fas fa-check"></i> PDF started';
+        setTimeout(() => {
+          this.innerHTML = '<i class="fas fa-file-pdf"></i> Download studio PDF';
+        }, 2000);
+      });
+
+      document.getElementById('footerDummyDL').addEventListener('click', function () {
+        downloadDummy('sample_extra');
+      });
+
+      // ----- mini row interactions (like/share/sub) -----
+      document.querySelectorAll('.mini-like').forEach(el => {
+        el.addEventListener('click', function () {
+          this.classList.toggle('fas');
+          this.classList.toggle('far');
+          if (this.classList.contains('fas')) this.style.color = '#ff3050';
+          else this.style.color = '';
+        });
+      });
+      document.querySelectorAll('.mini-share').forEach(el => {
+        el.addEventListener('click', () => alert('📤 sharing options (demo)'));
+      });
+      document.querySelectorAll('.mini-sub').forEach(el => {
+        el.addEventListener('click', function () {
+          alert('✨ mini subscribe');
+          this.classList.remove('far');
+          this.classList.add('fas');
+        });
+      });
+
+    })();
+  </script>
 </body>
-
-
 
 </html>
