@@ -55,8 +55,57 @@
         gtag('js', new Date());
         gtag('config', 'G-KM3PJ686KV');
     </script>
-
     <style>
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hf_heading01 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0097da;
+        }
+
+        .hf_primary {
+            color: #93c5fd;
+        }
+
+        .hf_heading04 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            color: #333333;
+        }
+
+        .about-header {
+            background-color: linear-gradient(135deg, #1a3a5f 0%, #2563eb 100%);
+            background-color: #c2e7fa !important;
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+
+            .about-header {
+                padding: 80px 0 60px;
+            }
+        }
+
+        @media (max-width: 991px) and (min-width: 768px) {
+
+            .container {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+        }
+
+
         body {
             font-family: Arial, sans-serif;
             /* background:#f4efe6; */
@@ -130,18 +179,31 @@
             background: #1e88b6;
         }
 
+        /* Table container for horizontal scroll on mobile */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
             font-size: 13px;
+            min-width: 600px;
+            /* Ensures table doesn't shrink too much on mobile */
         }
 
         table th,
         table td {
             border: 1px solid #ddd;
-            padding: 6px;
+            padding: 8px;
             text-align: center;
+            white-space: nowrap;
+            /* Prevents text wrapping in cells */
         }
 
         table th {
@@ -156,6 +218,11 @@
             text-align: center;
         }
 
+        .section-title td {
+            white-space: normal;
+            /* Allow section titles to wrap */
+        }
+
         .note {
             font-size: 13px;
             margin-top: 20px;
@@ -167,10 +234,110 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        @media(max-width:480px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-row button {
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hf_heading01 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0097da;
+        }
+
+        .hf_primary {
+            color: #93c5fd;
+        }
+
+        .hf_heading04 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            color: #333333;
+        }
+
+        .about-header {
+            background-color: linear-gradient(135deg, #1a3a5f 0%, #2563eb 100%);
+            background-color: #c2e7fa !important;
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+
+            .about-header {
+                padding: 80px 0 60px;
+            }
+        }
+
+        @media (max-width: 991px) and (min-width: 768px) {
+
+            .container {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Style for formatted capital display */
+        .capital-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .capital-wrapper input {
+            flex: 1;
+        }
+
+        .capital-format-hint {
+            font-size: 12px;
+            color: #555;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .content-row {
+                flex-direction: column;
+            }
+
+            .hf_heading01 {
+                font-size: 2rem;
+            }
+
+            .hf_heading02 {
+                font-size: 1.5rem;
+            }
+
+        }
     </style>
 </head>
 
-<body>
+<body style="margin:0;padding:0;background:#e9edf2;">
     <header>
         <!-- Top nav for desktop -->
         <div class="d-sm-block d-none">
@@ -452,550 +619,972 @@
         <!-- End top navigation for mobile -->
         <!-- End top navigation for mobile -->
     </header>
+    <!-- Outer wrapper -->
+    <!-- <div class="newsletter-header">
+    <div class="container">
+      <h1 class="card-title">Newsletter Harmoney</h1>
+      <p class="hf_heading04">Assisting you in achieving abundance in wealth leading to financial freedom</p>
+    </div>
+  </div> -->
+    <!-- Header Section -->
+    <header class="about-header">
+        <div class="container">
+            <h1 class="hf_heading01">PMS Fee Calculator</h1>
+            <p class="hf_heading04">Harmoney Calculator</p>
+        </div>
+    </header>
+    <!-- this container represents the area between your header & footer -->
     <section style="padding: 30px;">
-        <h1>PMS Fee Calculator</h1>
+
+        <!-- <h1>PMS Fee Calculator</h1> -->
+
+
 
         <div class="card">
+
             <div class="grid">
 
+
+
                 <div>
+
                     <label>Capital Contribution (₹)</label>
-                    <input type="number" id="capital" value="10000000">
+
+                    <input type="text" id="capital_display" value="50,00,000" placeholder="e.g., 10,000,000">
+
+                    <input type="hidden" id="capital" value="10000000">
+
+                    <!-- <div class="capital-format-hint">Auto separated format (e.g., 50,00,000)</div>  -->
+                    <!-- Use comma -->
+
                 </div>
 
+
+
                 <div>
+
                     <label>Management Fee (%)</label>
-                    <input type="number" id="mgmt" value="1.5">
+
+                    <input type="number" id="mgmt" value="1.5" min="0" max="3" step="0.25">
+
                 </div>
 
+
+
                 <div>
+
                     <label>Other Expenses (%)</label>
-                    <input type="number" id="other" value="0.5">
+
+                    <input type="number" id="other" value="0.5" min="0" max="0.5" step="0.25">
+
                 </div>
 
+
+
                 <div>
+
                     <label>Performance Fee (%)</label>
-                    <input type="number" id="perf" value="15">
+
+                    <input type="number" id="perf" value="15" min="0" max="20" step="1">
+
                 </div>
 
+
+
                 <div>
+
                     <label>Hurdle Rate (%)</label>
-                    <input type="number" id="hurdle" value="10">
+
+                    <input type="number" id="hurdle" value="10" min="0" max="15" step="1">
+
                 </div>
 
+
+
                 <div>
+
                     <label>Brokerage (%)</label>
-                    <input type="number" id="brokerage" value="0.2">
+
+                    <input type="number" id="brokerage" value="0.2" min="0" max="0.5" step="0.1">
+
                 </div>
 
+
+
                 <div>
+
                     <label>Gain per Year (%)</label>
-                    <input type="number" id="gain" value="20">
+
+                    <input type="number" id="gain" value="20" min="0" max="100" step="5">
+
                 </div>
+
+
 
             </div>
+
+
 
             <br>
 
+
+
             <div class="btn-row">
-                <button onclick="calculate()">Submit</button>
+
+                <button onclick="parseCapitalAndCalculate()">Submit</button>
+
                 <button onclick="resetForm()">Reset</button>
+
                 <button onclick="downloadTemplate()">Download Excel Template</button>
+
             </div>
+
+
 
             <br><br>
 
+
+
             <!-- <label>Upload Excel:</label>
+
             <input type="file" onchange="readExcel(event)"> -->
 
+
+
         </div>
+
+
+
 
 
         <div id="resultSection" class="card" style="display:none;">
-            <h2>Illustration (5 Years Detailed)</h2>
-            <div id="tableContainer"></div>
-            <br>
-            <button onclick="downloadPDF()">Download PDF</button>
 
-            <div class="note">
-                <b>Notes:</b><br>
-                1. Management fee assumed annual.<br>
-                2. Brokerage calculated on average AUM.<br>
-                3. Performance fee charged only above High Water Mark & Hurdle.<br>
-                4. High Water Mark carried forward annually.<br>
-                5. Illustration purpose only.
+            <h2>Illustration (5 Years Detailed)</h2>
+
+            <!-- Table container with horizontal scroll -->
+            <div class="table-responsive">
+                <div id="tableContainer"></div>
             </div>
 
+            <br>
+
+            <button onclick="downloadPDF()">Download PDF</button>
+
+
+
+            <div class="note">
+
+                <b>Notes:</b><br>
+
+                1. Management fee assumed annual.<br>
+
+                2. Brokerage calculated on average AUM.<br>
+
+                3. Performance fee charged only above High Water Mark & Hurdle.<br>
+
+                4. High Water Mark carried forward annually.<br>
+
+                5. Illustration purpose only.
+
+            </div>
+
+
+
         </div>
+
+
+
 
 
         <div id="formulaSection" class="card" style="display:none;">
+
             <h3>Formula Explanation</h3>
 
+
+
             i = Opening NAV<br>
+
             ii = Gain = i × Return %<br>
+
             iii = Gross Value = i + ii<br>
+
             iv = Average AUM = (i + iii) / 2<br>
+
             v = Other Expense = iv × Other %<br>
+
             vi = Brokerage = iv × Brokerage %<br>
+
             vii = Management Fee = iv × Mgmt %<br>
+
             viii = Total Charges = v + vi + vii<br>
+
             ix = Value Before Performance Fee = iii − viii<br>
+
             x = Hurdle Value = i × (1 + Hurdle %)<br>
+
             xi = Performance Fee = (ix − max(HWM, x)) × Perf %<br>
+
             xii = Net Portfolio = ix − xi<br>
 
+
+
         </div>
+
+
+
 
 
     </section>
 
+
+
+    <script src="https://www.happynessfactory.in/js/app.js?v=SCM2.8.5.18"></script>
+    <script src="https://www.happynessfactory.in/js/custom.js?v=SCM2.8.5.18"></script>
+    <script src="https://www.happynessfactory.in/js/activity.js"></script>
+    <script src="https://unpkg.com/phosphor-icons" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" async defer></script>
+    <script src="https://www.happynessfactory.in/assets/js/jquery.confirm.min.js"></script>
+    <script src="https://www.happynessfactory.in/assets/js/mask/jquery.mask.min.js"></script>
+    <script src="https://www.happynessfactory.in/assets/js/mask/jquery.inputmask.bundle.min.js"></script>
+
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        function openAccessibilityPanel() {
+            document.getElementById("accessibilityPanel").classList.add("open");
+        }
+
+        function closeAccessibilityPanel() {
+            document.getElementById("accessibilityPanel").classList.remove("open");
+        }
+    </script>
+
+
+
+    <script>
+        (function () {
+            // ----- LIKE functionality (both cards) -----
+            function handleLike(btn) {
+                const card = btn.dataset.card; // 'deep' or 'studio'
+                const icon = btn.querySelector('i');
+                const countSpan = btn.querySelector('.like-count');
+                let count = parseInt(countSpan.innerText);
+
+                if (!btn.classList.contains('liked')) {
+                    // change to filled heart
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    // set gradient color to heart via style (override if needed)
+                    icon.style.background = 'linear-gradient(135deg, #ff3b5c, #ff1a4c)';
+                    icon.style.webkitBackgroundClip = 'text';
+                    icon.style.webkitTextFillColor = '#ff3050';
+                    btn.classList.add('liked');
+                    count += 1;
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.background = ''; // revert to default gradient on hover etc
+                    icon.style.webkitTextFillColor = '';
+                    btn.classList.remove('liked');
+                    count -= 1;
+                }
+                countSpan.innerText = count;
+            }
+
+            document.querySelectorAll('.like-btn').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    handleLike(this);
+                });
+            });
+
+            // ----- SHARE (dummy) -----
+            document.querySelectorAll('.share-btn').forEach(btn => {
+                btn.addEventListener('click', () => alert('🔗 Link copied (demo): https://deepdive.xyz/issue12'));
+            });
+
+            // ----- COMMENT toggle -----
+            document.querySelectorAll('.comment-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const targetId = this.dataset.target; // 'commentDeep' or 'commentStudio'
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.toggle('visible');
+                    }
+                });
+            });
+
+            // ----- POST comment (dummy) + increase badge -----
+            document.querySelectorAll('.post-comment').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const card = this.dataset.card; // 'deep' or 'studio'
+                    const commentSection = document.getElementById(card === 'deep' ? 'commentDeep' : 'commentStudio');
+                    const input = commentSection.querySelector('input');
+                    const newCommentText = input.value.trim() || 'cool stuff';
+
+                    const mock = document.createElement('div');
+                    mock.className = 'mock-comment';
+                    mock.innerHTML = `<i class="fas fa-user-smile" style="color:#0057a4;"></i> <strong>@you:</strong> ${newCommentText}`;
+                    // insert after comment-row (before existing mock comments)
+                    commentSection.insertBefore(mock, commentSection.querySelector('.comment-row').nextSibling);
+                    input.value = '';
+
+                    // increment comment badge for corresponding card
+                    const badge = document.getElementById(card === 'deep' ? 'deepCommentBadge' : 'studioCommentBadge');
+                    if (badge) {
+                        let current = parseInt(badge.innerText) || 0;
+                        badge.innerText = current + 1;
+                    }
+                });
+            });
+
+            // ----- SUBSCRIBE button (with gradient) -----
+            document.querySelectorAll('.sub-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    alert('✅ Subscribed to newsletter (demo)');
+                    this.innerHTML = '<i class="fas fa-check-circle"></i><span> Subscribed</span>';
+                });
+            });
+
+            // ----- DOWNLOAD buttons (simulate pdf) -----
+            function downloadDummy(filename) {
+                const dummyContent = `THE DEEP DIVE · ${filename}\n\nFull newsletter content: interviews, worksheets, sketches, and exclusive discount.`;
+                const blob = new Blob([dummyContent], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename + '_dummy.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+
+            document.getElementById('downloadDeepBtn').addEventListener('click', function () {
+                downloadDummy('deepdive_issue12');
+                this.innerHTML = '<i class="fas fa-check"></i> PDF started';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-file-pdf"></i> Download full newsletter (PDF)';
+                }, 2000);
+            });
+
+            document.getElementById('downloadStudioBtn').addEventListener('click', function () {
+                downloadDummy('creative_studio');
+                this.innerHTML = '<i class="fas fa-check"></i> PDF started';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-file-pdf"></i> Download studio PDF';
+                }, 2000);
+            });
+
+            document.getElementById('footerDummyDL').addEventListener('click', function () {
+                downloadDummy('sample_extra');
+            });
+
+            // ----- mini row interactions (like/share/sub) -----
+            document.querySelectorAll('.mini-like').forEach(el => {
+                el.addEventListener('click', function () {
+                    this.classList.toggle('fas');
+                    this.classList.toggle('far');
+                    if (this.classList.contains('fas')) this.style.color = '#ff3050';
+                    else this.style.color = '';
+                });
+            });
+            document.querySelectorAll('.mini-share').forEach(el => {
+                el.addEventListener('click', () => alert('📤 sharing options (demo)'));
+            });
+            document.querySelectorAll('.mini-sub').forEach(el => {
+                el.addEventListener('click', function () {
+                    alert('✨ mini subscribe');
+                    this.classList.remove('far');
+                    this.classList.add('fas');
+                });
+            });
+
+        })();
+    </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+
 
     <script>
 
+
+
         let tableDataGlobal = [];
 
-        // function calculate(){
 
-        // let capital = parseFloat(document.getElementById("capital").value);
-        // let mgmt = parseFloat(document.getElementById("mgmt").value)/100;
-        // let other = parseFloat(document.getElementById("other").value)/100;
-        // let perf = parseFloat(document.getElementById("perf").value)/100;
-        // let hurdle = parseFloat(document.getElementById("hurdle").value)/100;
-        // let brokerage = parseFloat(document.getElementById("brokerage").value)/100;
-        // let gain = parseFloat(document.getElementById("gain").value)/100;
 
-        // let opening = capital;
-        // let hwm = capital;
-        // let years = 5;
+        // Helper to format number with commas (Indian numbering system)
+        function formatIndianNumber(num) {
+            if (num === undefined || num === null || isNaN(num)) return "0";
+            // Convert to number if it's a string
+            let n = typeof num === 'string' ? parseFloat(num.replace(/,/g, '')) : num;
+            if (isNaN(n)) return "0";
 
-        // let table = `
-        // <table>
-        // <tr>
-        // <th>Year</th>
-        // <th>Opening</th>
-        // <th>Gross</th>
-        // <th>Avg AUM</th>
-        // <th>Other Exp</th>
-        // <th>Brokerage</th>
-        // <th>Mgmt Fee</th>
-        // <th>Total Charges</th>
-        // <th>Hurdle</th>
-        // <th>Perf Fee</th>
-        // <th>Net</th>
-        // <th>HWM</th>
-        // </tr>`;
+            // Use toLocaleString with 'en-IN' for Indian formatting
+            return n.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+        }
 
-        // tableDataGlobal = [];
+        // Helper to parse comma separated capital
 
-        // for(let i=1;i<=years;i++){
+        function parseCapitalFromDisplay() {
 
-        // let gross = opening * (1+gain);
-        // let avgAUM = (opening + gross)/2;
+            let displayVal = document.getElementById("capital_display").value;
 
-        // let otherExp = avgAUM * other;
-        // let brokerageFee = avgAUM * brokerage;
-        // let mgmtFee = avgAUM * mgmt;
+            // Remove all commas
 
-        // let totalCharges = otherExp + brokerageFee + mgmtFee;
+            let raw = displayVal.replace(/,/g, '');
 
-        // let beforePerf = gross - totalCharges;
+            let num = parseFloat(raw);
 
-        // let hurdleValue = opening * (1+hurdle);
+            if (isNaN(num)) num = 5000000; // default 50L
 
-        // let compareBase = Math.max(hwm, hurdleValue);
+            // Clamp between 50L and 10Cr
 
-        // let perfFee = 0;
+            num = Math.min(100000000, Math.max(5000000, num));
 
-        // if(beforePerf > compareBase){
-        //     let profitEligible = beforePerf - compareBase;
-        //     perfFee = profitEligible * perf;
-        // }
+            // Round to integer (since it's rupees)
 
-        // let net = beforePerf - perfFee;
+            num = Math.round(num);
 
-        // hwm = Math.max(hwm, net);
+            // Update hidden input
 
-        // table += `<tr>
-        // <td>${i}</td>
-        // <td>${opening.toFixed(0)}</td>
-        // <td>${gross.toFixed(0)}</td>
-        // <td>${avgAUM.toFixed(0)}</td>
-        // <td>${otherExp.toFixed(0)}</td>
-        // <td>${brokerageFee.toFixed(0)}</td>
-        // <td>${mgmtFee.toFixed(0)}</td>
-        // <td>${totalCharges.toFixed(0)}</td>
-        // <td>${hurdleValue.toFixed(0)}</td>
-        // <td>${perfFee.toFixed(0)}</td>
-        // <td>${net.toFixed(0)}</td>
-        // <td>${hwm.toFixed(0)}</td>
-        // </tr>`;
+            document.getElementById("capital").value = num;
 
-        // tableDataGlobal.push([
-        // i,
-        // opening.toFixed(0),
-        // gross.toFixed(0),
-        // avgAUM.toFixed(0),
-        // otherExp.toFixed(0),
-        // brokerageFee.toFixed(0),
-        // mgmtFee.toFixed(0),
-        // totalCharges.toFixed(0),
-        // hurdleValue.toFixed(0),
-        // perfFee.toFixed(0),
-        // net.toFixed(0),
-        // hwm.toFixed(0)
-        // ]);
+            // Format display with commas (Indian grouping)
 
-        // opening = net;
-        // }
+            document.getElementById("capital_display").value = formatIndianNumber(num);
 
-        // table += "</table>";
+            return num;
 
-        // document.getElementById("tableContainer").innerHTML = table;
-        // document.getElementById("resultSection").style.display = "block";
-        // document.getElementById("formulaSection").style.display = "block";
-        // }
+        }
+
+
+
+        // Attach event listener for capital input formatting
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            let capDisplay = document.getElementById("capital_display");
+
+            capDisplay.addEventListener('blur', function () {
+
+                parseCapitalFromDisplay();
+
+            });
+            // Also format on page load and set up input constraints
+            parseCapitalFromDisplay();
+
+
+
+            // Set step/limits for all inputs (already in html, but ensure)
+
+            // Additional enforcement for other fields
+
+        });
+
+
+
+        function parseCapitalAndCalculate() {
+
+            parseCapitalFromDisplay(); // ensure capital synced
+
+            calculate();
+
+        }
+
 
 
         function calculate() {
 
+
+
             let capital = parseFloat(document.getElementById("capital").value);
+
             let mgmt = parseFloat(document.getElementById("mgmt").value) / 100;
+
             let other = parseFloat(document.getElementById("other").value) / 100;
+
             let perf = parseFloat(document.getElementById("perf").value) / 100;
+
             let hurdle = parseFloat(document.getElementById("hurdle").value) / 100;
+
             let brokerage = parseFloat(document.getElementById("brokerage").value) / 100;
+
             let gain = parseFloat(document.getElementById("gain").value) / 100;
 
+
+
             let years = 5;
+
             let opening = capital;
+
             let hwm = capital;
 
+
+
             let navRow = [];
+
             let hwmRow = [];
+
             let returnRow = [];
+
             let returnAmtRow = [];
+
             let grossRow = [];
+
             let avgRow = [];
+
             let otherRow = [];
+
             let brokerRow = [];
+
             let mgmtRow = [];
+
             let totalRow = [];
+
             let afterFixedRow = [];
+
             let hurdleRow = [];
+
             let perfRow = [];
+
             let netRow = [];
+
             let netReturnRow = [];
+
             let nextNavRow = [];
+
             let nextHwmRow = [];
+
+
 
             for (let i = 0; i < years; i++) {
 
+
+
                 let gross = opening * (1 + gain);
+
                 let avgAUM = (opening + gross) / 2;
 
+
+
                 let otherExp = avgAUM * other;
+
                 let brokerageFee = avgAUM * brokerage;
+
                 let mgmtFee = avgAUM * mgmt;
 
+
+
                 let totalCharges = otherExp + brokerageFee + mgmtFee;
+
                 let beforePerf = gross - totalCharges;
 
+
+
                 let hurdleValue = opening * (1 + hurdle);
+
                 let compareBase = Math.max(hwm, hurdleValue);
 
+
+
                 let perfFee = 0;
+
                 if (beforePerf > compareBase) {
+
                     perfFee = (beforePerf - compareBase) * perf;
+
                 }
 
+
+
                 let net = beforePerf - perfFee;
+
                 let netReturn = ((net - opening) / opening) * 100;
+
+
 
                 let nextHwm = Math.max(hwm, net);
 
-                navRow.push(opening.toFixed(0));
-                hwmRow.push(hwm.toFixed(0));
+                // Format all Rupee values using formatIndianNumber
+                navRow.push(formatIndianNumber(opening));
+                hwmRow.push(formatIndianNumber(hwm));
                 returnRow.push((gain * 100).toFixed(0) + "%");
-                returnAmtRow.push((gross - opening).toFixed(0));
-                grossRow.push(gross.toFixed(0));
-                avgRow.push(avgAUM.toFixed(0));
-                otherRow.push(otherExp.toFixed(0));
-                brokerRow.push(brokerageFee.toFixed(0));
-                mgmtRow.push(mgmtFee.toFixed(0));
-                totalRow.push(totalCharges.toFixed(0));
-                afterFixedRow.push(beforePerf.toFixed(0));
-                hurdleRow.push(hurdleValue.toFixed(0));
-                perfRow.push(perfFee.toFixed(0));
-                netRow.push(net.toFixed(0));
+                returnAmtRow.push(formatIndianNumber(gross - opening));
+                grossRow.push(formatIndianNumber(gross));
+                avgRow.push(formatIndianNumber(avgAUM));
+                otherRow.push(formatIndianNumber(otherExp));
+                brokerRow.push(formatIndianNumber(brokerageFee));
+                mgmtRow.push(formatIndianNumber(mgmtFee));
+                totalRow.push(formatIndianNumber(totalCharges));
+                afterFixedRow.push(formatIndianNumber(beforePerf));
+                hurdleRow.push(formatIndianNumber(hurdleValue));
+                perfRow.push(formatIndianNumber(perfFee));
+                netRow.push(formatIndianNumber(net));
                 netReturnRow.push(netReturn.toFixed(2) + "%");
-                nextNavRow.push(net.toFixed(0));
-                nextHwmRow.push(nextHwm.toFixed(0));
+                nextNavRow.push(formatIndianNumber(net));
+                nextHwmRow.push(formatIndianNumber(nextHwm));
+
+
 
                 opening = net;
+
                 hwm = nextHwm;
+
             }
+
+
 
             let yearsHeader = "";
+
             for (let i = 1; i <= years; i++) {
+
                 yearsHeader += `<th>Year ${i}</th>`;
+
             }
 
+
+
             let makeRow = (title, arr) => {
+
                 return `<tr><td style="text-align:left;font-weight:500;">${title}</td>${arr.map(v => `<td>${v}</td>`).join("")}</tr>`;
+
             };
 
+
+
             let table = `
+
 <table>
+
 <tr>
+
 <th>Returns during the year</th>
+
 ${yearsHeader}
+
 </tr>
 
+
+
 <tr class="section-title">
+
 <td colspan="${years + 1}">AT THE BEGINNING OF THE YEAR</td>
+
 </tr>
+
+
 
 ${makeRow("NAV at Beginning of Period (₹)", navRow)}
+
 ${makeRow("High Water Mark (HWM) (₹)", hwmRow)}
 
+
+
 <tr class="section-title">
+
 <td colspan="${years + 1}">DURING THE YEAR</td>
+
 </tr>
+
+
 
 ${makeRow("Return During the Year (%)", returnRow)}
+
 ${makeRow("Return amount during the year (₹)", returnAmtRow)}
+
 ${makeRow("Gross Portfolio Value at End of Year (₹)", grossRow)}
+
 ${makeRow("Average AUM (₹)", avgRow)}
+
 ${makeRow("Other Expenses (₹)", otherRow)}
+
 ${makeRow("Brokerage and Transaction cost (₹)", brokerRow)}
+
 ${makeRow("Management Fees (₹)", mgmtRow)}
+
 ${makeRow("Total charges during the year (₹)", totalRow)}
+
 ${makeRow("Portfolio Value after fixed Management Fees (₹)", afterFixedRow)}
+
 ${makeRow("Hurdle Rate of return (₹)", hurdleRow)}
+
 ${makeRow("Profit Share To be taken by PMS (₹)", perfRow)}
 
+
+
 <tr class="section-title">
+
 <td colspan="${years + 1}">AT THE END OF THE YEAR</td>
+
 </tr>
 
+
+
 ${makeRow("Net Portfolio at End of Year (₹)", netRow)}
+
 ${makeRow("Net return to client (%)", netReturnRow)}
+
 ${makeRow("Beginning NAV for Next Year (₹)", nextNavRow)}
+
 ${makeRow("High Water Mark for Next Year (₹)", nextHwmRow)}
 
+
+
 </table>
+
 `;
 
+
+
             document.getElementById("tableContainer").innerHTML = table;
+
             document.getElementById("resultSection").style.display = "block";
+
             document.getElementById("formulaSection").style.display = "block";
+
         }
+
+
 
         function resetForm() {
+
             location.reload();
+
         }
 
-        // function downloadPDF(){
-
-        // const { jsPDF } = window.jspdf;
-        // const doc = new jsPDF("landscape");
-
-        // doc.setFontSize(16);
-        // doc.text("PMS Fee Illustration", 14, 15);
-
-        // doc.setFontSize(10);
-        // doc.text("Detailed Multi-Year Illustration with High Water Mark & Hurdle Logic", 14, 22);
-
-        // // ===== TABLE =====
-        // doc.autoTable({
-        //     startY: 30,
-        //     head:[["Year","Opening","Gross","Avg AUM","Other Exp","Brokerage","Mgmt Fee","Total Charges","Hurdle","Perf Fee","Net","HWM"]],
-        //     body: tableDataGlobal,
-        //     styles:{ fontSize:8 },
-        //     headStyles:{ fillColor:[1,150,216] }
-        // });
-
-        // // ===== GET LAST Y POSITION AFTER TABLE =====
-        // let finalY = doc.lastAutoTable.finalY + 10;
-
-        // // ===== NOTES SECTION =====
-        // doc.setFontSize(12);
-        // doc.text("Notes / Disclaimer:", 14, finalY);
-
-        // doc.setFontSize(9);
-
-        // let notes = [
-        // "1. Management fee assumed annual.",
-        // "2. Brokerage calculated on average AUM.",
-        // "3. Performance fee charged only above High Water Mark & Hurdle.",
-        // "4. High Water Mark carried forward annually.",
-        // "5. Returns assumed constant for illustration.",
-        // "6. This calculation is only for illustration purpose and may differ from actual PMS agreement."
-        // ];
-
-        // doc.text(notes, 14, finalY + 6);
-
-        // // ===== FORMULA SECTION =====
-        // let formulaStartY = finalY + 40;
-
-        // if(formulaStartY > 180){ 
-        //     doc.addPage("landscape");
-        //     formulaStartY = 20;
-        // }
-
-        // doc.setFontSize(12);
-        // doc.text("Formula Explanation:", 14, formulaStartY);
-
-        // doc.setFontSize(9);
-
-        // let formulas = [
-        // "i = Opening NAV",
-        // "ii = Gain = i × Return %",
-        // "iii = Gross Value = i + ii",
-        // "iv = Average AUM = (i + iii) / 2",
-        // "v = Other Expense = iv × Other %",
-        // "vi = Brokerage = iv × Brokerage %",
-        // "vii = Management Fee = iv × Mgmt %",
-        // "viii = Total Charges = v + vi + vii",
-        // "ix = Value Before Performance Fee = iii − viii",
-        // "x = Hurdle Value = i × (1 + Hurdle %)",
-        // "xi = Performance Fee = (ix − max(HWM, x)) × Perf %",
-        // "xii = Net Portfolio = ix − xi"
-        // ];
-
-        // doc.text(formulas, 14, formulaStartY + 6);
-
-        // // ===== FOOTER =====
-        // doc.setFontSize(8);
-        // doc.text("Generated by PMS Hybrid Fee Calculator", 14, 200);
-
-        // doc.save("PMS_Fee_Illustration.pdf");
-        // }
 
 
         function downloadPDF() {
 
+
+
             if (!document.querySelector("#tableContainer table")) {
+
                 alert("Please calculate first before downloading PDF.");
+
                 return;
+
             }
 
+
+
             const { jsPDF } = window.jspdf;
-            const doc = new jsPDF("landscape");
+
+            const doc = new jsPDF({
+
+                orientation: "landscape",
+
+                unit: "mm",
+
+                format: "a4"
+
+            });
+
+
 
             // ===== USE STANDARD FONT =====
+
             doc.setFont("helvetica", "normal");
+
             doc.setFontSize(16);
-            doc.text("PMS Fee Illustration", 14, 15);
+
+            doc.text("PMS Fee Illustration", 14, 10);
+
+
 
             doc.setFontSize(10);
-            doc.text("Detailed Multi-Year Illustration with High Water Mark & Hurdle Logic", 14, 22);
+
+            doc.text("Detailed Multi-Year Illustration with High Water Mark & Hurdle Logic", 14, 17);
+
+
 
             // ===== EXTRACT TABLE MANUALLY =====
+
             let table = document.querySelector("#tableContainer table");
+
             let rows = table.querySelectorAll("tr");
 
+
+
             let head = [];
+
             let body = [];
+
+
 
             rows.forEach((row, index) => {
 
                 let rowData = [];
+
                 row.querySelectorAll("th, td").forEach(cell => {
+
+                    // Get plain text without any HTML styling and ensure minus signs are correct
                     let cleanText = cell.innerText
-                        .replace(/₹/g, "Rs.")
                         .replace(/×/g, "x")
-                        .replace(/−/g, "-");
+                        .replace(/[−–—]/g, "-") // Replace all types of dashes with standard minus
+                        .replace(/₹/g, "Rs.")
+                        .trim();
                     rowData.push(cleanText);
                 });
 
                 if (index === 0) {
+                    // Header row - ensure it has the correct structure
                     head.push(rowData);
                 } else {
                     body.push(rowData);
                 }
             });
 
+            // Ensure we have at least one header row
+            if (head.length === 0) {
+                head.push(["Description", "Year 1", "Year 2", "Year 3", "Year 4", "Year 5"]);
+            }
+
             // ===== TABLE RENDER =====
             doc.autoTable({
-                startY: 30,
+
+                startY: 25,
+
                 head: head,
+
                 body: body,
+
                 theme: "grid",
+
                 styles: {
                     font: "helvetica",
-                    fontSize: 8,
-                    cellPadding: 3
+                    fontSize: 7,
+                    cellPadding: 2,
+                    lineColor: [200, 200, 200],
+                    lineWidth: 0.1,
+                    letterSpacing: 0, // Force normal letter spacing
+                    charSpacing: 0,    // Force normal character spacing
+                    halign: "left"      // Left align all cells by default (like the first column)
                 },
+
                 headStyles: {
                     fillColor: [1, 150, 216],
                     textColor: 255,
                     fontStyle: "bold",
-                    halign: "center"
+                    halign: "center",    // Headers remain centered
+                    fontSize: 7.5,
+                    letterSpacing: 0,
+                    charSpacing: 0
                 },
+
                 columnStyles: {
-                    0: { cellWidth: 70 }
+                    0: { cellWidth: 60, fontStyle: "bold", halign: "left", letterSpacing: 0, charSpacing: 0 }
                 },
 
                 didParseCell: function (data) {
-
-                    const sectionRows = [
+                    // Check if this is a section header cell (colspan in HTML)
+                    const cellText = data.cell.text[0] || "";
+                    const sectionHeaders = [
                         "AT THE BEGINNING OF THE YEAR",
                         "DURING THE YEAR",
                         "AT THE END OF THE YEAR"
                     ];
 
-                    if (sectionRows.includes(data.cell.text[0])) {
-
-                        // make it span across all columns
-                        data.cell.colSpan = head[0].length;
-
-                        // center text
-                        data.cell.styles.halign = "center";
+                    if (sectionHeaders.includes(cellText)) {
+                        // Style section headers
+                        data.cell.styles.fillColor = [230, 230, 230];
+                        data.cell.styles.textColor = [0, 0, 0];
                         data.cell.styles.fontStyle = "bold";
-
-                        // optional background
-                        data.cell.styles.fillColor = [240, 240, 240];
+                        data.cell.styles.halign = "center";  // Section headers centered
+                        data.cell.styles.letterSpacing = 0;
+                        data.cell.styles.charSpacing = 0;
+                        data.cell.colSpan = head[0] ? head[0].length : 6;
                     }
+
+                    // For percentage rows, keep left alignment (removed special centering)
+                    // This ensures "Return During the Year (%)" and "Net return to client (%)" are left-aligned like others
+
+                    // Ensure all cells have normal spacing
+                    data.cell.styles.letterSpacing = 0;
+                    data.cell.styles.charSpacing = 0;
+                },
+
+                didDrawPage: function (data) {
+                    // Add footer on each page
+                    doc.setFontSize(8);
+                    doc.text("Confidential - For Illustration Purpose Only", 14, 190);
                 }
+
             });
 
+
+
             // ===== SPACE AFTER TABLE =====
+
             let finalY = doc.lastAutoTable.finalY + 10;
 
+
+
+            // Check if we need a new page for notes and formulas
+            if (finalY > 150) {
+                doc.addPage("landscape");
+                finalY = 20;
+            }
+
+
+
             // ===== NOTES =====
-            doc.setFontSize(12);
+
+            doc.setFontSize(11);
+            doc.setTextColor(0, 0, 0);
             doc.text("Notes / Disclaimer:", 14, finalY);
 
-            doc.setFontSize(9);
 
-            doc.text([
-                "1. Management fee assumed annual.",
-                "2. Brokerage calculated on average AUM.",
-                "3. Performance fee charged only above High Water Mark & Hurdle.",
-                "4. High Water Mark carried forward annually.",
-                "5. Returns assumed constant for illustration.",
-                "6. This calculation is for illustration purpose only."
-            ], 14, finalY + 6);
+
+            doc.setFontSize(8);
+            const notes = [
+                "1. Management fee is assumed to be charged annually on average AUM.",
+                "2. Brokerage and transaction costs are calculated on average AUM.",
+                "3. Performance fee is charged only when returns exceed both High Water Mark (HWM) and Hurdle Rate.",
+                "4. High Water Mark is carried forward annually and resets only if NAV falls below previous peak.",
+                "5. Returns are assumed constant for illustration purposes only.",
+                "6. This calculation is for illustration purpose only and does not represent actual investment performance."
+            ];
+
+            let noteY = finalY + 6;
+            notes.forEach(note => {
+                doc.text(note, 14, noteY);
+                noteY += 4.5;
+            });
+
+
 
             // ===== FORMULA SECTION =====
-            let formulaStartY = finalY + 45;
 
-            if (formulaStartY > 180) {
+            let formulaStartY = noteY + 8;
+
+
+
+            // Check if we need a new page for formulas
+            if (formulaStartY > 170) {
                 doc.addPage("landscape");
                 formulaStartY = 20;
             }
 
-            doc.setFontSize(12);
+
+
+            doc.setFontSize(11);
             doc.text("Formula Explanation:", 14, formulaStartY);
 
-            doc.setFontSize(9);
 
-            doc.text([
+
+            doc.setFontSize(8);
+            // Use proper minus signs and ensure normal spacing
+            const formulas = [
                 "i = Opening NAV",
                 "ii = Gain = i x Return %",
                 "iii = Gross Value = i + ii",
@@ -1007,405 +1596,792 @@ ${makeRow("High Water Mark for Next Year (₹)", nextHwmRow)}
                 "ix = Value Before Performance Fee = iii - viii",
                 "x = Hurdle Value = i x (1 + Hurdle %)",
                 "xi = Performance Fee = (ix - max(HWM, x)) x Perf %",
-                "xii = Net Portfolio = ix - xi"
-            ], 14, formulaStartY + 6);
+                "xii = Net Portfolio Value = ix - xi",
+                "",
+                "Note: HWM = High Water Mark (previous peak NAV)"
+            ];
+
+            let formulaY = formulaStartY + 6;
+            formulas.forEach(formula => {
+                // Ensure we're using standard ASCII minus sign
+                let cleanFormula = formula.replace(/[−–—]/g, '-');
+                doc.text(cleanFormula, 14, formulaY);
+                formulaY += 4.5;
+            });
+
+
 
             // ===== FOOTER =====
-            doc.setFontSize(8);
-            doc.text("Generated by PMS Hybrid Fee Calculator", 14, 200);
+            doc.setFontSize(7);
+            doc.setTextColor(100, 100, 100);
+            doc.text("Generated by PMS Fee Calculator - Harmoney FinServ India Private Limited", 14, 285);
+            doc.text(new Date().toLocaleDateString('en-IN'), 250, 285);
+
+
 
             doc.save("PMS_Fee_Illustration.pdf");
+
         }
+
+
 
         function readExcel(event) {
 
+
+
             const file = event.target.files[0];
+
             const reader = new FileReader();
 
+
+
             reader.onload = function (e) {
+
                 const data = new Uint8Array(e.target.result);
+
                 const workbook = XLSX.read(data, { type: 'array' });
+
                 const sheet = workbook.Sheets[workbook.SheetNames[0]];
+
                 const json = XLSX.utils.sheet_to_json(sheet);
 
+
+
                 json.forEach(row => {
+
                     if (row.Field === "Capital") capital.value = row.Value;
+
                     if (row.Field === "Management Fee") mgmt.value = row.Value;
+
                     if (row.Field === "Other Expense") other.value = row.Value;
+
                     if (row.Field === "Performance Fee") perf.value = row.Value;
+
                     if (row.Field === "Hurdle Rate") hurdle.value = row.Value;
+
                     if (row.Field === "Brokerage") brokerage.value = row.Value;
+
                     if (row.Field === "Gain") gain.value = row.Value;
+
                 });
 
+
+
                 calculate();
+
             };
 
+
+
             reader.readAsArrayBuffer(file);
+
         }
+
+
 
         function downloadTemplate() {
 
+
+
             const link = document.createElement("a");
+
             link.href = "assets/csv/PMS Fee Illustration.xlsx";
+
             link.download = "PMS_Fee_Illustration_Template.xlsx";
+
             document.body.appendChild(link);
+
             link.click();
+
             document.body.removeChild(link);
+
         }
+
+
 
     </script>
 
     <footer class="footer mt-auto">
+
         <div class="container">
+
             <div class="row">
+
                 <div class="col-sm-12">
 
+
+
                     <!-- Desktop Footer -->
+
                     <div class="footer-links d-none d-sm-block">
+
                         <div class="row">
+
                             <!-- Company Info -->
+
                             <div class="col-sm-3">
+
                                 <div class="footerlink-box">
+
                                     <img src="assets/images/Harmony logo Black.png"
                                         alt="Harmoney FinServ India Private Limited" style="width:210px;">
 
+
+
                                     <div class="social-links mt-3">
+
                                         <a href="#" class=""></a>
+
                                         <div class="toolkit">
+
                                             <a href="https://play.google.com/store/apps" target="_blank"
                                                 class="toolkit-item social-icon" data-tooltip="Linkedin">
+
                                                 <i class="fab fa-linkedin-in"></i>
+
+
 
                                             </a>
 
+
+
                                         </div>
+
                                     </div>
+
                                 </div>
+
                             </div>
+
+
 
                             <!-- Quick Links -->
+
                             <div class="col-sm-2">
+
                                 <div class="footerlink-box">
+
                                     <h5 class="footer-heading">Quick Links</h5>
+
                                     <ul class="navLinks">
+
                                         <li><a href="index.html" class="hf_light hf_bodytext02">Home</a></li>
+
                                         <li><a href="aboutus.html" class="hf_light hf_bodytext02">About Us</a></li>
+
                                         <li><a href="useful-links.html">Useful Links</a></li>
+
                                         <li><a href="contactus.html" class="hf_light hf_bodytext02">Contact Us</a>
+
                                         </li>
+
                                     </ul>
+
                                 </div>
+
                             </div>
+
+
 
                             <!-- Our Services -->
+
                             <div class="col-sm-2">
+
                                 <div class="footerlink-box">
+
                                     <h5 class="footer-heading">Our Services</h5>
+
                                     <ul class="navLinks">
+
                                         <li><a href="our-philosophy.html" class="hf_light hf_bodytext02">Our
+
                                                 Philosophy</a></li>
+
                                         <li><a href="what-we-do.html" class="hf_light hf_bodytext02">What We Do</a>
+
                                         </li>
+
                                         <li><a href="services.html" class="hf_light hf_bodytext02">Services</a></li>
+
                                         <li><a href="team.html" class="hf_light hf_bodytext02">Our Team</a></li>
+
                                     </ul>
+
                                 </div>
+
                             </div>
+
+
 
                             <!-- Special Sections -->
+
                             <div class="col-sm-2">
+
                                 <div class="footerlink-box">
+
                                     <h5 class="footer-heading">Special Sections</h5>
+
                                     <ul class="navLinks">
+
                                         <li><a href="nri-corner.html" class="hf_light hf_bodytext02">NRI Corner</a>
+
                                         </li>
+
                                         <li><a href="careers.html" class="hf_light hf_bodytext02">Careers</a>
+
                                         </li>
+
                                         <li><a href="awards.html" class="hf_light hf_bodytext02">Awards</a>
+
                                         </li>
+
                                     </ul>
+
                                 </div>
+
                             </div>
+
+
 
                             <!-- LEGAL & COMPLIANCE -->
+
                             <div class="col-sm-3">
+
                                 <div class="footerlink-box">
+
                                     <h5 class="footer-heading">Legal & Compliance</h5>
+
                                     <ul class="navLinks">
+
                                         <li><a href="privacy-policy.html" target="_blank"
                                                 class="hf_light hf_bodytext02">Privacy
+
                                                 Policy</a></li>
 
+
+
                                         <li><a href="compliance.html" class="hf_light hf_bodytext02">Compliance</a>
+
                                         </li>
+
                                     </ul>
 
+
+
                                     <div class="contact-info mt-1">
+
                                         <p class="contact-item">
+
                                             <i class="fas fa-envelope"></i>
+
                                             <a href="mailto:support@harmoneywealth.com">
+
                                                 support@harmoneywealth.com </a>
+
                                         </p>
+
                                         <p class="contact-item">
+
                                             <i class="fas fa-phone phone-icon rotated"></i>
+
                                             <a href="callto:080-41125960">
+
                                                 080-41125960 </a>
+
                                         </p>
+
                                     </div>
+
                                 </div>
+
                             </div>
+
                         </div>
 
+
+
                         <!-- Regulatory Information Section -->
+
                         <div class="row regulatory-info mt-4">
+
                             <div class="col-sm-12">
+
                                 <div class="regulatory-section">
+
                                     <h6 class="regulatory-heading">Regulatory Information</h6>
+
                                     <div class="row">
+
                                         <div class="col-sm-10">
+
                                             <div class="reg-container"
                                                 style="display: flex; flex-wrap: wrap; gap: 15px; align-items: center;">
+
                                                 <div class="reg-item">
+
                                                     <strong>SEBI PMS Reg No:INP000003898 |</strong>
+
                                                 </div>
+
                                                 <div class="reg-item">
+
                                                     <strong>IRDA Reg No: CA0336 |</strong>
+
                                                 </div>
+
                                                 <div class="reg-item">
+
                                                     <strong>GST: 29AABCI2919Q1Z0 |</strong>
+
                                                 </div>
+
                                                 <div class="reg-item">
+
                                                     <strong>CIN: U74992KA2002PTC069061 |</strong>
+
                                                 </div>
+
                                                 <div class="reg-item">
+
                                                     <strong>AMFI Distributor: ARN-18080 </strong>
+
                                                 </div>
+
                                             </div>
+
                                             <div class="col-sm-10">
+
                                                 <p class="copyright-text  " style="font-size: 12px;">
+
                                                     Mutual Fund Investments are subject to market risks. Please read
+
                                                     the scheme
+
                                                     information and offer documents before investing. Past
+
                                                     performance is not
+
                                                     indicative of future results
+
                                                 </p>
+
                                                 <p class="copyright-text " style="font-size: 12px;">
+
                                                     Registration granted by SEBI, AMFI and IRDA or any other
+
                                                     regulator in no way
+
                                                     guarantee performance or provide any assurance of returns to
+
                                                     investors. </p>
+
                                             </div>
+
                                         </div>
+
                                         <div class=" col-sm-2"
                                             style="display: flex; flex-direction: column; gap: 20px;">
 
+
+
                                             <!-- Android/Play Store -->
+
                                             <a href="https://play.google.com/store/apps/details?id=com.harmoneywealth"
                                                 target="_blank" class="social-icon" data-tooltip="Play Store">
+
                                                 <img src="assets/images/footer-googleplay.svg" />
+
                                             </a>
+
+
 
                                             <!-- iOS/App Store -->
+
                                             <a href="https://apps.apple.com/in/app/harmoney/id6751745585 "
                                                 target="_blank" class=" social-icon" data-tooltip="App Store">
+
                                                 <img src="assets/images/footer-appstore.svg" />
+
                                             </a>
+
                                         </div>
+
                                     </div>
+
                                 </div>
+
                             </div>
+
                         </div>
+
+
 
                         <!-- Copyright Section -->
+
                         <div class="row footer-bottom mt-2">
+
                             <div class="col-sm-12">
+
                                 <div class="d-flex justify-content-center align-items-center">
+
                                     <p class="copyright-text mb-0">
+
                                         &copy; 2025 Harmoney FinServ India Private Limited. All rights
+
                                         reserved.
+
                                     </p>
+
                                 </div>
+
                             </div>
+
                         </div>
 
+
+
                     </div>
+
                     <!-- End Desktop Footer -->
 
 
+
+
+
                     <!-- Mobile Footer -->
+
                     <!-- Mobile Footer -->
+
                     <div class="m-footerLinks d-block d-sm-none">
+
                         <div class='sidebar-1'>
+
                             <!-- Company Info -->
+
                             <div class="footer-logo" style="padding:10px 0; text-align: center;">
+
                                 <img src="assets/images/Harmony logo Black.png"
                                     alt="Harmoney FinServ India Private Limited" style="width:130px;">
+
                                 <p class="footer-description mt-2">
+
                                     Achieving Harmoney between your financial needs and capabilities.
+
                                 </p>
+
                             </div>
+
+
 
                             <!-- Quick Links -->
+
                             <div class='sidebar-menu'>QUICK LINKS <div class='expand'><i
                                         class="fas fa-chevron-down"></i></div>
+
                             </div>
+
                             <div class='sub-menu'>
+
                                 <ul>
+
                                     <li><a href="index.html">Home</a></li>
+
                                     <li><a href="aboutus.html">About Us</a></li>
+
                                     <li><a href="useful-links.html">Useful Links</a></li>
+
                                     <li><a href="contactus.html">Contact Us</a></li>
+
                                 </ul>
+
                             </div>
+
+
 
                             <!-- Our Services -->
+
                             <div class='sidebar-menu'>OUR SERVICES <div class='expand'><i
                                         class="fas fa-chevron-down"></i></div>
+
                             </div>
+
                             <div class='sub-menu'>
+
                                 <ul>
+
                                     <li><a href="our-philosophy.html">Our Philosophy</a></li>
+
                                     <li><a href="what-we-do.html">What We Do</a></li>
+
                                     <li><a href="services.html">Services</a></li>
+
                                     <li><a href="team.html">Our Team</a></li>
+
                                 </ul>
+
                             </div>
+
+
 
                             <!-- Special Sections -->
+
                             <div class='sidebar-menu'>SPECIAL SECTIONS <div class='expand'><i
                                         class="fas fa-chevron-down"></i>
+
                                 </div>
-                            </div>
-                            <div class='sub-menu'>
-                                <ul>
-                                    <li><a href="nri-corner.html">NRI Corner</a></li>
-                                    <li><a href="careers.html">Careers</a></li>
-                                    <li><a href="awards.html">Awards</a></li>
-                                </ul>
+
                             </div>
 
+                            <div class='sub-menu'>
+
+                                <ul>
+
+                                    <li><a href="nri-corner.html">NRI Corner</a></li>
+
+                                    <li><a href="careers.html">Careers</a></li>
+
+                                    <li><a href="awards.html">Awards</a></li>
+
+                                </ul>
+
+                            </div>
+
+
+
                             <!-- LEGAL & COMPLIANCE -->
+
                             <div class='sidebar-menu'>LEGAL & COMPLIANCE <div class='expand'><i
                                         class="fas fa-chevron-down"></i>
+
                                 </div>
+
                             </div>
+
                             <div class='sub-menu'>
+
                                 <ul>
+
                                     <li>
+
                                         <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+
                                     </li>
+
+
 
                                     <li><a href="compliance.html">Compliance</a></li>
 
+
+
                                 </ul>
+
                             </div>
+
+
 
                             <!-- Regulatory Information -->
+
                             <div class='sidebar-menu'>REGULATORY INFORMATION <div class='expand'><i
                                         class="fas fa-chevron-down"></i>
+
                                 </div>
+
                             </div>
+
                             <div class='sub-menu'>
+
                                 <ul>
+
                                     <li><strong>SEBI PMS Reg No:</strong> INP000003898</li>
+
                                     <li><strong>IRDA Reg No:</strong> CA0336</li>
+
                                     <li><strong>GST:</strong> 29AABCI2919Q1Z0</li>
+
                                     <li><strong>CIN:</strong> U74992KA2002PTC069061</li>
+
                                     <li><strong>AMFI Distributor:</strong> ARN-18080</li>
+
                                 </ul>
+
                             </div>
+
+
 
                             <!-- Contact Info -->
+
                             <div class='sidebar-menu'>CONTACT INFO <div class='expand'><i
                                         class="fas fa-chevron-down"></i></div>
-                            </div>
-                            <div class='sub-menu'>
-                                <ul>
-                                    <li>
-                                        <a href="mailto:support@harmoneywealth.com">
-                                            <i class="fas fa-envelope"></i> support@harmoneywealth.com
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="tel:08041125960">
-                                            <i class="fas fa-phone"></i> 080-41125960
-                                        </a>
-                                    </li>
-                                </ul>
+
                             </div>
 
+                            <div class='sub-menu'>
+
+                                <ul>
+
+                                    <li>
+
+                                        <a href="mailto:support@harmoneywealth.com">
+
+                                            <i class="fas fa-envelope"></i> support@harmoneywealth.com
+
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a href="tel:08041125960">
+
+                                            <i class="fas fa-phone"></i> 080-41125960
+
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+
                             <!-- App Store Links -->
+
                             <div class='sidebar-menu'>DOWNLOAD OUR APP <div class='expand'><i
                                         class="fas fa-chevron-down"></i>
+
                                 </div>
+
                             </div>
+
                             <div class='sub-menu'>
+
                                 <ul>
+
                                     <li>
+
                                         <!-- Android/Play Store -->
+
                                         <a href="https://play.google.com/store/apps/details?id=com.harmoneywealth"
                                             target="_blank"
                                             style="display: flex; align-items: center; gap: 10px; padding: 10px 0;justify-content: space-around;">
+
                                             <img src="assets/images/footer-googleplay.svg" alt="Google Play"
                                                 style="width: 150px; height: 60px;">
+
                                             <div>
+
                                                 <div style="font-size: 12px; color: #000;">GET IT ON</div>
+
                                                 <div style="font-weight: bold; color: #000;">Google Play</div>
+
                                             </div>
+
                                         </a>
+
                                     </li>
+
                                     <li>
+
                                         <!-- iOS/App Store -->
+
                                         <a href="https://apps.apple.com/in/app/harmoney/id6751745585" target="_blank"
                                             style="display: flex; align-items: center; gap: 10px; padding: 10px 0;justify-content: space-around;">
+
                                             <img src="assets/images/footer-appstore.svg" alt="App Store"
                                                 style="width: 150px; height: 60px;">
+
                                             <div>
+
                                                 <div style="font-size: 12px; color: #000;">Download on the</div>
+
                                                 <div style="font-weight: bold; color: #000;">App Store</div>
+
                                             </div>
+
                                         </a>
+
                                     </li>
+
                                 </ul>
+
                             </div>
+
+
 
                             <!-- Social Links -->
+
                             <div class="social-links-mobile text-center mt-3">
+
                                 <a href="#" class="social-icon" data-tooltip="Linkedin">
+
                                     <i class="fab fa-linkedin-in"></i>
+
                                 </a>
+
                             </div>
+
+
 
                             <!-- Mutual Fund Disclaimer -->
+
                             <div class="mt-3"
                                 style="background: rgba(59, 130, 246, 0.1); padding: 15px; border-radius: 8px; font-size: 11px; line-height: 1.4; color: #000;">
+
                                 <p style="margin-bottom: 8px;">
+
                                     Mutual Fund Investments are subject to market
+
                                     risks. Please read the scheme information and offer documents before investing.
+
                                     Past performance is not indicative of future results.
+
                                 </p>
+
                                 <p style="margin-bottom: 0;">
+
                                     Registration granted by SEBI, AMFI and IRDA or any other regulator in no way
+
                                     guarantee performance or provide any assurance of returns to investors.
+
                                 </p>
+
                             </div>
+
+
 
                             <!-- Copyright -->
+
                             <div class="copyright-mobile text-center mt-3">
+
                                 <p>&copy; 2025 Harmoney FinServ India Private Limited.</p>
+
                                 <p class="small">All rights reserved.</p>
+
                             </div>
+
                         </div>
+
                     </div>
+
                     <!-- End Mobile Footer -->
+
                     <!-- End Mobile Footer -->
+
+
 
                 </div>
+
             </div>
+
         </div>
+
     </footer>
 
+
+
 </body>
+
+
 
 </html>

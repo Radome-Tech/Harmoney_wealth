@@ -63,89 +63,160 @@
             background: #f4f6f9;
         }
 
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* ===== Top Header ===== */
-        .top-header {
-            background: #f1f1f1;
-            padding: 15px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .top-header .center-text {
-            font-weight: 600;
-            color: #6c7a89;
-            font-size: 18px;
-        }
-
-        .top-header .right-section {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            font-size: 16px;
-            color: #6c7a89;
-        }
-
-        .top-header .login-btn {
-            background: #4a7bd0;
-            color: white;
-            padding: 10px 22px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .top-header .login-btn:hover {
-            background: #2f5db3;
-        }
-
-        .top-header .signup {
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        /* Left Section */
-        .left {
-            width: 45%;
-            background: #e8b631;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px;
-        }
-
-        .left h2 {
-            font-weight: 400;
-        }
-
-        .pyramid {
-            width: 220px;
-            height: 220px;
-            margin: 20px 0;
-            background: linear-gradient(to top, #d9d9d9, #ffffff);
-            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        /* Right Section */
-        .right {
-            width: 55%;
+        .header {
+            padding: 20px;
             background: white;
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .main {
             display: flex;
             justify-content: center;
-            align-items: center;
+            padding: 50px 30px;
+            gap: 50px;
+        }
+
+        /* Left Info */
+        .company-info {
+            width: 35%;
+        }
+
+        .company-info h2 {
+            color: #c42828;
+        }
+
+        .address {
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        .sharepro {
+            margin-top: 40px;
+            font-weight: bold;
+            color: #1e73be;
+        }
+
+        /* Login Box */
+        .login-box {
+            width: 350px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-box h3 {
+            margin-bottom: 20px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #1e73be;
+            outline: none;
+        }
+
+
+        .mobile-section {
+            width: 25%;
+            text-align: center;
+        }
+
+        .mobile-section img {
+            width: 180px;
+        }
+
+        .app-buttons img {
+            width: 140px;
+            margin: 8px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hf_heading01 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0097da;
+        }
+
+        .hf_primary {
+            color: #93c5fd;
+        }
+
+        .hf_heading04 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            color: #333333;
+        }
+
+        .about-header {
+            background-color: linear-gradient(135deg, #1a3a5f 0%, #2563eb 100%);
+            background-color: #c2e7fa !important;
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+
+            .about-header {
+                padding: 80px 0 60px;
+            }
+        }
+
+        @media (max-width: 991px) and (min-width: 768px) {
+
+            .container {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Responsive */
+        @media(max-width:1000px) {
+            .main {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .company-info,
+            .mobile-section {
+                width: 80%;
+                text-align: center;
+            }
+        }
+
+           @media (max-width: 768px) {
+            .content-row {
+                flex-direction: column;
+            }
+
+            .hf_heading01 {
+                font-size: 2rem;
+            }
+
+            .hf_heading02 {
+                font-size: 1.5rem;
+            }
+
         }
 
         .login-box {
@@ -178,7 +249,7 @@
             font-weight: bold;
         }
 
-        button {
+        .button2 {
             width: 100%;
             padding: 12px;
             background: #4a7bd0;
@@ -190,7 +261,7 @@
             transition: 0.3s;
         }
 
-        button:hover {
+        .button2:hover {
             background: #2f5db3;
         }
 
@@ -221,162 +292,92 @@
                 width: 100%;
             }
         }
-        /* PMS STYLE HEADER */
-
-.about-header{
-    background:#c2e7fa;
-    padding:100px 0 80px;
-}
-
-.hf_heading01{
-    font-size:60px;
-    font-weight:700;
-    color:#0097da;
-}
-
-/* LOGIN SECTION */
-
-.main-login{
-    display:flex;
-    justify-content:center;
-    padding:60px 20px;
-}
-
-.login-card{
-    width:380px;
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-.login-card h2{
-    margin-bottom:20px;
-}
-
-.login-card input{
-    width:100%;
-    padding:12px;
-    margin:8px 0;
-    border:1px solid #ccc;
-    border-radius:6px;
-}
-
-.login-card button{
-    width:100%;
-    padding:12px;
-    background:#1e73be;
-    border:none;
-    color:white;
-    border-radius:6px;
-    margin-top:10px;
-}
-
-.captcha{
-    font-size:24px;
-    letter-spacing:5px;
-    margin:10px 0;
-}
-
-.links{
-    display:flex;
-    justify-content:space-between;
-    margin-top:10px;
-}
     </style>
 </head>
 
-<body>
-    <div id="app" class="d-flex flex-column min-vh-100">
-        <header>
-            <!-- Top nav for desktop -->
-            <div class="d-sm-block d-none">
-                <nav class="navbar topNav t_nav navbar-expand-md bg-faded justify-content-center">
-                    <div class="container-fluid">
-                        <div class="navbar-brand d-flex mr-auto">
-                            <a href="index.html"><img src="assets/images/Harmony logo Black.png"
-                                    alt="Harmoney FinServ India Private Limited" height="90px" width="200px"></a>
-                        </div>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse w-100 justify-content-between" id="navbarSupportedContent">
-                            <ul class="navbar-nav mx-auto justify-content-start">
-                                <li class="nav-item">
-                                    <a href="index.html" class="nav-item nav-link">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="services.html" class="nav-link">Services</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="nri-corner.html" class="nav-link">NRI Corner</a>
-                                </li>
+<body style="margin:0;padding:0;background:#e9edf2;">
+    <header>
+        <!-- Top nav for desktop -->
+        <div class="d-sm-block d-none">
+            <nav class="navbar topNav t_nav navbar-expand-md bg-faded justify-content-center">
+                <div class="container-fluid">
+                    <div class="navbar-brand d-flex mr-auto">
+                        <a href="index.html"><img src="assets/images/Harmony logo Black.png"
+                                alt="Harmoney FinServ India Private Limited" height="90px" width="200px"></a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse w-100 justify-content-between" id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-auto justify-content-start">
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-item nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="services.html" class="nav-link">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="nri-corner.html" class="nav-link">NRI Corner</a>
+                            </li>
 
-                                <!-- Our Story Dropdown with Hover -->
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="ourStoryDropdown" role="button">
-                                        Our Story <i class="fa-solid fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="ourStoryDropdown">
-                                        <li><a class="dropdown-item" href="aboutus.html">About Us</a></li>
-                                        <li><a class="dropdown-item" href="mission.html">Mission</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="our-philosophy.html">Our Philosophy</a></li>
-                                        <li><a class="dropdown-item" href="what-we-do.html">What we do</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="awards.html">Awards</a></li>
-                                        <li><a class="dropdown-item" href="team.html">Team</a></li>
+                            <!-- Our Story Dropdown with Hover -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="ourStoryDropdown" role="button">
+                                    Our Story <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="ourStoryDropdown">
+                                    <li><a class="dropdown-item" href="aboutus.html">About Us</a></li>
+                                    <li><a class="dropdown-item" href="mission.html">Mission</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="our-philosophy.html">Our Philosophy</a></li>
+                                    <li><a class="dropdown-item" href="what-we-do.html">What we do</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="awards.html">Awards</a></li>
+                                    <li><a class="dropdown-item" href="team.html">Team</a></li>
 
-                                    </ul>
-                                </li>
+                                </ul>
+                            </li>
 
-                                <li class="nav-item">
-                                    <a href="careers.html" class="nav-link">Careers</a>
-                                </li>
-                                <!-- Resources Dropdown with Hover -->
-                                <li class="nav-item dropdown dropdown-submenu">
-                                    <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button">
-                                        Resources <i class="fa-solid fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
-                                        <!-- Newsletter Section -->
-                                        <!-- <li>
-                                            <a class="dropdown-item download-link"
-                                                href="assets/pdf/Feb-2026_Newsletter.pdf" target="_blank"
-                                                download="Jan-2026_Newsletter.pdf">Newsletter</a>
-                                        </li> -->
-                                        <li>
-                                            <a class="dropdown-item download-link" href="newsletter.html" role="button">
-                                                Newsletter <i class="fa-solid fa-angle-down"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <!-- Investor Charter Section -->
-                                        <!-- <li class="dropdown-header">Investor Charter</li> -->
-                                        <li><a class="dropdown-item download-link"
-                                                href="assets/pdf/investor_charter_pms.pdf" target="_blank"
-                                                download="investor_charter_pms.pdf">Investor Charter</a></li>
-                                        <!--li><a class="dropdown-item download-link"
+                            <li class="nav-item">
+                                <a href="careers.html" class="nav-link">Careers</a>
+                            </li>
+                            <!-- Resources Dropdown with Hover -->
+                            <li class="nav-item dropdown dropdown-submenu">
+                                <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button">
+                                    Resources <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                                    <!-- Newsletter Section -->
+
+                                    <li><a class="dropdown-item download-link" href="assets/pdf/Feb-2026_Newsletter.pdf"
+                                            target="_blank" download="Jan-2026_Newsletter.pdf">Newsletter</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <!-- Investor Charter Section -->
+                                    <!-- <li class="dropdown-header">Investor Charter</li> -->
+                                    <li><a class="dropdown-item download-link"
+                                            href="assets/pdf/investor_charter_pms.pdf" target="_blank"
+                                            download="investor_charter_pms.pdf">Investor Charter</a></li>
+                                    <!--li><a class="dropdown-item download-link"
                                                 href="assets/pdf/investor_complaints.pdf" target="_blank"
                                                 download="investor_complaints.pdf">Investor Grievances</a></li>
 
                                         <li-->
-                                        <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="useful-links.html">Useful Links</a></li>
-                                <li><a class="dropdown-item" href="pms-calculator.html">PMS Fee Calculator</a></li>
-                                <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
+                                    <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="useful-links.html">Useful Links</a></li>
+                            <li><a class="dropdown-item" href="pms-calculator.html">PMS Fee Calculator</a></li>
+                            <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
 
-                                <!-- Downloads Submenu -->
-                                <!--li class="dropdown-submenu">
+                            <!-- Downloads Submenu -->
+                            <!--li class="dropdown-submenu">
                                             <a class="dropdown-item dropdown-toggle" href="#">Downloads <i
                                                     class="fas fa-arrow-right"></i></a>
                                             <ul class="dropdown-menu nested-dropdown">
@@ -419,181 +420,176 @@
 
                                             </ul>
                                         </li-->
-                            </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="contactus.html" class="nav-link">Contact Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <button class="a11y-trigger" onclick="openAccessibilityPanel()"
-                                    aria-label="Accessibility">
-                                    <i class="fa-solid fa-universal-access"></i>
-                                </button>
-                            </li>
-                            <!-- <li class="nav-item accessibility-dropdown">
-                                    <button class="nav-link2 accessibility-trigger" id="accessibilityTrigger">
-                                        <i class="fas fa-universal-access"></i>
-                                    </button>
-                                </li> -->
-                            </ul>
-                            <ul class="nav navbar-nav ml-auto justify-content-end align-items-center responsive-list">
-                                <!-- Login Dropdown -->
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link2 link-login dropdown-toggle" href="#" id="loginDropdown"
-                                        role="button">
-                                        Login <i class="fa-solid fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
-                                        <li><a class="dropdown-item"
-                                                href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss">PMS Login</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="https://harmoneywealth.themfbox.com/">MFD
-                                                Login</a></li>
-                                    </ul>
+                        </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contactus.html" class="nav-link">Contact Us</a>
+                        </li>
 
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-            <!-- End top nav -->
-            <!-- Top navigation for mobile -->
-            <div class="d-sm-none d-block">
-                <div class="slide-drawer">
-                    <div class="top-header">
-                        <div class="company-logo">
-                            <a href="index.html">
-                                <img src="assets/images/Harmony logo Black.png"
-                                    alt="Harmoney FinServ India Private Limited">
-                            </a>
-                        </div>
-
-                        <div class="mobile-header-actions">
-                            <!-- Accessibility Button -->
-                            <button class="a11y-trigger mobile-a11y-btn" onclick="openAccessibilityPanel()"
-                                aria-label="Accessibility">
+                        <li class="nav-item">
+                            <button class="a11y-trigger" onclick="openAccessibilityPanel()" aria-label="Accessibility">
                                 <i class="fa-solid fa-universal-access"></i>
                             </button>
+                        </li>
 
-                            <!-- Menu Button -->
-                            <button id="sidebar-btn" class="sidebar-btn">
-                                <span class="menu-stripes"></span>
-                                <span class="menu-stripes"></span>
-                                <span class="menu-stripes"></span>
-                            </button>
-                        </div>
+
+
+                        </ul>
+                        <ul class="nav navbar-nav ml-auto justify-content-end align-items-center responsive-list">
+                            <!-- Login Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link2 link-login dropdown-toggle" href="#" id="loginDropdown"
+                                    role="button">
+                                    Login <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
+                                    <li><a class="dropdown-item"
+                                            href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss">PMS Login</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="https://harmoneywealth.themfbox.com/">MFD
+                                            Login</a></li>
+                                </ul>
+
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- End top nav -->
+        <!-- Top navigation for mobile -->
+        <div class="d-sm-none d-block">
+            <div class="slide-drawer">
+                <div class="top-header">
+                    <div class="company-logo">
+                        <a href="index.html">
+                            <img src="assets/images/Harmony logo Black.png"
+                                alt="Harmoney FinServ India Private Limited">
+                        </a>
                     </div>
 
-                    <section id="sidebar" class="sidebar">
-                        <div class="slide-top-bar">
-                            <div class="m-logo">
-                                <img src="assets/images/Harmony logo Black.png"
-                                    alt="Harmoney FinServ India Private Limited">
-                            </div>
-                            <div class="slide-close">
-                                <a href="javascript:void(0)" class="btn-slideClose"><i class="fas fa-times"></i></a>
-                            </div>
+                    <div class="mobile-header-actions">
+                        <!-- Accessibility Button -->
+                        <button class="a11y-trigger mobile-a11y-btn" onclick="openAccessibilityPanel()"
+                            aria-label="Accessibility">
+                            <i class="fa-solid fa-universal-access"></i>
+                        </button>
+
+                        <!-- Menu Button -->
+                        <button id="sidebar-btn" class="sidebar-btn">
+                            <span class="menu-stripes"></span>
+                            <span class="menu-stripes"></span>
+                            <span class="menu-stripes"></span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <section id="sidebar" class="sidebar">
+                    <div class="slide-top-bar">
+                        <div class="m-logo">
+                            <img src="assets/images/Harmony logo Black.png"
+                                alt="Harmoney FinServ India Private Limited">
                         </div>
-                        <nav class="menu">
-                            <ul class="m_link">
-                                <li>
-                                    <a href="index.html" class="menu-link">Home</a>
-                                </li>
-                                <li>
-                                    <a href="services.html" class="menu-link">Services</a>
-                                </li>
-                                <li>
-                                    <a href="nri-corner.html" class="menu-link">NRI Corner</a>
-                                </li>
+                        <div class="slide-close">
+                            <a href="javascript:void(0)" class="btn-slideClose"><i class="fas fa-times"></i></a>
+                        </div>
+                    </div>
+                    <nav class="menu">
+                        <ul class="m_link">
+                            <li>
+                                <a href="index.html" class="menu-link">Home</a>
+                            </li>
+                            <li>
+                                <a href="services.html" class="menu-link">Services</a>
+                            </li>
+                            <li>
+                                <a href="nri-corner.html" class="menu-link">NRI Corner</a>
+                            </li>
 
-                                <!-- Mobile Our Story Dropdown -->
-                                <li class="mobile-dropdown">
-                                    <a href="javascript:void(0)" class="menu-link has-dropdown">
-                                        Our Story <i class="fas fa-chevron-down dropdown-icon"></i>
-                                    </a>
-                                    <ul class="mobile-dropdown-menu">
-                                        <li><a href="aboutus.html" class="dropdown-item">About Us</a></li>
-                                        <li><a href="mission.html" class="dropdown-item">Mission</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a href="our-philosophy.html" class="dropdown-item">Our Philosophy</a></li>
-                                        <li><a href="what-we-do.html" class="dropdown-item">What we do</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a href="awards.html" class="dropdown-item">Awards</a></li>
-                                        <li><a href="team.html" class="dropdown-item">Team</a></li>
-                                    </ul>
-                                </li>
+                            <!-- Mobile Our Story Dropdown -->
+                            <li class="mobile-dropdown">
+                                <a href="javascript:void(0)" class="menu-link has-dropdown">
+                                    Our Story <i class="fas fa-chevron-down dropdown-icon"></i>
+                                </a>
+                                <ul class="mobile-dropdown-menu">
+                                    <li><a href="aboutus.html" class="dropdown-item">About Us</a></li>
+                                    <li><a href="mission.html" class="dropdown-item">Mission</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a href="our-philosophy.html" class="dropdown-item">Our Philosophy</a></li>
+                                    <li><a href="what-we-do.html" class="dropdown-item">What we do</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a href="awards.html" class="dropdown-item">Awards</a></li>
+                                    <li><a href="team.html" class="dropdown-item">Team</a></li>
+                                </ul>
+                            </li>
 
-                                <li>
-                                    <a href="careers.html" class="menu-link">Careers</a>
-                                </li>
+                            <li>
+                                <a href="careers.html" class="menu-link">Careers</a>
+                            </li>
 
-                                <!-- Mobile Resources Dropdown -->
-                                <li class="mobile-dropdown">
-                                    <a href="javascript:void(0)" class="menu-link has-dropdown">
-                                        Resources <i class="fas fa-chevron-down dropdown-icon"></i>
-                                    </a>
-                                    <ul class="mobile-dropdown-menu">
-                                        <!-- <li><a href="assets/pdf/Feb-2026_Newsletter.pdf"
-                                                class="dropdown-item download-link" target="_blank"
-                                                download="Jan-2026_Newsletter.pdf">Newsletter</a></li> -->
-                                        <li>
-                                            <a class="dropdown-item download-link" href="newsletter.html" role="button">
-                                                Newsletter <i class="fa-solid fa-angle-down"></i>
-                                            </a>
-                                        </li>
-                                        <li><a href="assets/pdf/investor_charter_pms.pdf"
-                                                class="dropdown-item download-link" target="_blank"
-                                                download="investor_charter_pms.pdf">Investor Charter</a></li>
-                                        <li><a href="useful-links.html" class="dropdown-item">Useful Links</a></li>
-                                        <li><a class="dropdown-item" href="pms-calculator.html">PMS Fee Calculator</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
-                                    </ul>
-                                </li>
+                            <!-- Mobile Resources Dropdown -->
+                            <li class="mobile-dropdown">
+                                <a href="javascript:void(0)" class="menu-link has-dropdown">
+                                    Resources <i class="fas fa-chevron-down dropdown-icon"></i>
+                                </a>
+                                <ul class="mobile-dropdown-menu">
+                                    <li><a href="assets/pdf/Feb-2026_Newsletter.pdf" class="dropdown-item download-link"
+                                            target="_blank" download="Jan-2026_Newsletter.pdf">Newsletter</a></li>
+                                    <li><a href="assets/pdf/investor_charter_pms.pdf"
+                                            class="dropdown-item download-link" target="_blank"
+                                            download="investor_charter_pms.pdf">Investor Charter</a></li>
+                                    <li><a href="useful-links.html" class="dropdown-item">Useful Links</a></li>
+                                    <li><a class="dropdown-item" href="pms-calculator.html">PMS Fee Calculator</a></li>
+                                    <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
+                                </ul>
+                            </li>
 
-                                <li>
-                                    <a href="contactus.html" class="menu-link">Contact Us</a>
-                                </li>
-                            </ul>
-                            <div class="mobile-bottom-section">
-                                <!-- Mobile Login Dropdown -->
-                                <div class="mobile-login-container">
-                                    <a href="javascript:void(0)" class="mobile-login-toggle">
-                                        Login <i class="fas fa-chevron-down login-dropdown-icon"></i>
-                                    </a>
-                                    <div class="mobile-login-dropdown">
-                                        <a href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss"
-                                            class="mobile-login-item">PMS Login</a>
-                                        <a href="https://harmoneywealth.themfbox.com/" class="mobile-login-item">MFD
-                                            Login</a>
-                                    </div>
+                            <li>
+                                <a href="contactus.html" class="menu-link">Contact Us</a>
+                            </li>
+                        </ul>
+                        <div class="mobile-bottom-section">
+                            <!-- Mobile Login Dropdown -->
+                            <div class="mobile-login-container">
+                                <a href="javascript:void(0)" class="mobile-login-toggle">
+                                    Login <i class="fas fa-chevron-down login-dropdown-icon"></i>
+                                </a>
+                                <div class="mobile-login-dropdown">
+                                    <a href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss"
+                                        class="mobile-login-item">PMS Login</a>
+                                    <a href="https://harmoneywealth.themfbox.com/" class="mobile-login-item">MFD
+                                        Login</a>
                                 </div>
                             </div>
-                        </nav>
+                        </div>
+                    </nav>
 
-                    </section>
-                    <div id="overlay" class="overlayy"></div>
-                </div>
+                </section>
+                <div id="overlay" class="overlayy"></div>
             </div>
-            <!-- End top navigation for mobile -->
-            <!-- End top navigation for mobile -->
-        </header>
+        </div>
+        <!-- End top navigation for mobile -->
+        <!-- End top navigation for mobile -->
+    </header>
 
-        <!-- MFD LOGIN HEADER -->
-<div class="about-header">
-    <div class="container-fluid text-center">
-        <h1 class="hf_heading01">MFD Login Page</h1>
-    </div>
-</div>
+    <div class="container">
+        <div class="left">
+            <h2>Where your money</h2>
+            <!-- <div class="pyramid"></div> -->
+            <img src="assets/images/trees.png" height="200px" width="290px" alt="">
+            <h2>makes more money</h2>
+            <img src="assets/images/Harmony logo Black.png" height="90px" width="200px" alt="">
+            <!-- <div class="logo" style="color:#1c1c1c;">Harmoney</div> -->
+        </div>
 
-<div class="main-login">
-    <div class="login-card">
+        <div class="right">
+            <div class="login-box">
 
         <h2>Login</h2>
 
@@ -603,18 +599,19 @@
 
         <div class="captcha">ENLNJZ</div>
 
-        <button>LOGIN</button>
+                <button>LOGIN</button>
 
         <div class="links">
             <a href="#">Forgot Password?</a>
             <a href="#">New user? Sign up</a>
         </div>
 
+            </div>
+        </div>
+
     </div>
-</div>
 
-
- <footer class="footer mt-auto">
+        <footer class="footer mt-auto">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
@@ -961,7 +958,7 @@
             </div>
         </footer>
 
-    </div>
+    <!-- </div> -->
     <div id="accessibilityPanel">
 
         <div class="a11y-header">
