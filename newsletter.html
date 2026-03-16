@@ -104,6 +104,35 @@
         margin: 0 auto;
       }
     }
+
+    /* Newsletter card grid */
+    .card-row-6-6 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    /* card design */
+    .duo-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    /* mobile */
+    @media (max-width:768px) {
+      .card-row-6-6 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
   </style>
 </head>
 
@@ -406,18 +435,18 @@
         <div class="duo-card" id="cardDeep">
           <!-- <span class="gradient-badge"><i class="far fa-star" style="margin-right:6px; color:inherit;"></i> issue #12 ·
             weekly</span> -->
-          <h2 class="card-title">March Newsletter</h2>
+          <h2 class="card-title"> Short Term Pain - Long Term Gain</h2>
           <!-- meta information -->
           <div class="card-meta">
             <span class="meta-item"><i class="far fa-calendar-alt"></i>March 2026</span>
             <span class="meta-item"><i class="far fa-clock"></i> 8 min read</span>
-            <span class="meta-item"><i class="far fa-user"></i> Maya Chen + R.Grey</span>
+            <span class="meta-item"><i class="far fa-user"></i> Vignesh</span>
           </div>
           <!-- dummy description -->
           <div class="card-desc">
             <i class="fas fa-quote-left" style="color:#0077cc; margin-right:8px;"></i>
-            An analysis of India's equity market imbalance between market-cap structure and retail investor allocation
-            through mutual funds.
+            A perspective on how geopolitical shocks and crude price spikes create short-term volatility but
+            historically present long-term opportunities for equity investors.
           </div>
           <!-- View Full newsletter -->
           <!-- <a href="newsletter_old.html" class="download-card-btn" id="">
@@ -425,7 +454,9 @@
           </a> -->
 
           <a class="download-card-btn" href="assets/pdf/March-2026_Newsletter.pdf" target="_blank"
-            download="investor_complaints.pdf">Download full newsletter</a>
+            download="March-2026_Newsletter.pdf">
+            <i class="fas fa-file-pdf"></i> Download full newsletter
+          </a>
 
 
           <!-- download button (inside first card as requested) -->
@@ -469,6 +500,53 @@
             </div>
           </div>
         </div> <!-- end first card -->
+
+        <!-- SECOND CARD -->
+        <div class="duo-card">
+
+          <h3 class="card-title">Newsletter - Feb - 2026</h3>
+
+          <div class="card-meta">
+            <span class="meta-item"><i class="far fa-calendar-alt"></i> February 2026</span>
+            <span class="meta-item"><i class="far fa-clock"></i> 8 min read</span>
+            <span class="meta-item"><i class="far fa-user"></i> Vignesh</span>
+          </div>
+
+          <div class="card-desc">
+            <i class="fas fa-quote-left" style="color:#0077cc;margin-right:8px;"></i>
+            Understanding the divergence between slowing investment activity and stabilizing consumption in India’s
+            current economic cycle.
+          </div>
+
+          <a class="download-card-btn" href="assets/pdf/Feb-2026_Newsletter.pdf" target="_blank"
+            download="Feb-2026_Newsletter.pdf">
+            <i class="fas fa-file-pdf"></i> Download full newsletter
+          </a>
+
+        </div>
+        <!-- THIRD CARD -->
+        <div class="duo-card">
+
+          <h3 class="card-title">Index Target For 2026</h3>
+
+          <div class="card-meta">
+            <span class="meta-item"><i class="far fa-calendar-alt"></i> January 2026</span>
+            <span class="meta-item"><i class="far fa-clock"></i> 8 min read</span>
+            <span class="meta-item"><i class="far fa-user"></i> Vignesh</span>
+          </div>
+
+          <div class="card-desc">
+            <i class="fas fa-quote-left" style="color:#0077cc;margin-right:8px;"></i>
+            An analysis of how market sentiment shapes year-ahead index forecasts and why these projections often
+            diverge from actual market outcomes.
+          </div>
+
+          <a class="download-card-btn" href="assets/pdf/Jan-2026_Newsletter.pdf" target="_blank"
+            download="Jan-2026_Newsletter.pdf">
+            <i class="fas fa-file-pdf"></i> Download full newsletter
+          </a>
+
+        </div>
 
         <!-- SECOND CARD: (another 6 columns) creative studio / ethics theme -->
         <!-- <div class="duo-card" id="cardStudio">
@@ -679,15 +757,15 @@
 
       document.getElementById('downloadDeepBtn').addEventListener('click', function () {
 
-  window.open("assets/pdf/March-2026_Newsletter.pdf", "_blank");
+        window.open("assets/pdf/March-2026_Newsletter.pdf", "_blank");
 
-  this.innerHTML = '<i class="fas fa-check"></i> PDF started';
+        this.innerHTML = '<i class="fas fa-check"></i> PDF started';
 
-  setTimeout(() => {
-    this.innerHTML = '<i class="fas fa-file-pdf"></i> Download full newsletter (PDF)';
-  }, 2000);
+        setTimeout(() => {
+          this.innerHTML = '<i class="fas fa-file-pdf"></i> Download full newsletter (PDF)';
+        }, 2000);
 
-});
+      });
 
       document.getElementById('downloadStudioBtn').addEventListener('click', function () {
         downloadDummy('creative_studio');
@@ -747,26 +825,14 @@
 
                   <img src="assets/images/Harmony logo Black.png" alt="Harmoney FinServ India Private Limited"
                     style="width:210px;">
-
-
-
                   <div class="social-links mt-3">
-
                     <a href="#" class=""></a>
-
                     <div class="toolkit">
-
                       <a href="https://play.google.com/store/apps" target="_blank" class="toolkit-item social-icon"
                         data-tooltip="Linkedin">
 
                         <i class="fab fa-linkedin-in"></i>
-
-
-
                       </a>
-
-
-
                     </div>
 
                   </div>
