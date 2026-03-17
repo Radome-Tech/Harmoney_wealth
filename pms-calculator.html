@@ -334,6 +334,63 @@
             }
 
         }
+
+        /* Minimalist step control styling */
+        .step-control {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 4px;
+        }
+
+        .step-btn {
+            background: transparent;
+            color: #666;
+            border: 1px solid #ddd;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 400;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            transition: all 0.2s ease;
+        }
+
+        .step-btn:hover {
+            background: #f5f5f5;
+            border-color: #0196d8;
+            color: #0196d8;
+        }
+
+        .step-btn:active {
+            background: #e8e8e8;
+            transform: scale(0.95);
+        }
+
+        .step-control input[type="number"] {
+            flex: 1;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            height: 36px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            padding: 0;
+            margin: 0;
+            -moz-appearance: textfield;
+        }
+
+        .step-control input[type="number"]:focus {
+            outline: none;
+            border-color: #0196d8;
+            box-shadow: 0 0 0 3px rgba(1, 150, 216, 0.1);
+        }
     </style>
 </head>
 
@@ -416,7 +473,7 @@
                             </li>
                             <li><a class="dropdown-item" href="useful-links.html">Useful Links</a></li>
                             <li><a class="dropdown-item" href="pms-calculator.html">PMS Fee Calculator</a></li>
-                            <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
+                            <li><a class="dropdown-item" href="harmoney-wealth-insights.html">Blogs</a></li>
 
                             <!-- Downloads Submenu -->
                             <!--li class="dropdown-submenu">
@@ -588,7 +645,7 @@
                                             download="investor_charter_pms.pdf">Investor Charter</a></li>
                                     <li><a href="useful-links.html" class="dropdown-item">Useful Links</a></li>
                                     <li><a class="dropdown-item" href="pms-calculator.html">PMS Fee Calculator</a></li>
-                                    <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
+                                    <li><a class="dropdown-item" href="harmoney-wealth-insights.html">Blogs</a></li>
                                 </ul>
                             </li>
 
@@ -642,85 +699,80 @@
 
         <div class="card">
 
+            <!-- Add this right after the grid section or before the button row -->
+            <div style="margin-bottom: 20px;">
+                <div
+                    style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;">
+                    <h3 style="margin: 0; color: #333; font-size: 1.4rem;">PMS Fee Calculator</h3>
+                    <button onclick="downloadTemplate()" class="download-template-btn">
+                        <i class="fas fa-download" style="margin-right: 8px;"></i>
+                        Download Sample Excel Template
+                    </button>
+                </div>
+                <p style="color: #666; font-size: 14px; margin: 0;">Download our sample Excel template to see the
+                    calculation format or upload your own data.</p>
+            </div>
+
             <div class="grid">
-
-
-
                 <div>
-
                     <label>Capital Contribution (₹)</label>
-
                     <input type="text" id="capital_display" value="50,00,000" placeholder="e.g., 10,000,000">
-
                     <input type="hidden" id="capital" value="10000000">
-
-                    <!-- <div class="capital-format-hint">Auto separated format (e.g., 50,00,000)</div>  -->
-                    <!-- Use comma -->
-
                 </div>
 
-
-
                 <div>
-
                     <label>Management Fee (%)</label>
-
-                    <input type="number" id="mgmt" value="1.5" min="0" max="3" step="0.25">
-
+                    <div class="step-control">
+                        <button type="button" class="step-btn" onclick="stepValue('mgmt', -0.25, 0, 3)">−</button>
+                        <input type="number" id="mgmt" value="1.5" min="0" max="3" step="0.25" disabled>
+                        <button type="button" class="step-btn" onclick="stepValue('mgmt', 0.25, 0, 3)">+</button>
+                    </div>
                 </div>
 
-
-
                 <div>
-
                     <label>Other Expenses (%)</label>
-
-                    <input type="number" id="other" value="0.5" min="0" max="0.5" step="0.25">
-
+                    <div class="step-control">
+                        <button type="button" class="step-btn" onclick="stepValue('other', -0.25, 0, 0.5)">−</button>
+                        <input type="number" id="other" value="0.5" min="0" max="0.5" step="0.25" disabled>
+                        <button type="button" class="step-btn" onclick="stepValue('other', 0.25, 0, 0.5)">+</button>
+                    </div>
                 </div>
 
-
-
                 <div>
-
                     <label>Performance Fee (%)</label>
-
-                    <input type="number" id="perf" value="15" min="0" max="20" step="1">
-
+                    <div class="step-control">
+                        <button type="button" class="step-btn" onclick="stepValue('perf', -1, 0, 20)">−</button>
+                        <input type="number" id="perf" value="15" min="0" max="20" step="1" disabled>
+                        <button type="button" class="step-btn" onclick="stepValue('perf', 1, 0, 20)">+</button>
+                    </div>
                 </div>
 
-
-
                 <div>
-
                     <label>Hurdle Rate (%)</label>
-
-                    <input type="number" id="hurdle" value="10" min="0" max="15" step="1">
-
+                    <div class="step-control">
+                        <button type="button" class="step-btn" onclick="stepValue('hurdle', -1, 0, 15)">−</button>
+                        <input type="number" id="hurdle" value="10" min="0" max="15" step="1" disabled>
+                        <button type="button" class="step-btn" onclick="stepValue('hurdle', 1, 0, 15)">+</button>
+                    </div>
                 </div>
 
-
-
                 <div>
-
                     <label>Brokerage (%)</label>
-
-                    <input type="number" id="brokerage" value="0.2" min="0" max="0.5" step="0.1">
-
+                    <div class="step-control">
+                        <button type="button" class="step-btn" onclick="stepValue('brokerage', -0.1, 0, 0.5)">−</button>
+                        <input type="number" id="brokerage" value="0.2" min="0" max="0.5" step="0.1" disabled>
+                        <button type="button" class="step-btn" onclick="stepValue('brokerage', 0.1, 0, 0.5)">+</button>
+                    </div>
                 </div>
-
-
 
                 <div>
-
                     <label>Gain per Year (%)</label>
-
-                    <input type="number" id="gain" value="20" min="0" max="100" step="5">
-
+                    <div class="step-control">
+                        <button type="button" class="step-btn" onclick="stepValue('gain', -5, 0, 100)">−</button>
+                        <input type="number" id="gain" value="20" min="0" max="100" step="5" disabled>
+                        <button type="button" class="step-btn" onclick="stepValue('gain', 5, 0, 100)">+</button>
+                    </div>
                 </div>
-
-
-
             </div>
 
 
@@ -735,13 +787,16 @@
 
                 <button onclick="resetForm()">Reset</button>
 
-                <button onclick="downloadTemplate()">Download Excel Template</button>
+                <!-- <button onclick="downloadTemplate()">Download Excel Template</button> -->
 
             </div>
 
 
 
             <br><br>
+
+
+
 
 
 
@@ -1003,6 +1058,37 @@
             });
 
         })();
+    </script>
+
+    <script>
+        function stepValue(inputId, delta, min, max) {
+            let input = document.getElementById(inputId);
+            let currentValue = parseFloat(input.value) || 0;
+            let newValue = currentValue + delta;
+
+            // Round to the step precision to avoid floating point issues
+            let step = parseFloat(input.step) || 1;
+            newValue = Math.round(newValue / step) * step;
+
+            // Apply min/max constraints
+            if (newValue < min) newValue = min;
+            if (newValue > max) newValue = max;
+
+            // Format to proper decimal places
+            let decimals = getDecimalPlaces(step);
+            input.value = newValue.toFixed(decimals);
+
+            // Optional: Trigger calculation automatically
+            // parseCapitalAndCalculate();
+        }
+
+        function getDecimalPlaces(step) {
+            let stepStr = step.toString();
+            if (stepStr.includes('.')) {
+                return stepStr.split('.')[1].length;
+            }
+            return 0;
+        }
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>

@@ -65,17 +65,19 @@
       background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)),
         url('https://images.unsplash.com/photo-1518770660439-4636190af475') center/cover no-repeat;
       height: 280px;
-      background-color:#c2e7fa !important;
+      background-color: #c2e7fa !important;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #0097da;;
+      color: #0097da;
+      ;
     }
 
     .blog-hero h1 {
       font-size: 42px;
       font-weight: 600;
-      color:  #0097da;;
+      color: #0097da;
+      ;
     }
 
     .blog-section {
@@ -124,6 +126,63 @@
 
     .blog-content a:hover {
       text-decoration: underline;
+    }
+
+    .container1 {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hf_heading01 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #0097da;
+    }
+
+    .hf_primary {
+      color: #93c5fd;
+    }
+
+    .hf_heading02 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+      color: #333333;
+    }
+
+    .about-header {
+      background-color: linear-gradient(135deg, #1a3a5f 0%, #2563eb 100%);
+      background-color: #c2e7fa !important;
+      color: white;
+      padding: 100px 0 80px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+
+      .about-header {
+        padding: 80px 0 60px;
+      }
+
+      .hf_heading01 {
+        font-size: 2rem;
+      }
+
+      .hf_heading02 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 991px) and (min-width: 768px) {
+
+      .container1 {
+        max-width: 720px;
+        margin: 0 auto;
+      }
     }
   </style>
 
@@ -207,7 +266,7 @@
               </li>
               <li><a class="dropdown-item" href="useful-links.html">Useful Links</a></li>
               <li><a class="dropdown-item" href="pms-calculator.html">PMS Fee Calculator</a></li>
-              <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
+              <li><a class="dropdown-item" href="harmoney-wealth-insights.html">Blogs</a></li>
 
               <!-- Downloads Submenu -->
               <!--li class="dropdown-submenu">
@@ -373,7 +432,7 @@
                       download="investor_charter_pms.pdf">Investor Charter</a></li>
                   <li><a href="useful-links.html" class="dropdown-item">Useful Links</a></li>
                   <li><a class="dropdown-item" href="pms-calculator.html">PMS Fee Calculator</a></li>
-                  <li><a class="dropdown-item" href="blogs.html">Blogs</a></li>
+                  <li><a class="dropdown-item" href="harmoney-wealth-insights.html">Blogs</a></li>
                 </ul>
               </li>
 
@@ -406,16 +465,23 @@
 
 
   <!-- BLOG HERO -->
-<section
+  <!-- <section
   style="background-color:#c2e7fa !important; height:300px; display:flex; align-items:center; justify-content:center;">
   
   <h1 style="font-size:42px; font-weight:600; color:#0097da;">
     Harmoney Wealth Insights
   </h1>
 
-</section>
+</section> -->
 
-    <!-- background-color: #c2e7fa !important;color: #0097da  ; font-size:42px; font-weight:600 -->
+  <header class="about-header">
+    <div class="container1">
+      <h1 class="hf_heading01">Harmoney Wealth Insights</h1>
+      <p class="hf_heading02"></p>
+    </div>
+  </header>
+
+  <!-- background-color: #c2e7fa !important;color: #0097da  ; font-size:42px; font-weight:600 -->
 
   <!-- BLOG SECTION -->
   <section style="padding:70px 0; background:#f4f6f9;">
@@ -432,7 +498,7 @@
               <h5 style="font-weight:600;">Strategic Asset Allocation: The Foundation of Wealth Creation</h5>
               <p style="font-size:14px; color:#666;">Learn how disciplined asset allocation helps manage risk and build
                 sustainable long-term wealth.</p>
-              <a href="blog.html" style="font-weight:600; text-decoration:none; color:#0196d8 ;">Read Full Article →</a>
+              <a href="financial-freedom-planning.html" style="font-weight:600; text-decoration:none; color:#0196d8 ;">Read Full Article →</a>
             </div>
           </div>
         </div> -->
@@ -444,9 +510,12 @@
             <img src="https://images.unsplash.com/photo-1604594849809-dfedbc827105"
               style="width:100%; height:220px; object-fit:cover;">
             <div style="padding:20px;">
-              <h5 style="font-weight:600;font-size: 16px;">Financial Freedom Planning: How to Live Rich Today Without Compromising Tomorrow</h5>
-              <p style="font-size:10px; color:#666;">In reality, financial freedom planning is about clarity. It answers a simple but powerful question: how much can I spend today without compromising tomorrow?</p>
-              <a href="blog.html" style="font-weight:600; text-decoration:none; color:#0196d8 ;">Read Full Article →</a>
+              <h5 style="font-weight:600;font-size: 16px;">Financial Freedom Planning: How to Live Rich Today Without
+                Compromising Tomorrow</h5>
+              <p style="font-size:10px; color:#666;">In reality, financial freedom planning is about clarity. It answers
+                a simple but powerful question: how much can I spend today without compromising tomorrow?</p>
+              <a href="financial-freedom-planning.html"
+                style="font-weight:600; text-decoration:none; color:#0196d8 ;">Read Full Article →</a>
             </div>
           </div>
         </div>
@@ -461,7 +530,7 @@
               <h5 style="font-weight:600;">Navigating Market Volatility with Confidence</h5>
               <p style="font-size:14px; color:#666;">Discover disciplined strategies that protect portfolios during
                 uncertain markets.</p>
-              <a href="blog.html" style="font-weight:600; text-decoration:none; color:#0196d8 ;">Read Full Article →</a>
+              <a href="financial-freedom-planning.html" style="font-weight:600; text-decoration:none; color:#0196d8 ;">Read Full Article →</a>
             </div>
           </div>
         </div> -->
