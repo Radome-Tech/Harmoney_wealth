@@ -111,7 +111,7 @@
             margin-bottom: 20px;
         }
 
-        input,
+        .input1,
         select {
             width: 100%;
             padding: 10px;
@@ -120,7 +120,7 @@
             border-radius: 5px;
         }
 
-        input:focus,
+        .input1:focus,
         select:focus {
             border-color: #1e73be;
             outline: none;
@@ -246,7 +246,7 @@
                 font-size: 22px;
             }
 
-            .login-box input,
+            .login-box .input1,
             .login-box select {
                 padding: 10px;
             }
@@ -573,8 +573,8 @@
         <div class="login-box">
             <h3>Sign In</h3>
 
-            <input type="text" placeholder="User ID">
-            <input type="password" placeholder="Password">
+            <input type="text" placeholder="User ID" class="input1">
+            <input type="password" placeholder="Password" class="input1">
 
             <a href="#" style="font-size:14px; color:#1e73be;">Forgot password?</a>
 
@@ -610,6 +610,78 @@
                 </div>
             </div> -->
 
+        <!-- accessbility content  -->
+        <div id="accessibilityPanel">
+
+            <div class="a11y-header">
+                <span>Accessibility</span>
+                <button onclick="closeAccessibilityPanel()">✕</button>
+            </div>
+
+            <div class="a11y-body">
+
+                <!-- LINE HEIGHT -->
+                <div class="a11y-control">
+                    <label>Line Height</label>
+                    <input type="range" min="1.2" max="2.6" step="0.1" value="1.6" oninput="setLineHeight(this.value)">
+                </div>
+                <!-- TEXT SIZE -->
+                <div class="a11y-control">
+                    <label>Text Size</label>
+                    <input type="range" min="90" max="130" value="100" step="5" oninput="setTextSize(this.value)">
+                </div>
+
+
+                <!-- LETTER SPACING (keep existing logic) -->
+                <div class="a11y-control">
+                    <label>Letter Spacing</label>
+                    <input type="range" min="0" max="5" value="0" oninput="setLetterSpacing(this.value)">
+                </div>
+
+                <div class="a11y-actions">
+                    <button onclick="toggleBigCursor()">Big Cursor</button>
+                    <button onclick="togglePageRead()">Page Read</button>
+                    <button onclick="toggleHeadingHighlight()">Highlight Headings</button>
+                    <button onclick="toggleImages()">Hide Images</button>
+
+                    <button onclick="toggleImageDesc()">Image Description</button>
+                </div>
+
+                <button class="a11y-reset" onclick="resetAccessibility()">Reset</button>
+
+            </div>
+        </div>
+
+        <!-- VOICE OVER POPUP -->
+        <div id="voicePopup" class="voice-popup">
+            <div class="voice-header">
+                <span>Screen Reader Options</span>
+                <button onclick="closeVoicePopup()">✕</button>
+            </div>
+
+            <div class="voice-body">
+                <p>Hover on content to start reading.</p>
+
+                <label>Voice / Accent</label>
+                <select id="voiceSelect"></select>
+
+                <label>Volume</label>
+                <input type="range" min="0" max="1" step="0.1" id="voiceVolume">
+
+                <label>Rate</label>
+                <input type="range" min="0.5" max="2" step="0.1" id="voiceRate">
+
+                <label>Pitch</label>
+                <input type="range" min="0" max="2" step="0.1" id="voicePitch">
+
+                <div class="voice-actions">
+                    <button onclick="startReading()">Start</button>
+                    <button onclick="pauseReading()">Pause</button>
+                    <button onclick="resumeReading()">Resume</button>
+                    <button onclick="stopReading()">Stop</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer class="footer mt-auto">
