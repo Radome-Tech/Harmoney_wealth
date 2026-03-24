@@ -121,7 +121,7 @@
                                                 href="assets/pdf/Feb-2026_Newsletter.pdf" target="_blank"
                                                 download="Jan-2026_Newsletter.pdf">Newsletter</a>
                                         </li> -->
-                                       <li><a class="dropdown-item" href="newsletter.html">Newsletter</a></li>
+                                        <li><a class="dropdown-item" href="newsletter.html">Newsletter</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -308,7 +308,7 @@
                                         <!-- <li><a href="assets/pdf/Feb-2026_Newsletter.pdf"
                                                 class="dropdown-item download-link" target="_blank"
                                                 download="Jan-2026_Newsletter.pdf">Newsletter</a></li> -->
-                                       <li><a class="dropdown-item" href="newsletter.html">Newsletter</a></li>
+                                        <li><a class="dropdown-item" href="newsletter.html">Newsletter</a></li>
                                         <li><a href="assets/pdf/investor_charter_pms.pdf"
                                                 class="dropdown-item download-link" target="_blank"
                                                 download="investor_charter_pms.pdf">Investor Charter</a></li>
@@ -1330,7 +1330,82 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="assets/js/form.js"></script>
 
+    <script>
+        (function () {
 
+            const fullName = document.getElementById("fullName");
+            const phone = document.getElementById("careerPhone");
+            const email = document.getElementById("careerEmail");
+
+            // ===== FULL NAME =====
+            fullName.addEventListener("input", function () {
+                let v = this.value;
+
+                // allow only letters + numbers
+                v = v.replace(/[^A-Za-z0-9]/g, "");
+
+                // first character must be alphabet
+                if (v.length > 0 && !/^[A-Za-z]/.test(v)) {
+                    v = v.substring(1);
+                }
+
+                this.value = v;
+            });
+
+            // ===== PHONE =====
+            phone.addEventListener("input", function () {
+                let v = this.value;
+
+                // only digits
+                v = v.replace(/\D/g, "");
+
+                // max 10 digits
+                v = v.slice(0, 10);
+
+                // first digit must be 6–9
+                if (v.length === 1 && !/[6-9]/.test(v)) {
+                    v = "";
+                }
+
+                this.value = v;
+            });
+
+            // prevent non-numeric key press
+            phone.addEventListener("keypress", function (e) {
+                if (!/[0-9]/.test(e.key)) {
+                    e.preventDefault();
+                }
+            });
+
+            // ===== EMAIL =====
+            email.addEventListener("input", function () {
+                let v = this.value;
+
+                // remove spaces
+                v = v.replace(/\s/g, "");
+
+                // allow only valid characters
+                v = v.replace(/[^a-zA-Z0-9@._-]/g, "");
+
+                // allow only one @
+                const parts = v.split("@");
+                if (parts.length > 2) {
+                    v = parts[0] + "@" + parts.slice(1).join("");
+                }
+
+                // prevent starting with dot
+                if (v.startsWith(".")) {
+                    v = v.substring(1);
+                }
+
+                // prevent consecutive dots
+                v = v.replace(/\.{2,}/g, ".");
+
+                this.value = v;
+            });
+
+        })();
+    </script>
 
     <!-- <script>
 (function () {

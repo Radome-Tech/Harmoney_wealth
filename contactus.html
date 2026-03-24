@@ -1178,6 +1178,109 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/form.js"></script>
 
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const type = params.get("type");
+
+        const subjectInput = document.getElementById("subject");
+
+        if (type === "newsletter") {
+            subjectInput.value = "Newsletter Subscription";
+            subjectInput.setAttribute("readonly", true); // or use disabled
+        } else {
+            subjectInput.removeAttribute("readonly");
+        }
+    </script>
+
+    <script>
+        // Name
+        document.getElementById("name").addEventListener("input", function () {
+            let v = this.value.replace(/[^A-Za-z0-9]/g, "");
+            if (v.length > 0 && !/^[A-Za-z]/.test(v)) v = v.substring(1);
+            this.value = v;
+        });
+
+        // Phone
+        document.getElementById("phone").addEventListener("input", function () {
+            let v = this.value.replace(/\D/g, "").slice(0, 10);
+            if (v.length === 1 && !/[6-9]/.test(v)) v = "";
+            this.value = v;
+        });
+
+        // Email
+        document.getElementById("email").addEventListener("input", function () {
+            // this.value = this.value.replace(/\s/g, "");
+            let v = this.value;
+
+                // remove spaces
+                v = v.replace(/\s/g, "");
+
+                // allow only valid characters
+                v = v.replace(/[^a-zA-Z0-9@._-]/g, "");
+
+                // allow only one @
+                const parts = v.split("@");
+                if (parts.length > 2) {
+                    v = parts[0] + "@" + parts.slice(1).join("");
+                }
+
+                // prevent starting with dot
+                if (v.startsWith(".")) {
+                    v = v.substring(1);
+                }
+
+                // prevent consecutive dots
+                v = v.replace(/\.{2,}/g, ".");
+
+                this.value = v;
+
+        });
+    </script>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+
+            const status = document.getElementById("contactStatus");
+
+            // Regex patterns
+            const nameRegex = /^[A-Za-z][A-Za-z0-9]*$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phoneRegex = /^[6-9]\d{9}$/;
+
+            // Validation checks
+            if (!nameRegex.test(name)) {
+                status.innerHTML = "❌ Full Name must start with a letter and can end with numbers (e.g., naveen67)";
+                status.style.color = "red";
+                return;
+            }
+
+            if (!emailRegex.test(email)) {
+                status.innerHTML = "❌ Enter a valid email address";
+                status.style.color = "red";
+                return;
+            }
+
+            if (phone && !phoneRegex.test(phone)) {
+                status.innerHTML = "❌ Enter a valid Indian phone number (10 digits starting with 6-9)";
+                status.style.color = "red";
+                return;
+            }
+
+            // Success
+            status.innerHTML = "✅ Form is valid. Submitting...";
+            status.style.color = "green";
+
+            // You can submit form here
+            // e.target.submit();
+        });
+    </script>
+
 </body>
 
 </html>
