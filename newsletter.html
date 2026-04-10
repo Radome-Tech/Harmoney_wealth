@@ -551,6 +551,29 @@
           </a>
         </div>
 
+         <!-- Fourth CARD -->
+        <div class="duo-card">
+
+          <h3 class="card-title">Market-Cap Reality vs. Fund Flow Distortion</h3>
+
+          <div class="card-meta">
+            <span class="meta-item"><i class="far fa-calendar-alt"></i>December 2025</span>
+            <span class="meta-item"><i class="far fa-clock"></i> 8 min read</span>
+            <span class="meta-item"><i class="far fa-user"></i>Vignesh</span>
+          </div>
+
+          <div class="card-desc">
+            <i class="fas fa-quote-left" style="color:#0077cc;margin-right:8px;"></i>
+           India’s markets show imbalance as mid and small caps attract high flows despite risks, while consumption recovery offers selective investment opportunities ahead.
+          </div>
+
+          <a class="download-card-btn" href="assets/pdf/Dec-2025_Newsletter.pdf" target="_blank"
+            download="Dec-2025_Newsletter.pdf">
+            <i class="fas fa-file-pdf"></i> Download full newsletter
+          </a>
+
+        </div>
+
 
 
         <!-- SECOND CARD: (another 6 columns) creative studio / ethics theme -->
@@ -1498,6 +1521,19 @@
       document.getElementById("downloadThirdBtn").addEventListener("click", function () {
 
         window.open("assets/pdf/Jan-2026_Newsletter.pdf", "_blank");
+
+        this.innerHTML = '<i class="fas fa-check"></i> PDF started';
+
+        setTimeout(() => {
+          this.innerHTML = '<i class="fas fa-file-pdf"></i> Download full newsletter (PDF)';
+        }, 2000);
+
+      });
+
+            // December Newsletter
+      document.getElementById("downloadFourthBtn").addEventListener("click", function () {
+
+        window.open("assets/pdf/Dec-2025_Newsletter.pdf", "_blank");
 
         this.innerHTML = '<i class="fas fa-check"></i> PDF started';
 
