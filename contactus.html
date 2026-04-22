@@ -450,10 +450,9 @@
                                     Login <i class="fa-solid fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
-                                    <li><a class="dropdown-item"
-                                            href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss">PMS Login</a>
+                                    <li><a class="dropdown-item" href="pms-login.html">PMS Login</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="https://harmoneywealth.themfbox.com/">MFD
+                                    <li><a class="dropdown-item" href="mfd-login.html">MFD
                                             Login</a></li>
                                 </ul>
 
@@ -568,9 +567,8 @@
                                     Login <i class="fas fa-chevron-down login-dropdown-icon"></i>
                                 </a>
                                 <div class="mobile-login-dropdown">
-                                    <a href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss"
-                                        class="mobile-login-item">PMS Login</a>
-                                    <a href="https://harmoneywealth.themfbox.com/" class="mobile-login-item">MFD
+                                    <a href="pms-login.html" class="mobile-login-item">PMS Login</a>
+                                    <a href="mfd-login.html" class="mobile-login-item">MFD
                                         Login</a>
                                 </div>
                             </div>
@@ -1213,27 +1211,27 @@
             // this.value = this.value.replace(/\s/g, "");
             let v = this.value;
 
-                // remove spaces
-                v = v.replace(/\s/g, "");
+            // remove spaces
+            v = v.replace(/\s/g, "");
 
-                // allow only valid characters
-                v = v.replace(/[^a-zA-Z0-9@._-]/g, "");
+            // allow only valid characters
+            v = v.replace(/[^a-zA-Z0-9@._-]/g, "");
 
-                // allow only one @
-                const parts = v.split("@");
-                if (parts.length > 2) {
-                    v = parts[0] + "@" + parts.slice(1).join("");
-                }
+            // allow only one @
+            const parts = v.split("@");
+            if (parts.length > 2) {
+                v = parts[0] + "@" + parts.slice(1).join("");
+            }
 
-                // prevent starting with dot
-                if (v.startsWith(".")) {
-                    v = v.substring(1);
-                }
+            // prevent starting with dot
+            if (v.startsWith(".")) {
+                v = v.substring(1);
+            }
 
-                // prevent consecutive dots
-                v = v.replace(/\.{2,}/g, ".");
+            // prevent consecutive dots
+            v = v.replace(/\.{2,}/g, ".");
 
-                this.value = v;
+            this.value = v;
 
         });
     </script>

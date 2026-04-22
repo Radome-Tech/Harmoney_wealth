@@ -7,7 +7,7 @@
         content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="thYxXYCZeWhq9mY7ujg5B2wAc7xhEPKNB20Dje0e">
 
-    <title>Harmoney FinServ India Private Limited</title>
+    <title>Registration - Harmoney FinServ India Private Limited</title>
 
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
     <!--Google Font-->
@@ -45,7 +45,7 @@
 
         // To push specific events, insert following code:
         clevertap.event.push("Webpage Viewed", {
-            "page name": "/",
+            "page name": "/registration",
         });
     </script>
     <!-- CLEVERTAP END -->
@@ -100,9 +100,9 @@
             color: #1e73be;
         }
 
-        /* Login Box */
-        .login-box {
-            width: 420px;
+        /* Register Box */
+        .register-box {
+            width: 720px;
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
@@ -112,8 +112,21 @@
             border: 1px solid rgba(255, 255, 255, 0.7);
         }
 
-        .login-box h3 {
-            margin-bottom: 20px;
+        .register-box h2 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a2e;
+            letter-spacing: -0.3px;
+        }
+
+        .register-box h2 span {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            color: #7a8ba0;
+            letter-spacing: 0.3px;
+            margin-top: 2px;
         }
 
         select {
@@ -223,20 +236,15 @@
 
         }
 
-        /* ========= UPGRADED LOGIN BOX ========= */
-        .login-box {
-            width: 420px;
-        }
-
-        /* Login title block */
-        .login-box .login-title-row {
+        /* Register title block */
+        .register-box .login-title-row {
             display: flex;
             align-items: center;
             gap: 10px;
             margin-bottom: 28px;
         }
 
-        .login-box .login-icon-circle {
+        .register-box .login-icon-circle {
             width: 42px;
             height: 42px;
             border-radius: 50%;
@@ -248,23 +256,6 @@
             font-size: 18px;
             flex-shrink: 0;
             box-shadow: 0 4px 14px rgba(0, 97, 176, 0.35);
-        }
-
-        .login-box h2 {
-            margin: 0;
-            font-size: 22px;
-            font-weight: 700;
-            color: #1a1a2e;
-            letter-spacing: -0.3px;
-        }
-
-        .login-box h2 span {
-            display: block;
-            font-size: 12px;
-            font-weight: 500;
-            color: #7a8ba0;
-            letter-spacing: 0.3px;
-            margin-top: 2px;
         }
 
         /* Input group with icon */
@@ -285,7 +276,7 @@
             z-index: 5;
         }
 
-        .login-box .input1 {
+        .register-box .input1 {
             width: 100%;
             padding: 14px 16px 14px 52px !important;
             margin: 0;
@@ -316,67 +307,7 @@
             color: #0061b0;
         }
 
-        /* Captcha block */
-        .captcha-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 4px 0 14px;
-        }
-
-        .captcha {
-            flex: 1;
-            font-family: 'Courier New', monospace;
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: 8px;
-            color: #1a3a5c;
-            background: linear-gradient(135deg, #e8f4fd 0%, #ddeeff 100%);
-            border: 1.5px dashed #a8c8e8;
-            border-radius: 10px;
-            padding: 10px 16px;
-            text-align: center;
-            user-select: none;
-            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
-            position: relative;
-        }
-
-        .captcha::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(45deg,
-                    transparent,
-                    transparent 4px,
-                    rgba(0, 97, 176, 0.04) 4px,
-                    rgba(0, 97, 176, 0.04) 8px);
-            border-radius: 9px;
-            pointer-events: none;
-        }
-
-        .captcha-refresh {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            border: 1.5px solid #e2eaef;
-            background: #f7fafc;
-            color: #7a8ba0;
-            font-size: 15px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-            flex-shrink: 0;
-        }
-
-        .captcha-refresh:hover {
-            border-color: #0061b0;
-            color: #0061b0;
-            background: #e8f4fd;
-        }
-
-        /* Login button */
+        /* Register button */
         .button2 {
             width: 100%;
             padding: 14px;
@@ -423,7 +354,7 @@
         /* Links row */
         .links {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             margin-top: 18px;
         }
 
@@ -471,22 +402,29 @@
                 font-size: 36px;
             }
 
-            .main-login {
+            .main {
                 padding: 40px 20px;
             }
 
-            .login-box {
+            .register-box {
                 width: 100%;
-                max-width: 380px;
+                max-width: 100%;
                 padding: 28px 20px 24px;
             }
 
         }
+
+        .pass-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9badc2;
+            cursor: pointer;
+            z-index: 10;
+        }
     </style>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/icons.css">
-    <script type="text/javascript"
-        src="https://in1.wzrkt.com/a?t=96&amp;type=ping&amp;d=N4IglgJiBcIOoBYBsBaASgVgJwoNJIwC0QAaEAcxhCywFMBDLAZlolo2wQgyYA56IWAAz0mAY1oBGWryFCEQ0iAAOlaJIC%2BQAAA%3D&amp;rn=3&amp;i=1773655962&amp;sn=1&amp;gc=99ea93ede5594d538ad90a3ce1e80040&amp;arp=N4IgVg%2BgdiBcIC0DuBeFIA0ICW04gCMAmAG2wFMBBARQBFMQATCAFwGc4AGLRgCy6wA3OESyQO8YAF8G2RvgDqAFgBsAWgBKAVgCcagNIqtCBgCdWEgIwB2a0U7WdRIpalAAAA%3D%3D&amp;useIP=false&amp;r=1773655962318"
-        class="ct-jp-cb" rel="nofollow" async=""></script>
 </head>
 
 <body style="margin: 0px; padding: 0px; background: rgb(233, 237, 242); letter-spacing: 0px;">
@@ -550,73 +488,20 @@
                                     Resources <i class="fa-solid fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
-                                    <!-- Newsletter Section -->
-
-                                    <!-- <li><a class="dropdown-item download-link" href="assets/pdf/Feb-2026_Newsletter.pdf" target="_blank" download="Jan-2026_Newsletter.pdf">Newsletter</a></li> -->
                                     <li><a class="dropdown-item" href="newsletter.html">Newsletter</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <!-- Investor Charter Section -->
-                                    <!-- <li class="dropdown-header">Investor Charter</li> -->
                                     <li><a class="dropdown-item download-link"
                                             href="assets/pdf/investor_charter_pms.pdf" target="_blank"
                                             download="investor_charter_pms.pdf">Investor Charter</a></li>
-                                    <!--li><a class="dropdown-item download-link"
-                                                href="assets/pdf/investor_complaints.pdf" target="_blank"
-                                                download="investor_complaints.pdf">Investor Grievances</a></li>
-
-                                        <li-->
-                                    <hr class="dropdown-divider">
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
 
                                     <li><a class="dropdown-item" href="useful-links.html">Useful Links</a></li>
                                     <li><a class="dropdown-item" href="pms-calculator.html">PMS Fee Calculator</a></li>
                                     <li><a class="dropdown-item" href="harmoney-wealth-insights.html">Blogs</a></li>
-
-                                    <!-- Downloads Submenu -->
-                                    <!--li class="dropdown-submenu">
-                                            <a class="dropdown-item dropdown-toggle" href="#">Downloads <i
-                                                    class="fas fa-arrow-right"></i></a>
-                                            <ul class="dropdown-menu nested-dropdown">
-                                         
-                                                <li class="dropdown-header">KYC Documents</li>
-                                                <li><a class="dropdown-item download-link"
-                                                        href="assets/pdf/KYC_for_Individual.pdf" target="_blank"
-                                                        download="KYC_for_Individual.pdf">Individual (For Fresh KYC)</a>
-                                                </li>
-                                                <li><a class="dropdown-item download-link"
-                                                        href="assets/pdf/KYC_for_Corporate.pdf" target="_blank"
-                                                        download="KYC_for_Corporate.pdf">Non Individual (For Fresh
-                                                        KYC)</a></li>
-                                                <li><a class="dropdown-item download-link"
-                                                        href="assets/pdf/KYC_details_change_Reequest.pdf"
-                                                        target="_blank"
-                                                        download="KYC_details_change_Reequest.pdf">Individual (For
-                                                        Change Request)</a></li>
-
-                                                <li>
-                                                    <hr class="dropdown-divider">
-                                                </li>
-
-                                        
-                                                <li class="dropdown-header">PAN Documents</li>
-                                                <li><a class="dropdown-item download-link"
-                                                        href="assets/pdf/Form49A-Application_Individual.pdf"
-                                                        target="_blank"
-                                                        download="Form49A-Application_Individual.pdf">Form 49A -
-                                                        Individual English</a></li>
-                                                <li><a class="dropdown-item download-link"
-                                                        href="assets/pdf/Form49AA_ NRI_application.pdf" target="_blank"
-                                                        download="Form49A_NRI_Application.pdf">Form 49A - NRI
-                                                        Application</a></li>
-                                                <li><a class="dropdown-item download-link"
-                                                        href="assets/pdf/PAN-Change_Request_Form_for_Individual.pdf"
-                                                        target="_blank" download="PAN_Change_Request_Form.pdf">PAN
-                                                        Change Request
-                                                        Form</a></li>
-
-                                            </ul>
-                                        </li-->
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -710,74 +595,20 @@
                                     Resources <i class="fa-solid fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
-                                    <!-- Newsletter Section -->
-
-                                    <!-- <li><a class="dropdown-item download-link" href="assets/pdf/Feb-2026_Newsletter.pdf"
-                                            target="_blank" download="Jan-2026_Newsletter.pdf">Newsletter</a></li> -->
                                     <li><a class="dropdown-item" href="newsletter.html">Newsletter</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <!-- Investor Charter Section -->
-                                    <!-- <li class="dropdown-header">Investor Charter</li> -->
                                     <li><a class="dropdown-item download-link"
                                             href="assets/pdf/investor_charter_pms.pdf" target="_blank"
                                             download="investor_charter_pms.pdf">Investor Charter</a></li>
-                                    <!--li><a class="dropdown-item download-link"
-                                                href="assets/pdf/investor_complaints.pdf" target="_blank"
-                                                download="investor_complaints.pdf">Investor Grievances</a></li>
-
-                                        <li-->
-                                    <hr class="dropdown-divider">
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
 
                                     <li><a class="dropdown-item" href="useful-links.html">Useful Links</a></li>
                                     <li><a class="dropdown-item" href="pms-calculator.html">PMS Fee Calculator</a></li>
                                     <li><a class="dropdown-item" href="harmoney-wealth-insights.html">Blogs</a></li>
-
-                                    <!-- Downloads Submenu -->
-                                    <!--li class="dropdown-submenu">
-                                            <a class="dropdown-item dropdown-toggle" href="#">Downloads <i
-                                                    class="fas fa-arrow-right"></i></a>
-                                            <ul class="dropdown-menu nested-dropdown">
-                                         
-                                                <li class="dropdown-header">KYC Documents</li>
-                                                <li><a class="dropdown-item download-link"
-                                                        href="assets/pdf/KYC_for_Individual.pdf" target="_blank"
-                                                        download="KYC_for_Individual.pdf">Individual (For Fresh KYC)</a>
-                                                </li>
-                                                <li><a class="dropdown-item download-link"
-                                                        href="assets/pdf/KYC_for_Corporate.pdf" target="_blank"
-                                                        download="KYC_for_Corporate.pdf">Non Individual (For Fresh
-                                                        KYC)</a></li>
-                                                <li><a class="dropdown-item download-link"
-                                                        href="assets/pdf/KYC_details_change_Reequest.pdf"
-                                                        target="_blank"
-                                                        download="KYC_details_change_Reequest.pdf">Individual (For
-                                                        Change Request)</a></li>
-
-                                                <li>
-                                                    <hr class="dropdown-divider">
-                                                </li>
-
-                                        
-                                                <li class="dropdown-header">PAN Documents</li>
-                                                <li><a class="dropdown-item download-link"
-                                                        href="assets/pdf/Form49A-Application_Individual.pdf"
-                                                        target="_blank"
-                                                        download="Form49A-Application_Individual.pdf">Form 49A -
-                                                        Individual English</a></li>
-                                                <li><a class="dropdown-item download-link"
-                                                        href="assets/pdf/Form49AA_ NRI_application.pdf" target="_blank"
-                                                        download="Form49A_NRI_Application.pdf">Form 49A - NRI
-                                                        Application</a></li>
-                                                <li><a class="dropdown-item download-link"
-                                                        href="assets/pdf/PAN-Change_Request_Form_for_Individual.pdf"
-                                                        target="_blank" download="PAN_Change_Request_Form.pdf">PAN
-                                                        Change Request
-                                                        Form</a></li>
-
-                                            </ul>
-                                        </li-->
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -935,16 +766,15 @@
             </div>
         </div>
         <!-- End top navigation for mobile -->
-        <!-- End top navigation for mobile -->
     </header>
 
     <!-- Header / Title Card -->
     <header class="about-header" style="padding: 64px 0 52px; text-align: center;">
         <div class="container" style="text-align: center;">
-            <h1 class="hf_heading01" style="margin-bottom: 10px; font-size: 2.6rem;">MFD Login Portal</h1>
+            <h1 class="hf_heading01" style="margin-bottom: 10px; font-size: 2.6rem;">MFD Registration Portal</h1>
             <p class="hf_heading04"
                 style="color: #3a6080; font-size: 1rem; max-width: 480px; margin: 0 auto; font-weight: 500;">
-                Mutual Fund Distributor &mdash; Secure Access
+                Mutual Fund Distributor &mdash; Create Account
             </p>
         </div>
     </header>
@@ -952,132 +782,85 @@
 
     <div class="main">
 
-        <div class="login-box" id="mfd-auth-container">
-            <!-- Login Step -->
-            <div id="login-step">
-                <!-- Title row with icon -->
-                <div class="login-title-row">
-                    <div class="login-icon-circle">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <h2>MFD Login
-                        <span>Enter your credentials to continue</span>
-                    </h2>
+        <div class="register-box">
+
+            <!-- Title row with icon -->
+            <div class="login-title-row">
+                <div class="login-icon-circle">
+                    <i class="fas fa-user-plus"></i>
                 </div>
-
-                <!-- User ID input -->
-                <div class="input-group-mfd">
-                    <input type="text" id="mfd-userid" placeholder="User ID / PAN / Mobile number" class="input1"
-                        autocomplete="username">
-                    <i class="fas fa-id-card input-icon"></i>
-                </div>
-
-                <!-- Password input -->
-                <div class="input-group-mfd">
-                    <input type="password" id="mfd-password" placeholder="Enter password" class="input1"
-                        autocomplete="current-password">
-                    <i class="fas fa-lock input-icon"></i>
-                </div>
-
-                <!-- Captcha display + refresh -->
-                <div class="captcha-row">
-                    <div class="captcha" id="captcha-display" aria-label="Captcha code">ENLNJZ</div>
-                    <button class="captcha-refresh" onclick="refreshCaptcha()" title="Refresh captcha"
-                        aria-label="Refresh captcha">
-                        <i class="fas fa-redo-alt"></i>
-                    </button>
-                </div>
-
-                <!-- Captcha input -->
-                <div class="input-group-mfd">
-                    <input type="text" id="mfd-captcha" placeholder="Enter captcha code" class="input1"
-                        autocomplete="off" maxlength="6">
-                    <i class="fas fa-shield-alt input-icon"></i>
-                </div>
-
-                <button class="button2" id="mfd-login-btn" onclick="handleMfdLogin()">LOGIN</button>
-
-                <hr class="login-divider">
-
-                <div class="links">
-                    <a href="javascript:void(0)" onclick="switchAuthStep('forgot-step')">Forgot Password?</a>
-                    <a href="mfd-register.html" id="signup-link">New user? Sign up</a>
-                </div>
+                <h2>MFD Registration
+                    <span>Enter your details to create an account</span>
+                </h2>
             </div>
 
-            <!-- Forgot Password Step -->
-            <div id="forgot-step" style="display: none;">
-                <div class="login-title-row">
-                    <div class="login-icon-circle">
-                        <i class="fas fa-key"></i>
+            <form id="mfd-register-form" onsubmit="handleMfdRegister(event)">
+                <div class="row">
+                    <!-- Name -->
+                    <div class="col-md-6">
+                        <div class="input-group-mfd">
+                            <input type="text" id="reg-name" placeholder="Full Name" class="input1" required>
+                            <i class="fas fa-user input-icon"></i>
+                        </div>
                     </div>
-                    <h2>Reset Password
-                        <span>Enter details to get verification code</span>
-                    </h2>
+                    <!-- PAN Number -->
+                    <div class="col-md-6">
+                        <div class="input-group-mfd">
+                            <input type="text" id="reg-pan" placeholder="PAN Number" class="input1" required
+                                maxlength="10" style="text-transform: uppercase;">
+                            <i class="fas fa-id-card input-icon"></i>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="input-group-mfd">
-                    <input type="tel" id="forgot-mobile" placeholder="Registered Mobile Number" class="input1"
-                        maxlength="10">
-                    <i class="fas fa-mobile-alt input-icon"></i>
+                <div class="row">
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <div class="input-group-mfd">
+                            <input type="email" id="reg-email" placeholder="Email Address" class="input1" required>
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                    </div>
+                    <!-- Mobile -->
+                    <div class="col-md-6">
+                        <div class="input-group-mfd">
+                            <input type="tel" id="reg-mobile" placeholder="Mobile Number" class="input1" required
+                                maxlength="10">
+                            <i class="fas fa-mobile-alt input-icon"></i>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="input-group-mfd">
-                    <input type="password" id="forgot-new-pass" placeholder="New Password" class="input1">
-                    <i class="fas fa-lock input-icon"></i>
+                <div class="row">
+                    <!-- Password -->
+                    <div class="col-md-6">
+                        <div class="input-group-mfd">
+                            <input type="password" id="reg-password" placeholder="Password" class="input1" required>
+                            <i class="fas fa-lock input-icon"></i>
+                            <i class="fas fa-eye pass-toggle" onclick="togglePass('reg-password', this)"></i>
+                        </div>
+                    </div>
+                    <!-- Confirm Password -->
+                    <div class="col-md-6">
+                        <div class="input-group-mfd">
+                            <input type="password" id="reg-confirm-password" placeholder="Confirm Password"
+                                class="input1" required>
+                            <i class="fas fa-shield-alt input-icon"></i>
+                            <i class="fas fa-eye pass-toggle" onclick="togglePass('reg-confirm-password', this)"></i>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="input-group-mfd">
-                    <input type="password" id="forgot-confirm-pass" placeholder="Confirm New Password" class="input1">
-                    <i class="fas fa-shield-alt input-icon"></i>
-                </div>
+                <button type="submit" class="button2" id="mfd-register-btn">SIGN UP</button>
+            </form>
 
-                <button class="button2" id="mfd-forgot-btn" onclick="handleForgotPasswordRequest()">SEND OTP</button>
+            <hr class="login-divider">
 
-                <div class="links mt-4">
-                    <a href="javascript:void(0)" onclick="switchAuthStep('login-step')"><i
-                            class="fas fa-arrow-left"></i> Back to Login</a>
-                </div>
+            <div class="links">
+                <a href="mfd-login.html" id="login-link">Already have an account? Login</a>
             </div>
 
-            <!-- OTP Verification Step -->
-            <div id="otp-step" style="display: none;">
-                <div class="login-title-row">
-                    <div class="login-icon-circle">
-                        <i class="fas fa-shield-check"></i>
-                    </div>
-                    <h2>Verify OTP
-                        <span>Enter the code sent to your mobile</span>
-                    </h2>
-                </div>
-
-                <div class="input-group-mfd">
-                    <input type="text" id="forgot-otp" placeholder="Enter 4-digit OTP" class="input1" maxlength="4"
-                        style="text-align: center; font-size: 24px; letter-spacing: 12px; font-weight: bold;">
-                    <i class="fas fa-user-lock input-icon"></i>
-                </div>
-
-                <button class="button2" id="mfd-verify-btn" onclick="handleVerifyOtpAndReset()">VERIFY & RESET</button>
-
-                <div class="links mt-4">
-                    <a href="javascript:void(0)" onclick="switchAuthStep('forgot-step')"><i class="fas fa-redo"></i>
-                        Resend OTP</a>
-                </div>
-            </div>
         </div>
-
-        <!-- <div class="mobile-section">
-                <h3>SharePro AIR is here!</h3>
-                <p>Now get the backoffice on the go right on your phone.</p>
-
-                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png">
-
-                <div class="app-buttons">
-                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
-                </div>
-            </div> -->
-
 
         <!-- accessbility content  -->
         <div id="accessibilityPanel">
@@ -1491,105 +1274,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End Mobile Footer -->
-                    <!-- End Mobile Footer -->
-
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- </div> -->
-    <div id="accessibilityPanel">
-
-        <div class="a11y-header">
-            <span>Accessibility</span>
-            <button onclick="closeAccessibilityPanel()">✕</button>
-        </div>
-
-        <div class="a11y-body">
-
-            <div class="a11y-control">
-                <label>Line Height</label>
-                <input type="range" min="1.2" max="2.6" step="0.1" value="1.6" oninput="setLineHeight(this.value)">
-            </div>
-
-            <div class="a11y-control">
-                <label>Text Size</label>
-                <input type="range" min="90" max="130" value="100" step="5" oninput="setTextSize(this.value)">
-            </div>
-
-            <div class="a11y-control">
-                <label>Letter Spacing</label>
-                <input type="range" min="0" max="5" value="0" oninput="setLetterSpacing(this.value)">
-            </div>
-
-            <div class="a11y-actions">
-                <button onclick="toggleBigCursor()">Big Cursor</button>
-                <button onclick="togglePageRead()">Page Read</button>
-                <button onclick="toggleHeadingHighlight()">Highlight Headings</button>
-                <button onclick="toggleImages()">Hide Images</button>
-                <button onclick="toggleImageDesc()">Image Description</button>
-            </div>
-
-            <button class="a11y-reset" onclick="resetAccessibility()">Reset</button>
-        </div>
-    </div>
-
-    <!-- VOICE OVER POPUP -->
-    <div id="voicePopup" class="voice-popup">
-        <div class="voice-header">
-            <span>Screen Reader Options</span>
-            <button onclick="closeVoicePopup()">✕</button>
-        </div>
-
-        <div class="voice-body">
-            <p>Hover on content to start reading.</p>
-
-            <label>Voice / Accent</label>
-            <select id="voiceSelect">
-                <option value="0">Microsoft David - English (United States) (en-US)</option>
-                <option value="1">Microsoft Mark - English (United States) (en-US)</option>
-                <option value="2">Microsoft Zira - English (United States) (en-US)</option>
-                <option value="3">Google Deutsch (de-DE)</option>
-                <option value="4">Google US English (en-US)</option>
-                <option value="5">Google UK English Female (en-GB)</option>
-                <option value="6">Google UK English Male (en-GB)</option>
-                <option value="7">Google español (es-ES)</option>
-                <option value="8">Google español de Estados Unidos (es-US)</option>
-                <option value="9">Google français (fr-FR)</option>
-                <option value="10">Google हिन्दी (hi-IN)</option>
-                <option value="11">Google Bahasa Indonesia (id-ID)</option>
-                <option value="12">Google italiano (it-IT)</option>
-                <option value="13">Google 日本語 (ja-JP)</option>
-                <option value="14">Google 한국의 (ko-KR)</option>
-                <option value="15">Google Nederlands (nl-NL)</option>
-                <option value="16">Google polski (pl-PL)</option>
-                <option value="17">Google português do Brasil (pt-BR)</option>
-                <option value="18">Google русский (ru-RU)</option>
-                <option value="19">Google&nbsp;普通话（中国大陆） (zh-CN)</option>
-                <option value="20">Google&nbsp;粤語（香港） (zh-HK)</option>
-                <option value="21">Google 國語（臺灣） (zh-TW)</option>
-            </select>
-
-            <label>Volume</label>
-            <input type="range" min="0" max="1" step="0.1" id="voiceVolume">
-
-            <label>Rate</label>
-            <input type="range" min="0.5" max="2" step="0.1" id="voiceRate">
-
-            <label>Pitch</label>
-            <input type="range" min="0" max="2" step="0.1" id="voicePitch">
-
-            <div class="voice-actions">
-                <button onclick="startReading()">Start</button>
-                <button onclick="pauseReading()">Pause</button>
-                <button onclick="resumeReading()">Resume</button>
-                <button onclick="stopReading()">Stop</button>
-            </div>
-        </div>
-    </div>
-
 
     <script src="https://www.happynessfactory.in/js/app.js?v=SCM2.8.5.18"></script>
     <script src="https://www.happynessfactory.in/js/custom.js?v=SCM2.8.5.18"></script>
@@ -1612,200 +1300,66 @@
             document.getElementById("accessibilityPanel").classList.remove("open");
         }
 
-        /* ---- MFD Login Helpers ---- */
-        function refreshCaptcha() {
-            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-            let code = '';
-            for (let i = 0; i < 6; i++) {
-                code += chars[Math.floor(Math.random() * chars.length)];
-            }
-            const el = document.getElementById('captcha-display');
-            if (el) {
-                el.style.transition = 'opacity 0.2s';
-                el.style.opacity = '0';
-                setTimeout(() => { el.textContent = code; el.style.opacity = '1'; }, 200);
+        function togglePass(id, el) {
+            const input = document.getElementById(id);
+            if (input.type === "password") {
+                input.type = "text";
+                el.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                input.type = "password";
+                el.classList.replace("fa-eye-slash", "fa-eye");
             }
         }
 
-        function handleMfdLogin() {
-            const userId = document.getElementById('mfd-userid').value.trim();
-            const pass = document.getElementById('mfd-password').value;
-            const captchaInput = document.getElementById('mfd-captcha').value.trim().toUpperCase();
-            const captchaDisplay = (document.getElementById('captcha-display').textContent || '').trim();
+        async function handleMfdRegister(event) {
+            event.preventDefault();
+            const name = document.getElementById('reg-name').value.trim();
+            const pan = document.getElementById('reg-pan').value.trim().toUpperCase();
+            const email = document.getElementById('reg-email').value.trim();
+            const mobile = document.getElementById('reg-mobile').value.trim();
+            const pass = document.getElementById('reg-password').value;
+            const confirmPass = document.getElementById('reg-confirm-password').value;
 
-            if (!userId || !pass || !captchaInput) {
-                alert('Please fill in all fields (User ID, Password, and Captcha).');
-                return;
-            }
-
-            if (captchaInput !== captchaDisplay) {
-                alert('Captcha does not match. Please try again.');
-                refreshCaptcha();
-                document.getElementById('mfd-captcha').value = '';
-                return;
-            }
-
-            // API Integration
-            const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
-            const apiUrl = `mfd-login.htmlapi/validateLogin`;
-
-            const loginBtn = document.getElementById('mfd-login-btn');
-            const originalBtnText = loginBtn.innerHTML;
-
-            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> VERIFYING...';
-            loginBtn.disabled = true;
-
-            // Using POST as requested
-            fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `key=${apiKey}&pan=${encodeURIComponent(userId)}&password=${encodeURIComponent(pass)}`
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log("Login Response:", data);
-                    // Updated to match your sample response format: {"status":200,"status_msg":"Success", ...}
-                    if (data.status === 200 && data.status_msg === "Success") {
-                        alert(`Login Successful! Welcome, ${data.user.name}`);
-
-                        // Store user info in session storage for later use
-                        sessionStorage.setItem('mfd_user', JSON.stringify(data.user));
-
-                        // Example: Redirect to a dashboard or home page
-                        // window.location.href = 'index.html';
-                    } else {
-                        alert('Login failed: ' + (data.msg || data.status_msg || 'Invalid PAN or Password.'));
-                        refreshCaptcha();
-                        document.getElementById('mfd-captcha').value = '';
-                        document.getElementById('mfd-password').value = '';
-                    }
-                })
-                .catch(error => {
-                    console.error('Login Error:', error);
-                    alert('Network error. Please check your connection and try again.');
-                })
-                .finally(() => {
-                    loginBtn.innerHTML = originalBtnText;
-                    loginBtn.disabled = false;
-                });
-        }
-
-        // Initialize captcha on load
-        window.addEventListener('load', refreshCaptcha);
-
-        /* ---- Forgot Password Flow ---- */
-        function switchAuthStep(stepId) {
-            const steps = ['login-step', 'forgot-step', 'otp-step'];
-            steps.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.style.display = (id === stepId) ? 'block' : 'none';
-            });
-            // Reset fields on switch
-            if (stepId === 'login-step') refreshCaptcha();
-        }
-
-        async function handleForgotPasswordRequest() {
-            const mobile = document.getElementById('forgot-mobile').value.trim();
-            const pass = document.getElementById('forgot-new-pass').value;
-            const confirmPass = document.getElementById('forgot-confirm-pass').value;
-
-            if (!mobile || !pass || !confirmPass) {
-                alert("Please fill all fields."); return;
-            }
             if (pass !== confirmPass) {
-                alert("Passwords do not match."); return;
+                alert("Passwords do not match!");
+                return;
+            }
+            if (mobile.length !== 10) {
+                alert("Please enter a valid 10-digit mobile number.");
+                return;
             }
 
-            const btn = document.getElementById('mfd-forgot-btn');
+            const btn = document.getElementById('mfd-register-btn');
             const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SENDING...';
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> REGISTERING...';
             btn.disabled = true;
 
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
-            const apiUrl = "mfd-login.htmlapi/forgotPasswordOTPSend";
+            const clientName = "harmoneywealth";
+            const apiUrl = "mfd-login.htmlapi/registerUser";
 
             try {
-                // Using URLSearchParams for consistent x-www-form-urlencoded formatting
-                const params = new URLSearchParams();
-                params.append('client_name', 'harmoneywealth');
-                params.append('key', apiKey);
-                params.append('password', pass);
-                params.append('source', 'Harmoney');
-                params.append('mobile', mobile);
-
                 const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: params.toString()
+                    body: `client_name=${clientName}&email=${encodeURIComponent(email)}&key=${apiKey}&mobile=${mobile}&name=${encodeURIComponent(name)}&pan=${pan}&password=${encodeURIComponent(pass)}`
                 });
                 const data = await response.json();
                 if (data.status === 200 || data.status_msg === "Success") {
-                    alert(data.msg || "OTP Sent successfully!");
-                    switchAuthStep('otp-step');
+                    alert("Registration successful! You can now login.");
+                    window.location.href = "pms-login.html";
                 } else {
-                    alert("Error: " + (data.msg || data.status_msg || "Failed to send OTP"));
+                    alert("Registration failed: " + (data.msg || data.status_msg || "Unknown error"));
                 }
-            } catch (err) {
-                console.error("Forgot Pass Error:", err);
-                alert("Network error occurred.");
+            } catch (error) {
+                console.error("Registration error:", error);
+                alert("An error occurred. Please try again later.");
             } finally {
-                btn.innerHTML = originalText; btn.disabled = false;
-            }
-        }
-
-        async function handleVerifyOtpAndReset() {
-            const mobile = document.getElementById('forgot-mobile').value.trim();
-            const pass = document.getElementById('forgot-new-pass').value;
-            const otpCode = document.getElementById('forgot-otp').value.trim();
-
-            if (!otpCode) { alert("Please enter the OTP."); return; }
-
-            const btn = document.getElementById('mfd-verify-btn');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> VERIFYING...';
-            btn.disabled = true;
-
-            const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
-            const apiUrl = "mfd-login.htmlapi/changeForgotPassword";
-
-            try {
-                const params = new URLSearchParams();
-                params.append('client_name', 'harmoneywealth');
-                params.append('key', apiKey);
-                params.append('otp', otpCode);
-                params.append('password', pass);
-                params.append('source', 'Harmoney Wealth Website');
-                params.append('mobile', mobile);
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: params.toString()
-                });
-                const data = await response.json();
-                if (data.status === 200 || data.status_msg === "Success") {
-                    alert("Password updated successfully! You can now login with your new password.");
-                    switchAuthStep('login-step');
-                    // Clear fields
-                    document.getElementById('mfd-password').value = '';
-                    document.getElementById('mfd-userid').value = mobile;
-                } else {
-                    alert("Error: " + (data.msg || data.status_msg || "Invalid verification code"));
-                }
-            } catch (err) {
-                console.error("Verify OTP Error:", err);
-                alert("Network error occurred.");
-            } finally {
-                btn.innerHTML = originalText; btn.disabled = false;
+                btn.innerHTML = originalText;
+                btn.disabled = false;
             }
         }
     </script>
-
-
-
-
 </body>
 
 </html>
