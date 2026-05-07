@@ -1647,7 +1647,8 @@
 
             // API Integration
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
-            const apiUrl = `mfd-login.htmlapi/validateLogin`;
+
+            const apiUrl = `https://harmoneywealth.themfbox.com/api/validateLogin?key=${encodeURIComponent(apiKey)}&pan=${encodeURIComponent(userId)}&password=${encodeURIComponent(pass)}`;
 
             const loginBtn = document.getElementById('mfd-login-btn');
             const originalBtnText = loginBtn.innerHTML;
@@ -1655,28 +1656,22 @@
             loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> VERIFYING...';
             loginBtn.disabled = true;
 
-            // Using POST as requested
             fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `key=${apiKey}&pan=${encodeURIComponent(userId)}&password=${encodeURIComponent(pass)}`
+                method: 'POST'
             })
                 .then(response => response.json())
                 .then(data => {
                     console.log("Login Response:", data);
-                    // Updated to match your sample response format: {"status":200,"status_msg":"Success", ...}
+
                     if (data.status === 200 && data.status_msg === "Success") {
                         alert(`Login Successful! Welcome, ${data.user.name}`);
 
-                        // Store user info in session storage for later use
                         sessionStorage.setItem('mfd_user', JSON.stringify(data.user));
 
-                        // Example: Redirect to a dashboard or home page
                         // window.location.href = 'index.html';
                     } else {
                         alert('Login failed: ' + (data.msg || data.status_msg || 'Invalid PAN or Password.'));
+
                         refreshCaptcha();
                         document.getElementById('mfd-captcha').value = '';
                         document.getElementById('mfd-password').value = '';
