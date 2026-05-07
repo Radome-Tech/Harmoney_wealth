@@ -1360,6 +1360,9 @@
             } catch (error) {
                 console.error("Registration error:", error);
                 alert("An error occurred. Please try again later.");
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
             }
         }
     </script>
