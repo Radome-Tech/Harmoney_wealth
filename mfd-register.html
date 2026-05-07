@@ -1336,27 +1336,30 @@
 
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
             const clientName = "harmoneywealth";
-            const apiUrl = "mfd-login.htmlapi/registerUser";
+
+            const apiUrl = "https://harmoneywealth.themfbox.com/api/registerUser";
 
             try {
                 const response = await fetch(apiUrl, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
                     body: `client_name=${clientName}&email=${encodeURIComponent(email)}&key=${apiKey}&mobile=${mobile}&name=${encodeURIComponent(name)}&pan=${pan}&password=${encodeURIComponent(pass)}`
                 });
+
                 const data = await response.json();
+
                 if (data.status === 200 || data.status_msg === "Success") {
                     alert("Registration successful! You can now login.");
                     window.location.href = "pms-login.html";
                 } else {
                     alert("Registration failed: " + (data.msg || data.status_msg || "Unknown error"));
                 }
+
             } catch (error) {
                 console.error("Registration error:", error);
                 alert("An error occurred. Please try again later.");
-            } finally {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
             }
         }
     </script>
