@@ -1300,6 +1300,84 @@
             document.getElementById("accessibilityPanel").classList.remove("open");
         }
 
+
+        // TEXT SIZE
+        function setTextSize(value) {
+
+            const scale = value / 100;
+
+            document.querySelectorAll(`
+        h1,h2,h3,h4,h5,h6,
+        p,span,a,button,label,
+        input,select,
+        .hf_heading01,
+        .hf_heading04,
+        .login-title-row h2,
+        .login-title-row h2 span
+    `).forEach(el => {
+
+                if (!el.dataset.originalFontSize) {
+
+                    el.dataset.originalFontSize =
+                        parseFloat(window.getComputedStyle(el).fontSize);
+                }
+
+                const originalSize =
+                    parseFloat(el.dataset.originalFontSize);
+
+                el.style.fontSize =
+                    (originalSize * scale) + 'px';
+            });
+        }
+
+        // LETTER SPACING
+        function setLetterSpacing(value) {
+
+            document.querySelectorAll(`
+            h1,h2,h3,h4,h5,h6,
+            p,span,a,button,label,
+            input,select,
+            .hf_heading01,
+            .hf_heading04,
+            .login-title-row h2,
+            .login-title-row h2 span
+        `).forEach(el => {
+
+                el.style.letterSpacing = value + "px";
+            });
+        }
+
+
+        // RESET ACCESSIBILITY
+        function resetAccessibility() {
+
+            document.querySelectorAll(`
+        h1,h2,h3,h4,h5,h6,
+        p,span,a,button,label,
+        input,select,
+        .hf_heading01,
+        .hf_heading04,
+        .login-title-row h2,
+        .login-title-row h2 span
+    `).forEach(el => {
+
+                // Remove inline styles
+                el.style.fontSize = "";
+                el.style.letterSpacing = "";
+
+                // Remove stored scaled values
+                delete el.dataset.originalFontSize;
+            });
+
+            // Reset sliders
+            const textSlider = document.getElementById('text-size-slider');
+            const spacingSlider = document.getElementById('letter-spacing-slider');
+
+            if (textSlider) textSlider.value = 100;
+            if (spacingSlider) spacingSlider.value = 0;
+        }
+
+        
         function togglePass(id, el) {
             const input = document.getElementById(id);
             if (input.type === "password") {
