@@ -22,33 +22,45 @@
     <link href="assets/css/bootstrap5/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="assets/css/customstyle.css" type="text/css" rel="stylesheet">
     <!-- <script src="https://www.happynessfactory.in/assets/js/jquery-3.6.1.min.js"></script> -->
-    <script type="text/javascript" async="" src="http://static.clevertap.com/js/a.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" async=""
-        defer=""></script>
-    <script src="https://www.happynessfactory.in/assets/js/prelogApplication.js?v=SCM2.8.5.18"></script>
-
-
+    <!-- <script type="text/javascript" async="" src="https://static.clevertap.com/js/a.js"></script> -->
     <!-- CLEVERTAP START -->
     <script type="text/javascript">
-        var clevertap = { event: [], profile: [], region: 'in1', account: [], onUserLogin: [], notifications: [] };
-        console.log('in ctap');
+        var clevertap = {
+            event: [],
+            profile: [],
+            region: 'in1',
+            account: [],
+            onUserLogin: [],
+            notifications: []
+        };
+
+        // console.log('in ctap');
+
         clevertap.account.push({ "id": "W46-R59-K65Z" });
+
         (function () {
             var wzrk = document.createElement('script');
             wzrk.type = 'text/javascript';
             wzrk.async = true;
-            wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
+
+            // ALWAYS LOAD HTTPS
+            wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/a.js';
+
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(wzrk, s);
         })();
 
-        // To push specific events, insert following code:
+        // Event Tracking
         clevertap.event.push("Webpage Viewed", {
             "page name": "/",
         });
     </script>
     <!-- CLEVERTAP END -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" async=""
+        defer=""></script>
+    <script src="https://www.happynessfactory.in/assets/js/prelogApplication.js?v=SCM2.8.5.18"></script>
+
     <!-- Google tag (gtag.js) -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-KM3PJ686KV"></script>
     <script>
@@ -641,9 +653,10 @@
                                     Login <i class="fa-solid fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
-                                    <li><a class="dropdown-item" href="pms-login.html">PMS Login</a>
+                                    <li><a class="dropdown-item"
+                                            href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss">PMS Login</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="mfd-login.html">MFD
+                                    <li><a class="dropdown-item" href="https://harmoneywealth.themfbox.com/">MFD
                                             Login</a></li>
                                 </ul>
 
@@ -802,9 +815,10 @@
                                     Login <i class="fa-solid fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
-                                    <li><a class="dropdown-item" href="pms-login.html">PMS Login</a>
+                                    <li><a class="dropdown-item"
+                                            href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss">PMS Login</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="mfd-login.html">MFD
+                                    <li><a class="dropdown-item" href="https://harmoneywealth.themfbox.com/">MFD
                                             Login</a></li>
                                 </ul>
 
@@ -922,8 +936,9 @@
                                         style="transform: rotate(0deg);"></i>
                                 </a>
                                 <div class="mobile-login-dropdown">
-                                    <a href="pms-login.html" class="mobile-login-item">PMS Login</a>
-                                    <a href="mfd-login.html" class="mobile-login-item">MFD
+                                    <a href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss"
+                                        class="mobile-login-item">PMS Login</a>
+                                    <a href="https://harmoneywealth.themfbox.com/" class="mobile-login-item">MFD
                                         Login</a>
                                 </div>
                             </div>
