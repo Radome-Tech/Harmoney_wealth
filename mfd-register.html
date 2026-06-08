@@ -1406,39 +1406,6 @@
             }
         }
 
-        /* ================================================================
-         * AES-256 Encryption Utility
-         * Vendor spec: AES-256, SECRET_KEY = "ABCDEF@!@#"
-         * Algorithm : AES-256-CBC, IV = 16 zero-bytes, PKCS#7 padding
-         *             (equivalent to Java AES/CBC/PKCS5Padding with zero IV)
-         * Key derivation: SHA-256 of the secret key string → 32-byte raw key
-         *
-         * NOTE FOR DEVELOPERS: If the vendor backend uses ECB mode or a
-         * different IV strategy, update the `encryptAES` function below.
-         * ================================================================ */
-        const MFD_SECRET_KEY = "HarmoneyFinServ@123";
-
-        /**
-         * Encrypts a plaintext string using AES-256-CBC (zero IV, PKCS#7 padding).
-         * Key = SHA-256 digest of MFD_SECRET_KEY.
-         * Returns a standard Base64-encoded ciphertext string.
-         */
-        async function encryptAES(plaintext) {
-            const enc = new TextEncoder();
-            // Derive 32-byte AES key: SHA-256 of the secret key string
-            const hashBuf = await crypto.subtle.digest("SHA-256", enc.encode(MFD_SECRET_KEY));
-            const key = await crypto.subtle.importKey(
-                "raw", hashBuf, { name: "AES-CBC", length: 256 }, false, ["encrypt"]
-            );
-            // Zero IV (16 bytes) — matches Java AES/CBC/PKCS5Padding with no explicit IV
-            const iv = new Uint8Array(16);
-            const cipherBuf = await crypto.subtle.encrypt(
-                { name: "AES-CBC", iv }, key, enc.encode(plaintext)
-            );
-            // Return standard Base64
-            return btoa(String.fromCharCode(...new Uint8Array(cipherBuf)));
-        }
-
         async function handleMfdRegister(event) {
             event.preventDefault();
 
@@ -1457,22 +1424,15 @@
 
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
 
-            // Encrypt all sensitive fields as required by vendor (AES-256)
-            const encryptedName     = await encryptAES(name);
-            const encryptedEmail    = await encryptAES(email);
-            const encryptedMobile   = await encryptAES(mobile);
-            const encryptedPan      = await encryptAES(pan);
-            const encryptedPassword = await encryptAES(pass);
-
             const apiUrl =
                 `https://harmoneywealth.themfbox.com/api/registerUser` +
                 `?client_name=harmoneywealth` +
-                `&email=${encodeURIComponent(encryptedEmail)}` +
+                `&email=${encodeURIComponent(email)}` +
                 `&key=${encodeURIComponent(apiKey)}` +
-                `&mobile=${encodeURIComponent(encryptedMobile)}` +
-                `&name=${encodeURIComponent(encryptedName)}` +
-                `&pan=${encodeURIComponent(encryptedPan)}` +
-                `&password=${encodeURIComponent(encryptedPassword)}`;
+                `&mobile=${encodeURIComponent(mobile)}` +
+                `&name=${encodeURIComponent(name)}` +
+                `&pan=${encodeURIComponent(pan)}` +
+                `&password=${encodeURIComponent(pass)}`;
 
             try {
                 const response = await fetch(apiUrl, {
