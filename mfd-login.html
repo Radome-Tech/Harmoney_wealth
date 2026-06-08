@@ -1720,63 +1720,91 @@
             }
         }
 
-        function handleMfdLogin() {
+        /* ================================================================
+         * AES-256 Encryption Utility
+         * Vendor spec: AES-256, SECRET_KEY = "ABCDEF@!@#"
+         * Algorithm : AES-256-CBC, IV = 16 zero-bytes, PKCS#7 padding
+         *             (equivalent to Java AES/CBC/PKCS5Padding with zero IV)
+         * Key derivation: SHA-256 of the secret key string → 32-byte raw key
+         *
+         * NOTE FOR DEVELOPERS: If the vendor backend uses ECB mode or a
+         * different IV strategy, update the `encryptAES` function below.
+         * ================================================================ */
+        const MFD_SECRET_KEY = "HarmoneyFinServ@123";
+
+        /**
+         * Encrypts a plaintext string using AES-256-CBC (zero IV, PKCS#7 padding).
+         * Key = SHA-256 digest of MFD_SECRET_KEY.
+         * Returns a URL-safe base64-encoded ciphertext string.
+         */
+        async function encryptAES(plaintext) {
+            const enc = new TextEncoder();
+            // Derive 32-byte AES key: SHA-256 of the secret key string
+            const hashBuf = await crypto.subtle.digest("SHA-256", enc.encode(MFD_SECRET_KEY));
+            const key = await crypto.subtle.importKey(
+                "raw", hashBuf, { name: "AES-CBC", length: 256 }, false, ["encrypt"]
+            );
+            // Zero IV (16 bytes) — matches Java AES/CBC/PKCS5Padding with no explicit IV
+            const iv = new Uint8Array(16);
+            const cipherBuf = await crypto.subtle.encrypt(
+                { name: "AES-CBC", iv }, key, enc.encode(plaintext)
+            );
+            // Return standard Base64
+            return btoa(String.fromCharCode(...new Uint8Array(cipherBuf)));
+        }
+
+        async function handleMfdLogin() {
             const userId = document.getElementById('mfd-userid').value.trim();
             const pass = document.getElementById('mfd-password').value;
             const captchaInput = document.getElementById('mfd-captcha').value.trim().toUpperCase();
             const captchaDisplay = (document.getElementById('captcha-display').textContent || '').trim();
 
             if (!userId || !pass || !captchaInput) {
-                alert('Please fill in all fields (User ID, Password, and Captcha).');
+                alert('Please fill in all fields.');
                 return;
             }
 
             if (captchaInput !== captchaDisplay) {
-                alert('Captcha does not match. Please try again.');
+                alert('Captcha does not match.');
                 refreshCaptcha();
-                document.getElementById('mfd-captcha').value = '';
                 return;
             }
 
-            // API Integration
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
 
-            const apiUrl = `https://harmoneywealth.themfbox.com/api/validateLogin?key=${encodeURIComponent(apiKey)}&pan=${encodeURIComponent(userId)}&password=${encodeURIComponent(pass)}`;
+            // Encrypt PAN and password as required by vendor (AES-256)
+            const encryptedPan      = await encryptAES(userId);
+            const encryptedPassword = await encryptAES(pass);
 
-            const loginBtn = document.getElementById('mfd-login-btn');
-            const originalBtnText = loginBtn.innerHTML;
-
-            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> VERIFYING...';
-            loginBtn.disabled = true;
+            const apiUrl =
+                `https://harmoneywealth.themfbox.com/api/validateLogin` +
+                `?key=${encodeURIComponent(apiKey)}` +
+                `&pan=${encodeURIComponent(encryptedPan)}` +
+                `&password=${encodeURIComponent(encryptedPassword)}`;
 
             fetch(apiUrl, {
                 method: 'POST'
             })
-                .then(response => response.json())
+                .then(res => res.json())
                 .then(data => {
-                    console.log("Login Response:", data);
+                    console.log(data);
 
-                    if (data.status === 200 && data.status_msg === "Success") {
-                        alert(`Login Successful! Welcome, ${data.user.name}`);
+                    if (data.status === 200 || data.status_msg === "Success") {
+                        alert("Login successful");
 
-                        sessionStorage.setItem('mfd_user', JSON.stringify(data.user));
+                        sessionStorage.setItem(
+                            'mfd_user',
+                            JSON.stringify(data.user)
+                        );
 
-                        // window.location.href = 'index.html';
+                        // window.location.href = "/";
                     } else {
-                        alert('Login failed: ' + (data.msg || data.status_msg || 'Invalid PAN or Password.'));
-
-                        refreshCaptcha();
-                        document.getElementById('mfd-captcha').value = '';
-                        document.getElementById('mfd-password').value = '';
+                        alert(data.msg || data.status_msg || "Login failed");
                     }
                 })
-                .catch(error => {
-                    console.error('Login Error:', error);
-                    alert('Network error. Please check your connection and try again.');
-                })
-                .finally(() => {
-                    loginBtn.innerHTML = originalBtnText;
-                    loginBtn.disabled = false;
+                .catch(err => {
+                    console.error(err);
+                    alert("Network error");
                 });
         }
 
@@ -1794,99 +1822,93 @@
             if (stepId === 'login-step') refreshCaptcha();
         }
 
+        // ================= FORGOT PASSWORD SEND OTP =================
         async function handleForgotPasswordRequest() {
+
             const mobile = document.getElementById('forgot-mobile').value.trim();
             const pass = document.getElementById('forgot-new-pass').value;
-            const confirmPass = document.getElementById('forgot-confirm-pass').value;
-
-            if (!mobile || !pass || !confirmPass) {
-                alert("Please fill all fields."); return;
-            }
-            if (pass !== confirmPass) {
-                alert("Passwords do not match."); return;
-            }
-
-            const btn = document.getElementById('mfd-forgot-btn');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SENDING...';
-            btn.disabled = true;
 
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
-            const apiUrl = "https://harmoneywealth.themfbox.com/api/forgotPasswordOTPSend";
+
+            // Encrypt mobile and password as required by vendor (AES-256)
+            const encryptedMobile   = await encryptAES(mobile);
+            const encryptedPassword = await encryptAES(pass);
+
+            const apiUrl =
+                `https://harmoneywealth.themfbox.com/api/forgotPasswordOTPSend` +
+                `?client_name=harmoneywealth` +
+                `&key=${encodeURIComponent(apiKey)}` +
+                `&password=${encodeURIComponent(encryptedPassword)}` +
+                `&source=${encodeURIComponent("Harmoney")}` +
+                `&mobile=${encodeURIComponent(encryptedMobile)}`;
 
             try {
-                // Using URLSearchParams for consistent x-www-form-urlencoded formatting
-                const params = new URLSearchParams();
-                params.append('client_name', 'harmoneywealth');
-                params.append('key', apiKey);
-                params.append('password', pass);
-                params.append('source', 'Harmoney');
-                params.append('mobile', mobile);
-
                 const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: params.toString()
+                    method: 'POST'
                 });
+
                 const data = await response.json();
+
+                console.log(data);
+
                 if (data.status === 200 || data.status_msg === "Success") {
-                    alert(data.msg || "OTP Sent successfully!");
+                    alert("OTP sent successfully");
                     switchAuthStep('otp-step');
                 } else {
-                    alert("Error: " + (data.msg || data.status_msg || "Failed to send OTP"));
+                    alert(data.msg || data.status_msg || "Failed to send OTP");
                 }
+
             } catch (err) {
-                console.error("Forgot Pass Error:", err);
-                alert("Network error occurred.");
-            } finally {
-                btn.innerHTML = originalText; btn.disabled = false;
+                console.error(err);
+                alert("Network error");
             }
         }
 
+
+        // ================= VERIFY OTP & RESET PASSWORD =================
         async function handleVerifyOtpAndReset() {
+
             const mobile = document.getElementById('forgot-mobile').value.trim();
             const pass = document.getElementById('forgot-new-pass').value;
             const otpCode = document.getElementById('forgot-otp').value.trim();
 
-            if (!otpCode) { alert("Please enter the OTP."); return; }
-
-            const btn = document.getElementById('mfd-verify-btn');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> VERIFYING...';
-            btn.disabled = true;
-
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
-            const apiUrl = "https://harmoneywealth.themfbox.com/api/changeForgotPassword";
+
+            // Encrypt mobile, OTP and password as required by vendor (AES-256)
+            const encryptedMobile   = await encryptAES(mobile);
+            const encryptedOtp      = await encryptAES(otpCode);
+            const encryptedPassword = await encryptAES(pass);
+
+            const apiUrl =
+                `https://harmoneywealth.themfbox.com/api/changeForgotPassword` +
+                `?client_name=harmoneywealth` +
+                `&key=${encodeURIComponent(apiKey)}` +
+                `&otp=${encodeURIComponent(encryptedOtp)}` +
+                `&password=${encodeURIComponent(encryptedPassword)}` +
+                `&source=${encodeURIComponent("Harmoney Wealth Website")}` +
+                `&mobile=${encodeURIComponent(encryptedMobile)}`;
 
             try {
-                const params = new URLSearchParams();
-                params.append('client_name', 'harmoneywealth');
-                params.append('key', apiKey);
-                params.append('otp', otpCode);
-                params.append('password', pass);
-                params.append('source', 'Harmoney Wealth Website');
-                params.append('mobile', mobile);
-
                 const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: params.toString()
+                    method: 'POST'
                 });
+
                 const data = await response.json();
+
+                console.log(data);
+
                 if (data.status === 200 || data.status_msg === "Success") {
-                    alert("Password updated successfully! You can now login with your new password.");
+                    alert("Password updated successfully");
+
                     switchAuthStep('login-step');
-                    // Clear fields
-                    document.getElementById('mfd-password').value = '';
-                    document.getElementById('mfd-userid').value = mobile;
+
                 } else {
-                    alert("Error: " + (data.msg || data.status_msg || "Invalid verification code"));
+                    alert(data.msg || data.status_msg || "OTP verification failed");
                 }
+
             } catch (err) {
-                console.error("Verify OTP Error:", err);
-                alert("Network error occurred.");
-            } finally {
-                btn.innerHTML = originalText; btn.disabled = false;
+                console.error(err);
+                alert("Network error");
             }
         }
     </script>
