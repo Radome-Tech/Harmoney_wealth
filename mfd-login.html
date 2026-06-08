@@ -1720,7 +1720,40 @@
             }
         }
 
-        function handleMfdLogin() {
+        /* ================================================================
+         * AES-256 Encryption Utility
+         * Vendor spec: AES-256, SECRET_KEY = "ABCDEF@!@#"
+         * Algorithm : AES-256-CBC, IV = 16 zero-bytes, PKCS#7 padding
+         *             (equivalent to Java AES/CBC/PKCS5Padding with zero IV)
+         * Key derivation: SHA-256 of the secret key string → 32-byte raw key
+         *
+         * NOTE FOR DEVELOPERS: If the vendor backend uses ECB mode or a
+         * different IV strategy, update the `encryptAES` function below.
+         * ================================================================ */
+        const MFD_SECRET_KEY = "HarmoneyFinServ@123";
+
+        /**
+         * Encrypts a plaintext string using AES-256-CBC (zero IV, PKCS#7 padding).
+         * Key = SHA-256 digest of MFD_SECRET_KEY.
+         * Returns a URL-safe base64-encoded ciphertext string.
+         */
+        async function encryptAES(plaintext) {
+            const enc = new TextEncoder();
+            // Derive 32-byte AES key: SHA-256 of the secret key string
+            const hashBuf = await crypto.subtle.digest("SHA-256", enc.encode(MFD_SECRET_KEY));
+            const key = await crypto.subtle.importKey(
+                "raw", hashBuf, { name: "AES-CBC", length: 256 }, false, ["encrypt"]
+            );
+            // Zero IV (16 bytes) — matches Java AES/CBC/PKCS5Padding with no explicit IV
+            const iv = new Uint8Array(16);
+            const cipherBuf = await crypto.subtle.encrypt(
+                { name: "AES-CBC", iv }, key, enc.encode(plaintext)
+            );
+            // Return standard Base64
+            return btoa(String.fromCharCode(...new Uint8Array(cipherBuf)));
+        }
+
+        async function handleMfdLogin() {
             const userId = document.getElementById('mfd-userid').value.trim();
             const pass = document.getElementById('mfd-password').value;
             const captchaInput = document.getElementById('mfd-captcha').value.trim().toUpperCase();
@@ -1739,11 +1772,15 @@
 
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
 
+            // Encrypt PAN and password as required by vendor (AES-256)
+            const encryptedPan      = await encryptAES(userId);
+            const encryptedPassword = await encryptAES(pass);
+
             const apiUrl =
                 `https://harmoneywealth.themfbox.com/api/validateLogin` +
                 `?key=${encodeURIComponent(apiKey)}` +
-                `&pan=${encodeURIComponent(userId)}` +
-                `&password=${encodeURIComponent(pass)}`;
+                `&pan=${encodeURIComponent(encryptedPan)}` +
+                `&password=${encodeURIComponent(encryptedPassword)}`;
 
             fetch(apiUrl, {
                 method: 'POST'
@@ -1793,13 +1830,17 @@
 
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
 
+            // Encrypt mobile and password as required by vendor (AES-256)
+            const encryptedMobile   = await encryptAES(mobile);
+            const encryptedPassword = await encryptAES(pass);
+
             const apiUrl =
                 `https://harmoneywealth.themfbox.com/api/forgotPasswordOTPSend` +
                 `?client_name=harmoneywealth` +
                 `&key=${encodeURIComponent(apiKey)}` +
-                `&password=${encodeURIComponent(pass)}` +
+                `&password=${encodeURIComponent(encryptedPassword)}` +
                 `&source=${encodeURIComponent("Harmoney")}` +
-                `&mobile=${encodeURIComponent(mobile)}`;
+                `&mobile=${encodeURIComponent(encryptedMobile)}`;
 
             try {
                 const response = await fetch(apiUrl, {
@@ -1833,14 +1874,19 @@
 
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
 
+            // Encrypt mobile, OTP and password as required by vendor (AES-256)
+            const encryptedMobile   = await encryptAES(mobile);
+            const encryptedOtp      = await encryptAES(otpCode);
+            const encryptedPassword = await encryptAES(pass);
+
             const apiUrl =
                 `https://harmoneywealth.themfbox.com/api/changeForgotPassword` +
                 `?client_name=harmoneywealth` +
                 `&key=${encodeURIComponent(apiKey)}` +
-                `&otp=${encodeURIComponent(otpCode)}` +
-                `&password=${encodeURIComponent(pass)}` +
+                `&otp=${encodeURIComponent(encryptedOtp)}` +
+                `&password=${encodeURIComponent(encryptedPassword)}` +
                 `&source=${encodeURIComponent("Harmoney Wealth Website")}` +
-                `&mobile=${encodeURIComponent(mobile)}`;
+                `&mobile=${encodeURIComponent(encryptedMobile)}`;
 
             try {
                 const response = await fetch(apiUrl, {
