@@ -1923,11 +1923,8 @@
 
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
 
-            // Encrypt PAN, OTP and new password as required by vendor (AES-256)
-            // Note: only the new password is sent under the "password" key —
-            // "confirm password" is a UI-only check and is never sent to the backend.
+            // Encrypt only mobile and password
             const encryptedMob = await encryptAES(mobile);
-            const encryptedOtp = await encryptAES(otpCode);
             const encryptedPassword = await encryptAES(newPass);
 
             const apiUrl =
@@ -1935,7 +1932,7 @@
                 `?client_name=harmoneywealth` +
                 `&key=${encodeURIComponent(apiKey)}` +
                 `&mobile=${encodeURIComponent(encryptedMob)}` +
-                `&otp=${encodeURIComponent(encryptedOtp)}` +
+                `&otp=${encodeURIComponent(otpCode)}` + // Plain OTP
                 `&password=${encodeURIComponent(encryptedPassword)}` +
                 `&source=${encodeURIComponent("Harmoney Wealth Website")}`;
 
@@ -1950,9 +1947,7 @@
 
                 if (data.status === 200 || data.status_msg === "Success") {
                     alert("Password updated successfully");
-
                     switchAuthStep('login-step');
-
                 } else {
                     alert(data.msg || data.status_msg || "OTP verification failed");
                 }
