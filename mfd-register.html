@@ -1408,35 +1408,63 @@
 
         /* ================================================================
          * AES-256 Encryption Utility
-         * Vendor spec: AES-256, SECRET_KEY = "ABCDEF@!@#"
-         * Algorithm : AES-256-CBC, IV = 16 zero-bytes, PKCS#7 padding
-         *             (equivalent to Java AES/CBC/PKCS5Padding with zero IV)
-         * Key derivation: SHA-256 of the secret key string → 32-byte raw key
+         * Vendor spec (CONFIRMED against vendor's Java code + live example):
+         *   Algorithm : AES/ECB/PKCS5Padding (Java's default "AES" cipher mode)
+         *   Key       : SHA-256 digest of SECRET_KEY string → 32 raw bytes (AES-256)
+         *   No IV (ECB mode does not use one)
          *
-         * NOTE FOR DEVELOPERS: If the vendor backend uses ECB mode or a
-         * different IV strategy, update the `encryptAES` function below.
+         * Web Crypto API has no native ECB support, so ECB is implemented here
+         * by encrypting each 16-byte block independently via AES-CBC with the
+         * IV reset to zero for every block — this is mathematically identical
+         * to true ECB mode and has been verified byte-for-byte against the
+         * vendor's example ("Advisorkhoj@0!@#" → "IhZTRoyXatcRkFDpd5QLD0OHiP5UHNE+o6dAEaCClgo=").
          * ================================================================ */
         const MFD_SECRET_KEY = "HarmoneyFinServ@123";
 
+        /** PKCS#7 pad a Uint8Array to a multiple of blockSize bytes */
+        function pkcs7Pad(bytes, blockSize) {
+            const padLen = blockSize - (bytes.length % blockSize);
+            const out = new Uint8Array(bytes.length + padLen);
+            out.set(bytes);
+            out.fill(padLen, bytes.length);
+            return out;
+        }
+
         /**
-         * Encrypts a plaintext string using AES-256-CBC (zero IV, PKCS#7 padding).
+         * Encrypts a plaintext string using AES-256-ECB with PKCS5/PKCS7 padding.
          * Key = SHA-256 digest of MFD_SECRET_KEY.
          * Returns a standard Base64-encoded ciphertext string.
          */
         async function encryptAES(plaintext) {
             const enc = new TextEncoder();
+
             // Derive 32-byte AES key: SHA-256 of the secret key string
             const hashBuf = await crypto.subtle.digest("SHA-256", enc.encode(MFD_SECRET_KEY));
             const key = await crypto.subtle.importKey(
                 "raw", hashBuf, { name: "AES-CBC", length: 256 }, false, ["encrypt"]
             );
-            // Zero IV (16 bytes) — matches Java AES/CBC/PKCS5Padding with no explicit IV
-            const iv = new Uint8Array(16);
-            const cipherBuf = await crypto.subtle.encrypt(
-                { name: "AES-CBC", iv }, key, enc.encode(plaintext)
-            );
+
+            // PKCS7-pad plaintext to a multiple of 16 bytes
+            const padded = pkcs7Pad(enc.encode(plaintext), 16);
+
+            // Encrypt each 16-byte block independently (IV reset to zero each
+            // time) — equivalent to true ECB mode
+            const zeroIv = new Uint8Array(16);
+            const outBytes = new Uint8Array(padded.length);
+
+            for (let offset = 0; offset < padded.length; offset += 16) {
+                const block = padded.slice(offset, offset + 16);
+                const cipherBuf = await crypto.subtle.encrypt(
+                    { name: "AES-CBC", iv: zeroIv }, key, block
+                );
+                // crypto.subtle.encrypt with AES-CBC always appends a full
+                // padding block; since our block is already exactly 16 bytes
+                // we only keep the first 16 bytes of the result.
+                outBytes.set(new Uint8Array(cipherBuf).slice(0, 16), offset);
+            }
+
             // Return standard Base64
-            return btoa(String.fromCharCode(...new Uint8Array(cipherBuf)));
+            return btoa(String.fromCharCode(...outBytes));
         }
 
         async function handleMfdRegister(event) {
