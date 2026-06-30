@@ -1032,19 +1032,13 @@
                 </div>
 
                 <div class="input-group-mfd">
-                    <input type="tel" id="forgot-mobile" placeholder="User ID / PAN / Mobile number" class="input1"
-                        maxlength="10">
-                    <i class="fas fa-mobile-alt input-icon"></i>
+                    <input type="text" id="forgot-pan" placeholder="PAN Number" class="input1" maxlength="10">
+                    <i class="fas fa-id-card input-icon"></i>
                 </div>
 
                 <div class="input-group-mfd">
-                    <input type="password" id="forgot-new-pass" placeholder="New Password" class="input1">
+                    <input type="password" id="forgot-current-pass" placeholder="Current Password" class="input1">
                     <i class="fas fa-lock input-icon"></i>
-                </div>
-
-                <div class="input-group-mfd">
-                    <input type="password" id="forgot-confirm-pass" placeholder="Confirm New Password" class="input1">
-                    <i class="fas fa-shield-alt input-icon"></i>
                 </div>
 
                 <button class="button2" id="mfd-forgot-btn" onclick="handleForgotPasswordRequest()">SEND OTP</button>
@@ -1062,7 +1056,7 @@
                         <i class="fas fa-shield-check"></i>
                     </div>
                     <h2>Verify OTP
-                        <span>Enter the code sent to your mobile</span>
+                        <span>Enter the code sent to your email</span>
                     </h2>
                 </div>
 
@@ -1070,6 +1064,16 @@
                     <input type="text" id="forgot-otp" placeholder="Enter 4-digit OTP" class="input1" maxlength="4"
                         style="text-align: center; font-size: 24px; letter-spacing: 12px; font-weight: bold;">
                     <i class="fas fa-user-lock input-icon"></i>
+                </div>
+
+                <div class="input-group-mfd">
+                    <input type="password" id="forgot-new-pass" placeholder="New Password" class="input1">
+                    <i class="fas fa-lock input-icon"></i>
+                </div>
+
+                <div class="input-group-mfd">
+                    <input type="password" id="forgot-confirm-pass" placeholder="Confirm New Password" class="input1">
+                    <i class="fas fa-shield-alt input-icon"></i>
                 </div>
 
                 <button class="button2" id="mfd-verify-btn" onclick="handleVerifyOtpAndReset()">VERIFY & RESET</button>
@@ -1853,22 +1857,27 @@
         // ================= FORGOT PASSWORD SEND OTP =================
         async function handleForgotPasswordRequest() {
 
-            const mobile = document.getElementById('forgot-mobile').value.trim();
-            const pass = document.getElementById('forgot-new-pass').value;
+            const pan = document.getElementById('forgot-pan').value.trim().toUpperCase();
+            const currentPass = document.getElementById('forgot-current-pass').value;
+
+            if (!pan || !currentPass) {
+                alert('Please enter your PAN and current password.');
+                return;
+            }
 
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
 
-            // Encrypt mobile and password as required by vendor (AES-256)
-            const encryptedMobile   = await encryptAES(mobile);
-            const encryptedPassword = await encryptAES(pass);
+            // Encrypt PAN and current password as required by vendor (AES-256)
+            const encryptedPan      = await encryptAES(pan);
+            const encryptedPassword = await encryptAES(currentPass);
 
             const apiUrl =
                 `https://harmoneywealth.themfbox.com/api/forgotPasswordOTPSend` +
                 `?client_name=harmoneywealth` +
                 `&key=${encodeURIComponent(apiKey)}` +
+                `&pan=${encodeURIComponent(encryptedPan)}` +
                 `&password=${encodeURIComponent(encryptedPassword)}` +
-                `&source=${encodeURIComponent("Harmoney")}` +
-                `&mobile=${encodeURIComponent(encryptedMobile)}`;
+                `&source=${encodeURIComponent("Harmoney")}`;
 
             try {
                 const response = await fetch(apiUrl, {
@@ -1896,25 +1905,38 @@
         // ================= VERIFY OTP & RESET PASSWORD =================
         async function handleVerifyOtpAndReset() {
 
-            const mobile = document.getElementById('forgot-mobile').value.trim();
-            const pass = document.getElementById('forgot-new-pass').value;
+            const pan = document.getElementById('forgot-pan').value.trim().toUpperCase();
             const otpCode = document.getElementById('forgot-otp').value.trim();
+            const newPass = document.getElementById('forgot-new-pass').value;
+            const confirmPass = document.getElementById('forgot-confirm-pass').value;
+
+            if (!otpCode || !newPass || !confirmPass) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            if (newPass !== confirmPass) {
+                alert('New password and confirm password do not match.');
+                return;
+            }
 
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
 
-            // Encrypt mobile, OTP and password as required by vendor (AES-256)
-            const encryptedMobile   = await encryptAES(mobile);
+            // Encrypt PAN, OTP and new password as required by vendor (AES-256)
+            // Note: only the new password is sent under the "password" key —
+            // "confirm password" is a UI-only check and is never sent to the backend.
+            const encryptedPan      = await encryptAES(pan);
             const encryptedOtp      = await encryptAES(otpCode);
-            const encryptedPassword = await encryptAES(pass);
+            const encryptedPassword = await encryptAES(newPass);
 
             const apiUrl =
                 `https://harmoneywealth.themfbox.com/api/changeForgotPassword` +
                 `?client_name=harmoneywealth` +
                 `&key=${encodeURIComponent(apiKey)}` +
+                `&pan=${encodeURIComponent(encryptedPan)}` +
                 `&otp=${encodeURIComponent(encryptedOtp)}` +
                 `&password=${encodeURIComponent(encryptedPassword)}` +
-                `&source=${encodeURIComponent("Harmoney Wealth Website")}` +
-                `&mobile=${encodeURIComponent(encryptedMobile)}`;
+                `&source=${encodeURIComponent("Harmoney Wealth Website")}`;
 
             try {
                 const response = await fetch(apiUrl, {
