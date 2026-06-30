@@ -1032,8 +1032,9 @@
                 </div>
 
                 <div class="input-group-mfd">
-                    <input type="text" id="forgot-pan" placeholder="PAN Number" class="input1" maxlength="10">
-                    <i class="fas fa-id-card input-icon"></i>
+                    <input type="tel" id="forgot-mob" placeholder="User ID / PAN / Mobile number" class="input1"
+                        maxlength="10">
+                    <i class="fas fa-mobile-alt input-icon"></i>
                 </div>
 
                 <div class="input-group-mfd">
@@ -1805,7 +1806,7 @@
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
 
             // Encrypt PAN and password as required by vendor (AES-256)
-            const encryptedPan      = await encryptAES(userId);
+            const encryptedPan = await encryptAES(userId);
             const encryptedPassword = await encryptAES(pass);
 
             const apiUrl =
@@ -1857,25 +1858,25 @@
         // ================= FORGOT PASSWORD SEND OTP =================
         async function handleForgotPasswordRequest() {
 
-            const pan = document.getElementById('forgot-pan').value.trim().toUpperCase();
+            const mobile = document.getElementById('forgot-mob').value.trim().toUpperCase();
             const currentPass = document.getElementById('forgot-current-pass').value;
 
-            if (!pan || !currentPass) {
-                alert('Please enter your PAN and current password.');
+            if (!mobile || !currentPass) {
+                alert('Please enter your mobile number and current password.');
                 return;
             }
 
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
 
             // Encrypt PAN and current password as required by vendor (AES-256)
-            const encryptedPan      = await encryptAES(pan);
+            const encryptedMob = await encryptAES(mobile);
             const encryptedPassword = await encryptAES(currentPass);
 
             const apiUrl =
                 `https://harmoneywealth.themfbox.com/api/forgotPasswordOTPSend` +
                 `?client_name=harmoneywealth` +
                 `&key=${encodeURIComponent(apiKey)}` +
-                `&pan=${encodeURIComponent(encryptedPan)}` +
+                `&mobile=${encodeURIComponent(encryptedMob)}` +
                 `&password=${encodeURIComponent(encryptedPassword)}` +
                 `&source=${encodeURIComponent("Harmoney")}`;
 
@@ -1905,7 +1906,7 @@
         // ================= VERIFY OTP & RESET PASSWORD =================
         async function handleVerifyOtpAndReset() {
 
-            const pan = document.getElementById('forgot-pan').value.trim().toUpperCase();
+            const mobile = document.getElementById('forgot-mob').value.trim().toUpperCase();
             const otpCode = document.getElementById('forgot-otp').value.trim();
             const newPass = document.getElementById('forgot-new-pass').value;
             const confirmPass = document.getElementById('forgot-confirm-pass').value;
@@ -1925,15 +1926,15 @@
             // Encrypt PAN, OTP and new password as required by vendor (AES-256)
             // Note: only the new password is sent under the "password" key —
             // "confirm password" is a UI-only check and is never sent to the backend.
-            const encryptedPan      = await encryptAES(pan);
-            const encryptedOtp      = await encryptAES(otpCode);
+            const encryptedMob = await encryptAES(mobile);
+            const encryptedOtp = await encryptAES(otpCode);
             const encryptedPassword = await encryptAES(newPass);
 
             const apiUrl =
                 `https://harmoneywealth.themfbox.com/api/changeForgotPassword` +
                 `?client_name=harmoneywealth` +
                 `&key=${encodeURIComponent(apiKey)}` +
-                `&pan=${encodeURIComponent(encryptedPan)}` +
+                `&mobile=${encodeURIComponent(encryptedMob)}` +
                 `&otp=${encodeURIComponent(encryptedOtp)}` +
                 `&password=${encodeURIComponent(encryptedPassword)}` +
                 `&source=${encodeURIComponent("Harmoney Wealth Website")}`;
