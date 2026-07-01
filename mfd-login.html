@@ -1819,21 +1819,26 @@
                 method: 'POST'
             })
                 .then(res => res.json())
-                .then(data => {
-                    console.log(data);
+                .then(async (data) => {
 
                     if (data.status === 200 || data.status_msg === "Success") {
+
                         alert("Login successful");
 
                         sessionStorage.setItem(
-                            'mfd_user',
+                            "mfd_user",
                             JSON.stringify(data.user)
                         );
 
-                        // window.location.href = "/";
+                        const encryptedUserId = await encryptAES(String(data.user.id));
+
+                        window.location.href =
+                            `https://harmoneywealth.themfbox.com/investor/portfolio-login?id=${encodeURIComponent(encryptedUserId)}`;
+
                     } else {
                         alert(data.msg || data.status_msg || "Login failed");
                     }
+
                 })
                 .catch(err => {
                     console.error(err);
