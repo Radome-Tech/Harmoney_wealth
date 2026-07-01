@@ -541,7 +541,7 @@
                                     <li><a class="dropdown-item"
                                             href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss">PMS Login</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="https://harmoneywealth.themfbox.com/">MFD
+                                    <li><a class="dropdown-item" href="mfd-login.html">MFD
                                             Login</a></li>
                                 </ul>
 
@@ -649,7 +649,7 @@
                                     <li><a class="dropdown-item"
                                             href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss">PMS Login</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="https://harmoneywealth.themfbox.com/">MFD
+                                    <li><a class="dropdown-item" href="mfd-login.html">MFD
                                             Login</a></li>
                                 </ul>
 
@@ -769,7 +769,7 @@
                                 <div class="mobile-login-dropdown">
                                     <a href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss"
                                         class="mobile-login-item">PMS Login</a>
-                                    <a href="https://harmoneywealth.themfbox.com/" class="mobile-login-item">MFD
+                                    <a href="mfd-login.html" class="mobile-login-item">MFD
                                         Login</a>
                                 </div>
                             </div>
@@ -1493,7 +1493,7 @@
             const encryptedPassword = await encryptAES(pass);
 
             const apiUrl =
-                `https://harmoneywealth.themfbox.com/api/registerUser` +
+                `mfd-login.htmlapi/registerUser` +
                 `?client_name=harmoneywealth` +
                 `&email=${encodeURIComponent(encryptedEmail)}` +
                 `&key=${encodeURIComponent(apiKey)}` +
@@ -1514,7 +1514,7 @@
                 if (data.status === 200 || data.status_msg === "Success") {
                     alert("Registration successful");
                     window.location.href = "mfd-login.html";
-                    // window.location.href = "https://harmoneywealth.themfbox.com/";
+                    // window.location.href = "mfd-login.html";
 
                 } else {
                     alert(data.msg || data.status_msg || "Registration failed");

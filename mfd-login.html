@@ -656,7 +656,7 @@
                                     <li><a class="dropdown-item"
                                             href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss">PMS Login</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="https://harmoneywealth.themfbox.com/">MFD
+                                    <li><a class="dropdown-item" href="mfd-login.html">MFD
                                             Login</a></li>
                                 </ul>
 
@@ -818,7 +818,7 @@
                                     <li><a class="dropdown-item"
                                             href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss">PMS Login</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="https://harmoneywealth.themfbox.com/">MFD
+                                    <li><a class="dropdown-item" href="mfd-login.html">MFD
                                             Login</a></li>
                                 </ul>
 
@@ -938,7 +938,7 @@
                                 <div class="mobile-login-dropdown">
                                     <a href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss"
                                         class="mobile-login-item">PMS Login</a>
-                                    <a href="https://harmoneywealth.themfbox.com/" class="mobile-login-item">MFD
+                                    <a href="mfd-login.html" class="mobile-login-item">MFD
                                         Login</a>
                                 </div>
                             </div>
@@ -1810,7 +1810,7 @@
             const encryptedPassword = await encryptAES(pass);
 
             const apiUrl =
-                `https://harmoneywealth.themfbox.com/api/validateLogin` +
+                `mfd-login.htmlapi/validateLogin` +
                 `?key=${encodeURIComponent(apiKey)}` +
                 `&pan=${encodeURIComponent(encryptedPan)}` +
                 `&password=${encodeURIComponent(encryptedPassword)}`;
@@ -1833,7 +1833,7 @@
                         const encryptedUserId = await encryptAES(String(data.user.id));
 
                         window.location.href =
-                            `https://harmoneywealth.themfbox.com/investor/portfolio-login?id=${encodeURIComponent(encryptedUserId)}`;
+                            `mfd-login.htmlinvestor/portfolio-login?id=${encodeURIComponent(encryptedUserId)}`;
 
                     } else {
                         alert(data.msg || data.status_msg || "Login failed");
@@ -1878,7 +1878,7 @@
             const encryptedPassword = await encryptAES(currentPass);
 
             const apiUrl =
-                `https://harmoneywealth.themfbox.com/api/forgotPasswordOTPSend` +
+                `mfd-login.htmlapi/forgotPasswordOTPSend` +
                 `?client_name=harmoneywealth` +
                 `&key=${encodeURIComponent(apiKey)}` +
                 `&mobile=${encodeURIComponent(encryptedMob)}` +
@@ -1933,7 +1933,7 @@
             const encryptedPassword = await encryptAES(newPass);
 
             const apiUrl =
-                `https://harmoneywealth.themfbox.com/api/changeForgotPassword` +
+                `mfd-login.htmlapi/changeForgotPassword` +
                 `?client_name=harmoneywealth` +
                 `&key=${encodeURIComponent(apiKey)}` +
                 `&mobile=${encodeURIComponent(encryptedMob)}` +
