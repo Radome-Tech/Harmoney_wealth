@@ -1833,7 +1833,7 @@
                         const encryptedUserId = await encryptAES(String(data.user.id));
 
                         window.location.href =
-                            `mfd-login.htmlinvestor/portfolio-login?id=${encodeURIComponent(encryptedUserId)}`;
+                            `https://harmoneywealth.themfbox.com/investor/portfolio-login?id=${encodeURIComponent(encryptedUserId)}`;
 
                     } else {
                         alert(data.msg || data.status_msg || "Login failed");
