@@ -1486,10 +1486,10 @@
             const apiKey = "7ce4cb3a-9eb5-4bc6-a652-d64d7709f1f1";
 
             // Encrypt all sensitive fields as required by vendor (AES-256)
-            const encryptedName     = await encryptAES(name);
-            const encryptedEmail    = await encryptAES(email);
-            const encryptedMobile   = await encryptAES(mobile);
-            const encryptedPan      = await encryptAES(pan);
+            const encryptedName = await encryptAES(name);
+            const encryptedEmail = await encryptAES(email);
+            const encryptedMobile = await encryptAES(mobile);
+            const encryptedPan = await encryptAES(pan);
             const encryptedPassword = await encryptAES(pass);
 
             const apiUrl =
@@ -1513,9 +1513,9 @@
 
                 if (data.status === 200 || data.status_msg === "Success") {
                     alert("Registration successful");
-                    // window.location.href = "mfd-login.html";
+                    window.location.href = "mfd-login.html";
                     // window.location.href = "https://harmoneywealth.themfbox.com/";
-                    
+
                 } else {
                     alert(data.msg || data.status_msg || "Registration failed");
                 }
