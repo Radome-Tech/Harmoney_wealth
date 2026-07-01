@@ -1810,7 +1810,7 @@
             const encryptedPassword = await encryptAES(pass);
 
             const apiUrl =
-                `mfd-login.htmlapi/validateLogin` +
+                `https://harmoneywealth.themfbox.com/api/validateLogin` +
                 `?key=${encodeURIComponent(apiKey)}` +
                 `&pan=${encodeURIComponent(encryptedPan)}` +
                 `&password=${encodeURIComponent(encryptedPassword)}`;
@@ -1878,7 +1878,7 @@
             const encryptedPassword = await encryptAES(currentPass);
 
             const apiUrl =
-                `mfd-login.htmlapi/forgotPasswordOTPSend` +
+                `https://harmoneywealth.themfbox.com/api/forgotPasswordOTPSend` +
                 `?client_name=harmoneywealth` +
                 `&key=${encodeURIComponent(apiKey)}` +
                 `&mobile=${encodeURIComponent(encryptedMob)}` +
@@ -1933,7 +1933,7 @@
             const encryptedPassword = await encryptAES(newPass);
 
             const apiUrl =
-                `mfd-login.htmlapi/changeForgotPassword` +
+                `https://harmoneywealth.themfbox.com/api/changeForgotPassword` +
                 `?client_name=harmoneywealth` +
                 `&key=${encodeURIComponent(apiKey)}` +
                 `&mobile=${encodeURIComponent(encryptedMob)}` +
