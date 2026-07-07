@@ -1398,10 +1398,13 @@
                                     Login <i class="fa-solid fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
-                                    <li><a class="dropdown-item" href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss">PMS Login</a>
+                                    <li><a class="dropdown-item"
+                                            href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss">PMS Login</a>
                                     </li>
                                     <li><a class="dropdown-item" href="mfd-login.html">MFD
                                             Login</a></li>
+                                    <li><a class="dropdown-item" href="https://harmoneywealth.themfbox.com/">MFD
+                                            Admin</a></li>
                                 </ul>
 
                             </li>
@@ -1516,9 +1519,12 @@
                                     Login <i class="fas fa-chevron-down login-dropdown-icon"></i>
                                 </a>
                                 <div class="mobile-login-dropdown">
-                                    <a href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss" class="mobile-login-item">PMS Login</a>
+                                    <a href="https://pms.harmoneywealth.in/shrdbms/userlogin.ss"
+                                        class="mobile-login-item">PMS Login</a>
                                     <a href="mfd-login.html" class="mobile-login-item">MFD
                                         Login</a>
+                                    <a href="https://harmoneywealth.themfbox.com/" class="mobile-login-item">MFD
+                                        Admin</a>
                                 </div>
                             </div>
                         </div>
@@ -1601,11 +1607,14 @@
                 <p>This includes personal accident insurance. </p>
                 <p>It is far below global averages. </p>
                 <p>These figures appear in the IRDAI Annual Report 2023 to 2024. </p>
-                <p><a href="https://www.business-standard.com/finance/insurance/irdai-annual-report-2023-24-insurance-penetration-decline-124122500470_1.html" target="_blank" rel="noopener noreferrer">
-                       Business Standard  
-                    </a> also reported them. At the same time, India accounts for about  <a href="https://link.springer.com/article/10.1007/s40890-025-00240-6" target="_blank" rel="noopener noreferrer">
-                    11% of global
-                    accident deaths
+                <p><a href="https://www.business-standard.com/finance/insurance/irdai-annual-report-2023-24-insurance-penetration-decline-124122500470_1.html"
+                        target="_blank" rel="noopener noreferrer">
+                        Business Standard
+                    </a> also reported them. At the same time, India accounts for about <a
+                        href="https://link.springer.com/article/10.1007/s40890-025-00240-6" target="_blank"
+                        rel="noopener noreferrer">
+                        11% of global
+                        accident deaths
                     </a>. Yet only about 3% of people have a personal accident policy. This leaves many
                     families dependent on limited coverage from employers, banks, or credit cards. </p>
                 <p>For professionals and business owners, the real risk is not just injury, but loss of income and
@@ -2015,43 +2024,43 @@
 
         <!-- ====== TOC ACTIVE LINK SCRIPT ====== -->
         <script>
-        const sections = document.querySelectorAll("h2[id]");
-        const navLinks = document.querySelectorAll(".bf-toc a");
+            const sections = document.querySelectorAll("h2[id]");
+            const navLinks = document.querySelectorAll(".bf-toc a");
 
-        function setActive(id) {
-            navLinks.forEach(link => {
-                link.classList.remove("active");
-                if (link.getAttribute("href") === "#" + id) {
-                    link.classList.add("active");
-                }
-            });
-        }
-
-        // 🔥 SCROLL BASED ACTIVE
-        window.addEventListener("scroll", () => {
-            let currentSection = "";
-
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-
-                // section in viewport
-                if (rect.top <= 150 && rect.bottom >= 150) {
-                    currentSection = section.id;
-                }
-            });
-
-            if (currentSection) {
-                setActive(currentSection);
+            function setActive(id) {
+                navLinks.forEach(link => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === "#" + id) {
+                        link.classList.add("active");
+                    }
+                });
             }
-        });
 
-        // 🔥 CLICK FIX (IMPORTANT)
-        navLinks.forEach(link => {
-            link.addEventListener("click", function () {
-                navLinks.forEach(l => l.classList.remove("active"));
-                this.classList.add("active");
+            // 🔥 SCROLL BASED ACTIVE
+            window.addEventListener("scroll", () => {
+                let currentSection = "";
+
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+
+                    // section in viewport
+                    if (rect.top <= 150 && rect.bottom >= 150) {
+                        currentSection = section.id;
+                    }
+                });
+
+                if (currentSection) {
+                    setActive(currentSection);
+                }
             });
-        });
+
+            // 🔥 CLICK FIX (IMPORTANT)
+            navLinks.forEach(link => {
+                link.addEventListener("click", function () {
+                    navLinks.forEach(l => l.classList.remove("active"));
+                    this.classList.add("active");
+                });
+            });
         </script>
 
     </section>
