@@ -205,28 +205,6 @@
             background: #007ab0;
         }
 
-        .blog-bullets {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 15px;
-        }
-
-        .blog-bullets li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 8px;
-            font-size: 16px;
-            line-height: 1.7;
-            color: #444;
-        }
-
-        .blog-bullets li i {
-            color: #0097da;
-            margin-top: 4px;
-            font-size: 16px;
-        }
-
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -325,17 +303,6 @@
                 font-size: 18px;
             }
 
-            /* BULLETS */
-            .blog-bullets li {
-                font-size: 15px;
-                gap: 8px;
-            }
-
-            .blog-bullets li i {
-                font-size: 14px;
-                margin-top: 3px;
-            }
-
             /* CTA BOX */
             .blog-cta {
                 padding: 20px;
@@ -358,6 +325,8 @@
                 padding: 0 10px !important;
             }
         }
+
+
 
         /* ===================== CSS VARIABLES ===================== */
         :root {
@@ -585,29 +554,6 @@
             flex-shrink: 0;
         }
 
-        /* ===================== BULLET LISTS ===================== */
-        .blog-bullets {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 10px;
-            display: grid;
-        }
-
-        .blog-bullets li {
-            display: flex;
-            align-items: flex-start;
-            font-family: var(--serif);
-            font-size: 16px;
-            color: var(--ink-muted);
-            border-radius: 8px;
-        }
-
-        .blog-bullets li i {
-            color: var(--accent);
-            font-size: 14px;
-            margin-top: 4px;
-            flex-shrink: 0;
-        }
 
         /* ===================== PULL QUOTE ===================== */
         .bf-pullquote {
@@ -1170,13 +1116,6 @@
             }
         }
 
-        .blog-bullets li span {
-            flex: 1;
-        }
-
-        .blog-bullets li span {
-            flex: 1;
-        }
 
         .huf-table {
             width: 100%;
@@ -1211,6 +1150,50 @@
                 width: 100%;
                 overflow-x: auto;
                 white-space: nowrap;
+            }
+        }
+
+
+        .blog-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .blog-bullets li {
+            display: block;
+            font-family: var(--serif);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--ink-muted);
+            margin-bottom: 10px;
+        }
+
+        .blog-bullets li i {
+            color: var(--accent);
+            font-size: 14px;
+            margin-right: 8px;
+        }
+
+        .blog-bullets li strong {
+            display: inline;
+        }
+
+        @media (max-width: 768px) {
+            .blog-bullets li {
+                display: block;
+                font-size: 16px;
+                line-height: 1.7;
+                margin-bottom: 12px;
+            }
+
+            .blog-bullets li i {
+                display: inline-block;
+                margin-right: 7px;
+            }
+
+            .blog-bullets li strong {
+                display: inline;
             }
         }
     </style>
@@ -1551,7 +1534,7 @@
             <article class="bf-article">
 
                 <span class="bf-read-time"><i class="fas fa-book-open"></i> 5 minute read</span>
-                 <h2>Building and Preserving Family Wealth with an HUF</h2>
+                <h2>Building and Preserving Family Wealth with an HUF</h2>
                 <p>
                     As families accumulate assets such as ancestral property, investments, rental income, or family-run
                     businesses, choosing the right ownership structure becomes crucial for efficient management and
@@ -1593,8 +1576,10 @@
                         <i class="fas fa-check-circle"></i>
                         <span>
                             <strong>Coparceners</strong> — acquire an interest in ancestral property <em>by birth</em>,
-                            including the right to seek partition. Following <strong><em>Vineeta Sharma v. Rakesh Sharma</em>
-                            (2020)</strong> , daughters are coparceners with the same rights as sons under the Hindu Succession
+                            including the right to seek partition. Following <strong><em>Vineeta Sharma v. Rakesh
+                                    Sharma</em>
+                                (2020)</strong> , daughters are coparceners with the same rights as sons under the Hindu
+                            Succession
                             Act, 1956.
                         </span>
                     </li>
@@ -1608,10 +1593,13 @@
                     </li>
                 </ul>
                 <p>
-                    <strong>Note : </strong> From 1 April 2026, the Income Tax Act, 2025 replaced the <strong>Income-tax Act, 1961</strong>. While HUF taxation, PAN based assessment, deductions, and return filing are now governed by
+                    <strong>Note : </strong> From 1 April 2026, the Income Tax Act, 2025 replaced the <strong>Income-tax
+                        Act, 1961</strong>. While HUF taxation, PAN based assessment, deductions, and return filing are
+                    now governed by
                     1961. While HUF taxation, PAN based assessment, deductions, and return filing are now governed by
                     the 2025 Act, the fundamental principles relating to an HUF, including its separate taxable status,
-                    the role of the <strong>karta</strong>, and <strong>coparcenary</strong> rights, remain unchanged. This article refers to the current
+                    the role of the <strong>karta</strong>, and <strong>coparcenary</strong> rights, remain unchanged.
+                    This article refers to the current
                     tax law, and readers should consult a qualified professional for advice on the latest applicable
                     provisions.
                 </p>
