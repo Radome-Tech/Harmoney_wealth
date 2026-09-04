@@ -12870,3 +12870,14 @@ section img.banner-img {
         padding: 100px 0 80px;
         text-align: center;
     }
+
+    .green-header2{background-color:#fff;padding-bottom:41px;padding-top: 37px;text-align:center}
+
+    .blog-title-divider {
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #0196D8;
+    margin: 12px auto 12px;
+    border-radius: 5px;
+}
